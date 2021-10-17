@@ -1,0 +1,899 @@
+Okay welcome out everybody it's great to be here with you for our second week of portfolio theory, we have a lot to get to today.
+we're going to have an in depth discussion about portfolio allocation with respect to the Harvard case we are going to get into.
+Return performance that's going to include measuring returns hedging tracking etc we're going to look at applications of both of those things, as well as some theory and before we do any of that we're going to talk about a few course logistics.
+And we're going to take a break midway through for about 15 minutes, probably around 730 so that's our plan, welcome to all of you, joining us on zoom good to have you and I will try to keep an attentive eye on the participants.
+On zoom feel free to use the chat function.
+feel free to.
+Use the hands up function.
+Okay, so with that let's actually go ahead and start by i'm going to share my screen i'm going to talk about a few course logistics, including some.
+I think exciting news on on some of the other core staff that you should meet so let's go first of all to canvas.
+and put this up on the screen.
+here on the canvas page if you go to modules, you will see a link that says core staff.
+And most of you at this point, I think all of you have met jack jack introduced himself last week and and most of you met jack in the August review or September launch period.
+I would like to note that we have some other great teaching assistance this quarter.
+We have Marina 11 dina who graduated in December and has been my teaching assistant last year, she also was in the class the year before.
+And you'll see a little bit about her office hours her contact information and a brief introduction here, some of you met.
+Marina yesterday, she did a Sunday office hour typically at least to get started in the quarter her office hours we were planning will be Thursday evening and.
+On Saturday morning, both on zoom Marina works full time for the intercontinental exchange she has held other positions so we're lucky to have her.
+and bringing in a little bit of industry perspective, so you will meet her on zoom in office hours she's also active on the canvas discussions and she's ready to take your emailed questions.
+we're also lucky to have yon son as a teaching assistant, and in fact yon is here with us on zoom so i'm going to.
+turn it over to her to introduce herself y'all give me just one, second, I want to make sure everybody here can see you so i'm going to actually let's see here what's the best way to do that i'm going to.
+Give me one second i'm going to do it like this.
+
+
+It can you hear me now mark.
+
+dent
+Yes, I think everybody can see you and hear you please go ahead and tell us a little bit about yourself.
+
+
+hi everyone nice to see you guys.
+On so I graduated from UCLA studying financial actual math and statistics and.
+i'm about to graduate at the end of this year.
+This summer I interned at dimensional fund advisors, with a data management team, and I will continue work at dfa with the research team as a full time.
+analyst so that, and this is my.
+Cat his name is marsh um so yeah just.
+feel free to come by on my office hours, I was in the same situation as you guys last year and I survive so hope you guys enjoyed this class and can't wait to see all bye.
+
+dent
+Thanks yawn.
+As was mentioned, she took the class last year and was one of the top performers, so I have confidence that she'll be able to help all of you, both due to her knowledge of the course.
+As well as to the fact that she remembers well what it's like to be in your position of learning this material so excited to have her as well, thanks you on.
+Then we also have.
+If.
+If we've.
+yeah Okay, so this should be backup on zoom we're also lucky to have to as our greater to will be in charge of grading the homework.
+he's unable to pop in on zoom right now, but you can see a little bit about him on canvas as well.
+Too does not he's he will not have office hours to go over the material key is charged with grading the homework, but if you have questions about your homework submissions about your homework grades.
+Any issues like that, please feel free to email him directly to is also a student from last year, one of the top performers in this class so once again someone who.
+knows well what you're going through and has some interesting guy industry perspective, the whole team so i'm very excited about this team, and you will note that between all of us, there are office hours almost every day.
+it's very important that you understand office hours you're not something you must attend, or else the course would be overwhelming, if you look at our course calendar now.
+it's a little bit intimidating or something almost every day, but of course that's Just to give you the opportunity to talk with us and to get help.
+This is a large class and I want to make sure there are many you know plenty of opportunities to get to know us to get help one on one, so I think we have office hours every day of the week, except Tuesday if i'm not mistaken, so I encourage you to come and make good use of those hours.
+When I meet with students who are struggling in the program as the associate director, I asked them okay in this class that you, you know failed or these classes you having complaints, how much did you speak to the T as.
+You can probably guess what the answer is almost always their answer is no, I didn't speak to the tears at all okay so make good use of the Th they're here they're ready to help.
+Many of you were at jack's review session on Friday, which I was happy to see.
+The ta is will be putting on another review session this coming Friday to note again the review sessions on Fridays are a little different than the ta office hours because they are recorded.
+And because the ta is come ready to talk about a few things, whether you have questions or not they come ready to talk about topics that.
+We as a team think you need a little bit more review on coming from the lectures coming from the homework, so those Friday reviews are heavily recommended.
+And you also have an opportunity to ask questions there if you feel like you need some more individualized questions.
+Make use of those many, many office hours because there are so many office hours I guarantee you will be able to get one on one attention.
+If you go to certain hours and they're crowded try another hour with another ta it will be less crowded, and you will get very direct attention.
+If you have questions that you'd like task outside of office hours, the number one way to go, is the canvas discussion board, because you have a whole team of US looking at that board many times a day.
+So rather than emailing just one of us, I highly recommend you post there, or if you're a little shy and don't want to post your question email, the whole team email, all of us, and one of us will get back to you.
+quickly so that's the most exciting I think news The other thing i'd like to point out is that in the modules we have these useful links.
+And I like i'd like to point out that there is a github Repo for this course that's where the demonstrations are posted i'm going to talk about at least one more demonstration today.
+In a Jupiter notebook That is where the solutions will be posted so my solutions are the ta is solutions to the homework, they will be posted in that github repo so I encourage you to.
+Get familiar with, that if you're not you don't have to be familiar with all of the commands of.
+Get at the command line, it is a good thing to learn how to actually mirror a repo and and pull down from it, but if you aren't familiar with, that you can just go to the github website, you can download whichever files, you need.
+there's another thing here, called the Bot binder binder is a service that takes github repos and spins them up on a virtualized server.
+Using a tool called docker which i'm a big fan of.
+doesn't matter if you know what that is you can just think of it as a quick way to see what's in the github repo and not just to see what's in it, but to actually interact with whatever's in the github repo.
+So if you spin up a binder at that link you'll get this github repo you can see, on the left, which files are in it.
+Right now, you have some virtual environment files some data files some DEMO files and I also include Jupiter notebook showing you how I built those data sets.
+So if you want to understand where the data is coming from that, I give you an excel sheets, you have the Jupiter notebooks to build them yourself.
+You could go to the demos here, as we will and I probably need to rerun this it's probably logged out, but if it hasn't, then I would click on something like this notebook.
+And what's nice here this kernel is dead because i've left this open too long and.
+what's nice about this is you're not just viewing the notebook the way you wouldn't say github you can actually interact with the notebook.
+In the proper environment I don't recommend writing your code this way because when you log out of this you'll lose your progress.
+But it's a pretty cool way that you can go in any look notebooks that we have an interact with them easily to get that link on canvas that we said was called binder.
+Okay, so I think that's all of the course logistics, we need to talk about let's get into things so for the first portion of the class, what I want to do is talk about.
+The case, this is not a homework review in terms of how to solve it, but it's a discussion in terms of what should you have learned from it.
+So to kick things off we're going to talk a little bit about section one which you are not required to submit a response to.
+But nonetheless is important these notes will be posted on canvas so don't worry about writing everything down the first question was should Harvard even worry about optimizing you know real returns versus nominal returns real here, meaning inflation adjusted.
+Is this really something they need to worry about usually with inflation with nominal versus real we kind of do all the math and the statistics and then we can convert it at the end.
+For instance, we're not going to worry too much about whether you know we don't need to analyze returns up front, we can do the work with the returns and we can analyze them at the end.
+So the very first thing I want to ask is why why even worry about this just do the optimizations.
+Harvard should figure out what they want to do, and at the very end, they can convert nominal returns to real returns, they can say this portfolio.
+We think will make let's say 10% a year nominally we think inflation will be 2% a year so then we'll just subtract that at the very end, is there a reason to even worry about inflation up front.
+Well, this is a small technical point, but I just wanted to emphasize it that the case is well grounded.
+You if you really were sensitive to inflation is Harvard is and you really cared about these inflation adjusted returns then it's not so simple as doing all of your optimization and then converting to real returns, at the end, why because the covariance is would be different.
+Why is that because inflation is not a constant So what if inflation is correlated with bonds, but it's not correlated with stocks, what if inflation is correlated to some commodities and not others.
+Then converting the total the nominal returns into inflation adjusted returns would be a meaningful transformation because it's correlated with some things and not others.
+We don't have to worry about that, with total returns and access returns why, because when we go from total the excess returns we're just subtracting the risk free rate.
+And the risk free rate is uncorrelated with everything by definition.
+Which means it it doesn't matter it's it's going to be an easier transformation because we're not worried that the risk free rate is is correlated with different asset classes.
+Now there's some there's a little bit more nuance to that, but for our purposes that's enough so if you denoted inflation.
+As this inflation factor and you wanted to adjust for it, then you might think that you should divide by this inflation number.
+And the key is that it's not a constant so I can't just pull it out of the covariance term and say i'm back to worrying about nominal covariance is.
+Even if I use log approximations I still not going to be able to do that the ways in which these securities correlate to inflation could matter so that's just a minor point, but I want to be clear, the cases meaningful because that does matter.
+The second conceptual question I wanted you to think a little bit about is that Harvard is grouping assets into 12 categories and they are optimizing those at a top level.
+So they might have portfolio managers for domestic equities foreign equities, etc, and then at the very end there's kind of an executive investment committee a chief investment officer who's worrying about how to allocate across those 12 broad categories.
+Now why couldn't we just attack the problem directly well one, this is a homework, and so I wasn't going to be tough on you and make you optimize across 1000 things right, but I want to get at something here, this is not just a simplification, because it's a homework.
+If Harvard or whatever asset allocators looking at 500 or 1000 things they're still going to need some approach like this to get at these broad categories why.
+Was the slide here mentions it's not going to be feasible to directly attack the optimization on all of the securities Can someone help explain why that is.
+The slide hints at it here a bit what's the reason that we wouldn't advise Harvard just put in every single security and let's optimize directly, why are they doing these individual optimizations and then a top level optimization yes, is that Carl.
+yeah the comment was Is it because the higher, the number of assets, the higher that you have higher chance you have a very correlated assets that's absolutely the reason and why is that a problem to have such correlated assets.
+This is a mathematical question or maybe a statistical question why is that such a problem let's start here matt.
+yeah so that's worried that if we directly attack this we're going to need what what two ingredients, do we need for the mean variance optimization.
+We need a vector of mean returns that's a lot of mean returns will deal with that, but we also need this covariance matrix and is the slides getting at here, even with 100 assets.
+Do you want to estimate a 100 by 100 covariance matrix so immediately this problem of could we even get good estimates for that, but then matt saying hey look if.
+going off what Carl says if there's a lot of high correlations here, then that covariance matrix is going to have a small determinant, why does that matter.
+If that covariance has a small determinant, why does that matter, yes.
+daria.
+yeah so the key here is we're going to invert this covariance matrix and if it has a small determinant That means that it is hard to invert.
+In a numerical sense and, more importantly, in a statistical sense so matt daria have noted that small determinant highly correlated assets means when we invert that covariance matrix it's going to be explosive.
+If we were inverting a regular number, we would say a number close to zero is a little dangerous to divide by because it blows up our answer.
+Now, if this were just a math problem and we had exact inputs that's fine, can I divide something by point, oh yeah if i'm sure that that the numbers are right.
+But what if i'm a dividing a number by point, oh one and i'm not really sure if i've got the top number correct well i'm really.
+blowing it up i'm really going to scale it up by a huge factor.
+And if I wasn't totally sure about the number in the numerator now i'm going to have accidentally you know if I if I was wrong about it by a little bit now i'm wrong by a lot.
+And that's what's going to happen here if we attack this directly too many assets too many high correlations inverting the matrix the covariance matrix will lead to this explosive fragile situation, so this is a total non starter, we cannot optimize this across all the assets at once.
+Some of you will feel like you're hearing a repeat of what we talked about in August, with regression, where we can't have too many regressive.
+I wouldn't want 100 regresses I wouldn't want 1000 aggressors well you're not crazy, this is the exact same issue mathematically.
+The mean variance optimization relies on inverting a covariance matrix Oh well, less regression relies on inverting X prime X exact same problem in both cases, we cannot do that.
+Even if we can we can technically mathematically but it's going to be a mess statistically so we've got to stabilize the problem.
+There are a number of ways to do that the most common is to do sub portfolios.
+That also works well from an organizational standpoint, because if i'm Harvard management company or if i'm some other asset allocators It means that I can put a manager in charge of currencies of domestic equities of foreign equities, etc.
+Do we lose anything by doing that let's imagine that we had 100 assets and I put them into 10 categories and each manager was going to manage 10 assets within that category.
+And they do their mean up variance optimization they each do their mean variance optimization and then they come to us and we do the top level mean variance optimization are we going to lose something by breaking up the problem in this way.
+Well, what What would we lose Philip.
+yeah so Philips getting at the point I want to make here, which is.
+We could lose a lot of information, what if one of the assets in the sub portfolio has an interesting covariance or correlation to another asset, and one of the other sub portfolios.
+So what if one of those commodities has an interesting and by that I mean a very distinct covariance to some of the currencies.
+Well that's not going to be accounted for, because the commodity manager is just going to do optimization across the commodities it's going to ignore.
+Any hedging benefit that those commodities have two currencies, or what they have to equities, and the manager that's optimizing the real estate is not going to see it all, how those hedge how they marginally impact the performance of the inflation protected bonds.
+What would we need for this problem to not lose anything by subdividing it out john.
+yeah so one thing that would save us here as Jon says is if we had zero correlation to everything outside our asset class.
+What else might help us here.
+Yes, Would you mind me your name.
+here.
+yeah exactly so you're sitting my the other way that we might be okay here is if every asset within the sub portfolio were highly correlated each other.
+So any one of them fully captured the Info of how they correlate to everything else.
+right then i'm not worried that one commodity correlates to the currencies different than another, they all correlate to the currencies, the same way.
+So when I optimize them I may still lose something and how they attach but it's not a differential Lhasa they're all they're all having the same hedging impact.
+So if we had zero correlations from assets in one sub portfolio to another that would make it very simple if we at least had a lot of homogeneity a lot of similarity.
+In the assets within an asset within a portfolio that would also help Okay, so that I think should actually answer a ton of the question about the The big question in this case before we've even touched any statistics Harvard big question is what.
+In the case there's a few questions but what's their top line question here.
+I heard some rumblings over here.
+Let me get somebody who hasn't responded yet yeah can you write me your name call.
+yeah should we put tips into the portfolio and additionally should tips be their own sub portfolio, or should they be within say bonds domestic bonds, but haven't we just address that.
+What do we lose by putting it in the sub portfolio with domestic bonds versus making it its own sub portfolio, this is really a question about its correlations within the sub portfolio and outside the sub portfolio yeah you had a comment or question.
+Okay, great remind me your name say it again on a room yeah okay on a rude exactly so that should help us know what what's going on here does a.
+i'm going to show a Jupiter notebook with this, you will have the chance to show your groups work in future discussions for today i'm going to show mostly off of mine.
+For ease of presentation, but what does what does this mean if we win and again you don't need to take notes anything I present here will be this will be in our github repo.
+Let me just scroll down a second we load in this data, going to build a few functions we'll talk about that in a minute here's a heat map of these correlations.
+So if it's a lighter color they're highly correlated if it's a darker color they're not very correlated what do I immediately noticed about tips it's the bottom row tip the last column when I noticed that it has pretty low correlations what is its highest correlation to.
+I E, F that's where we see the lightest color there what's if.
+The domestic bonds so not a surprise the highest correlation is to the domestic bonds, but the fact is that correlation is really not that high if we.
+I don't think I printed the whole correlation matrix in in this form, but the the correlation is not so high, if I remember right it's only about 35% or something like that it might be a little higher.
+65% okay 65% and it has low correlation everything else which asset sticks out the most here I.
+Look at how dark that row is how dark column is very low correlations to everything else right.
+So that should give us a lot of information already about should tips be its own asset class, if I were to ask you know if I were being asked by Harvard.
+What what the key to this result is, it would be bad I would want to first just see what are these correlations how well do they attach here Okay, if I ever been asked by Harvard or if I ever been asked by somebody on an exam or wherever so going back.
+We already talked about this again these notes will be posted.
+let's talk about this fact that Harvard management company has this historic data as well as assume data.
+And the optimization results depend heavily on which side of statistics, they look at I didn't ask you to use their exhibit data.
+But you could have you could have looked at their correlation matrix from the past and their assumed correlation matrix going forward.
+same, what are the mean returns from the past and mean returns going forward.
+Their data has some error in it the correlation matrix is not positive definite, but if you make some little adjustments here, well, you can find is that they can achieve 6.5% with the volatility of 2.7% off of the historic data.
+If you use their assumed forward estimates, then, to get that 6.5% mean would require volatility three times bigger 7.7%.
+So what's going on, I mean the assume data includes tips it includes a new item on the menu, how is it that they're getting worst results in the forward looking data, which includes a whole new item on the menu.
+Well it's that there are assumed estimates for the future believe that things won't be as good as they had been in the past in the 90s, is this relevant right now.
+yeah extremely, what do you think historic data on this kind of stuff looks like for us equity markets in the last 10 years they've been on fire right.
+So if you're using historic data in homework one what you estimated, or in other things you've got to make some decisions do you think.
+The last 20 years are the best in indication of where us equities will be in the next 20 years.
+Or do we need to go back 40 years ago back 60 years or do we need to you know do some ad hoc adjustment down.
+But anything we plug in using the last 10 years of data last even 20 years of data is going to say Okay, you can make a lot of money trading because equities have been on fire.
+So this is going to be a big deal to us all quarter of do we want to use historic estimates as the starting point for our belief about the future.
+One thing I like about this Harvard cases that they do make that distinction, the two things are quite different, in their view, and that that could matter yeah.
+So if we don't use historic data for the mean return estimates, what else would we use we're going to come back to that I think around week six.
+Probably week five yeah maybe a little sooner.
+Around week six we're going to get into forecasting returns where maybe we would rather plug in our own forward looking forecast.
+build off of a statistical model will that be super accurate, maybe not are these historic mean returns very accurate no and i'm going to touch on that in a minute Carl.
+yeah so Carlos preamp a question to that previous slide which is.
+Last week I said many assets are a good thing we love diversification, we love eliminating that idiosyncratic risk and then here i'm pointing out.
+Too many assets makes this mean variance optimization a major problem because of inverting the covariance matrix that tension is going to be there with with this entire quarter.
+That we would like many things to diversify over, but having too many things disrupts our statistical estimation, this will be a lot like regressions so we're going to use some machine learning methods that allow us to.
+pour a lot in and then select well among them, or we could take more traditional approach of poor many things in but sub divide the problem and we may not love that will lose a little bit from one asset class to the other but it's maybe still better than not using it at all.
+Okay, moving on.
+So hmc forecasts are just taking the means up and down they're moving the volatilities up and down.
+But this this idea that the parameters may be quite different for the future than what they were about the past is going to greatly impact the estimates, as we saw in the previous slide.
+So we said that this first thing we do is going to kind of outline the rest of the course in some ways, this is going to be a whole lecture this is going to be a whole week.
+Just to think about how to adjust mean returns.
+In some sense will have a whole lecture and a whole week just to think about how to adjust forward looking risk, but I want to be very clear fitting that the history optimizing history is easy using history to optimize the future that's really tough.
+So what are a few these challenges, one we're using X post returns and then thinking about next sandy allocation meaning we're taking historic returns to hope that they'll be right for the future.
+So we've already talked a little bit about this and you can see this in their exhibits I didn't ask you to spend a lot time in the exhibits that you can see, this say an exhibit for.
+If we were to plot this we would see that the historic mean variance frontier is really, really nice opportunity Look how wide the blue figure is.
+But if we use their assumed parameters going forward, it would form a much more restricted mean variance frontier why because they believe the means are going to be lower.
+They might believe that the correlations are going to be higher that's going to form a much smaller opportunity set.
+If we took the historic mean variance numbers plugged in the optimal solution and then let it run into the future.
+We wouldn't end up on the blue frontier anyway, we would end up on that black star that's well well worse than the frontier why.
+Because the frontier and blue is estimated with historic data we line up to try to be there and then the futures different the mean returns are different correlations are different and we end up well within it, we end up even well within their assumed frontier.
+what's The second challenge sensitivity of the input parameters we've touched on this a little bit.
+we've said that too many assets can blow things up, because the covariance matrix is a mess, but guess what else is a problem, the mean return estimates, what if I adjust tips by half a percent a year.
+harvard's question is, will tips, you know, are they important using the allocation how much will they affect things.
+Well, first do they even have a good estimate of tips tips or new at this point, I mean tell me i'm sure they don't why.
+Because we've had them now 20 years and i'm going to show you in a second we still don't have good estimates of the main returns, even with 20 years of data.
+i'm going to show you that if I adjust the mean returned by 1% a year, which is well within the confidence error it's going to drastically change the answer so is mean variance robust estimation we'll see.
+Here is when I adjusted it by half a percent a year and the mean variance frontier looks very similar right.
+No problem.
+If we're wrong about the mean return.
+what's the problem what's the big deal the frontiers almost the exact same.
+But I just said, this is going to be a problem where, why does the picture, make it seem like it's not a problem, what is the problem.
+When I say MV shock and the dashed line I mean if the tips mean return is just a little different.
+I say the frontiers, about the same so big deal what's the problem, let me go with somebody who hasn't spoken up yet yeah will you mind me your name again.
+To them yeah.
+Sorry, say again.
+Yes.
+So that might be the case for this asset class where we're deviating just a little on the main return and are you saying it might be a bigger problem with the different asset class.
+yeah so Okay, so I think we might begin the same thing that this picture is hiding a lot because there, this is a multi dimensional problem.
+So if I change the mean return of tips a little bit my opportunity set doesn't change that much what the optimizer thinks is possible doesn't change very much, but what does change a lot.
+it's recommendation to me, of how to get there, so it says yeah you can achieve about the same things over, by the way to achieve them you're going to need to drastically change your portfolio and i'm going to show you an example of that so this problem is going to be very fragile.
+What if we try to constrain it and say don't give crazy weights Harvard does this they don't show you how to numerically solve for it, I will later in the quarter, but we're going to have better methods anyway.
+But you could write this optimization and what's the problem, why doesn't Harvard show you how to do it because it's not a closed formula.
+I have a bunch of inequality constraints there and those inequality constraints tell me I don't have a closed form solution anymore.
+And apologies Charles that asked when I kept talking about low correlation that we'd like to have low correlation across asset classes, did I mean a low magnitude or did I mean it needs to be very negative I meant a low magnitude.
+So look this optimization problem is a mess it may not look like a mass but I can't use the approach that is done in the appendix of the lectures.
+Those inequality constraints mean i'm going to get corner solutions i'm not going to get interior solutions.
+And in convex optimization if i'm not getting interior solutions are not going to be able to just take the derivative said it equal to zero.
+So this means we won't have a formula for taking harvard's approach I keep saying harvard's approach, this is the dominant approach in the industry is do some kind of maximize the sharpe ratio, but hold on we don't want anything too crazy so pin the weights within an interval.
+This is.
+I would say the dominant approach in in much of this again we're not going to dig in exactly how to solve it, because we think we can do better.
+But if you look at harvard's exhibits you should see they're very much in corner solutions they told the optimizer don't go below negative point five on cash the optimizer is going to take them to negative point five on cash.
+they're going to say don't let anything go above, I don't remember Maybe it was 20% in an asset class a bunch of the asset classes are going to be right up to 20%.
+So what's the problem with Harvard solution, why do you think I might not feel very confident about it.
+Others, maybe a lot of reasons but what's one reason.
+Because those oh yeah please remind me of your name again nate right.
+Exactly it's going to be very sensitive to those bounds, and in fact when I set those bounds i'm basically just choosing the answer.
+Because, whatever I set those bounds to be the way we're going to want to ride, all the way up to him.
+So i'm worried that the solution in the exhibits from hmc i'm worried that their solution is almost entirely determined by whichever person chose those boundaries, if I change the boundaries, the solution will just change right up to those boundaries.
+So it becomes a problem to use this approach and to try to make it reasonable by restricting the weights because whatever restriction you put in just becomes the answer for many of the assets.
+And at that point Why am I even pretending, this is an optimization this is really just me choosing the answer via the the bounce.
+So that's a problem that we have with this.
+third problem well these numerical solutions we've already talked about this.
+That fact that, in order to stop crazy amounts of shorting or huge long positions we're going to need that constraint, I don't think there's anything else I need to talk about here so let's dig in a little bit into some of the numerical solutions here we go.
+i'm going to skip a going over more of the summary statistics on this, you can.
+See the solutions, I will note that I man utilizing the sharpe ratios and the means and volatilities here, so you will know that.
+i'm defining a few functions at the top, because I don't want to have to keep printing tables like this.
+So you might notice in this cell at the top, it says performance metrics that's a function i've defined at the top.
+And I just want to give it a table of returns and I want to have it give me back a nice formatted table of these statistics, so I have to find that function let's go down and see what happens when we do the tangents he waits so if we build the tangents he waits here, let me.
+go down to the next.
+So here.
+Okay, so you didn't need to do this, but I wanted to show you an illustration of we could follow the formulas in the slides.
+We could follow formulas on slide 40 to build the mean variance frontier with total returns, you did not need to do that.
+But I took total returns and I built those two special portfolios in red I included all of the individual assets in blue and I showed what that frontier would look like.
+Now I asked you to do the excess returns, so that would be the straight line that's going to be tangent to this frontier.
+So you're going to look for the tangents the portfolio that's just barely touching this.
+And what I want you to notice here is that our portfolio is going to do much better in terms of sharpe ratio in terms of mean volatility than any of these individual assets it's going to give us way better results, but again in sample.
+So if we go down, what do we get from this allocation.
+I think many of you will have the same answer here, if I can quit scrolling and get their apologies to anyone and making busy.
+We have this optimal way vector which takes the tangent see vector and because we're an excess returns, if we want more or less risk, what do we do to the tangents the vector to the tangents he waits.
+If I want more risk if I want less risk, what do I do.
+john.
+You just scale it linearly I say I want half as much risk, I mean I multiply everything by Point five isn't that a problem now the weights don't add to one the tangents he waits add to one.
+But once I say why won't have that much risk now they add up 2.5 that's what's happening here where's the rest of my money.
+yeah we remind me your name Nathan, yet right Nathan in the risk free rate, what if I want more return more risk.
+Then i'm going to scale it up well now the weights add up to 2.7 well hold on where you know where Am I getting the extra hundred and 70% of my money.
+i'm borrowing it from the risk free rate so that's a lot easier, whereas in the Harvard case and in the frontier I just showed you.
+At the risk of making all busy let's try to go up there again if I don't have a risk free rate I don't get to just scale linearly apologies, I cannot get the scrolling right I don't get to just scale this linearly.
+Because there is no risk free rate i'm taking a mix of those two red squares and it means that if I want more or less risk I my my opportunity starts deteriorating.
+I have to go up that high parabola, and so I don't get to scale quite linearly, you will see that in the Harvard exhibits if you look into it and you would see that here that my mean per Vol ratio gets a little worse if I the further i'd go up okay so on these weights.
+What do you notice about these weights, what are we most invested in well i've organized these weights based on you know highest to lowest we have the most way in IE F and it sharpe ratio is point five eight.
+We have the least way in QA I entered sharpe ratio is point five, eight, so hold on we're trying to maximize sharpe ratio.
+And it doesn't seem like we're going into the assets, with the best sharpe ratios and shorting the ones with the worst sharpe ratios does it.
+we're not, in fact, if you.
+If you do the correlation between the weights and the sharpe ratios it's 33% meaning, there is a very weak relationship between taking a bigger position and bigger sharpe ratio assets.
+And that's not a forecasting problem we're using historic data and evaluating that same period in history so we're saying, even with full information.
+very weak relationship between taking big positions and big sharpe ratios, I hope you noticed that what's going on with that.
+Why is that, let me see if I can get a new answer.
+Was it was it shoot i'm.
+Sorry, say again.
+On a rude rude What was your name again.
+To been okay on a rude okay.
+yeah the the big issue and the big problem I mean it's a it's an opportunity and a problem with mean variance answers is they want to hedge everything.
+They want to take a big long position and say hold on there's something pretty correlated to it will short that will be back to very low volatility.
+And the answer to this, I that we're getting out there and that we talked about a lot last week is that the optimization is going to depend a ton on covariance.
+You may feel like i'm i'm kind of beating this to death, but the truth is, if we go ask actual people in industry, their strategies almost always say hey we're forecasting 10 currencies now let's go long that.
+The five we think are the best, in short, the five we think are the worst.
+The portfolio construction that you see all the time and algorithmic trading is i've got a cta strategy on a bunch of futures just going to go i'm going to go long my best and short my worst something as basic as this says.
+hold on maybe, given what we learned last week covariance is matter not individual sharpe ratios So in fact we're going along I E, F heavily why.
+because that was the asset with that dark dark row in the heat map that's the asset that I was almost no correlation to anything else it's sharpe ratio is not impressive, but it is very uncorrelated, why are we going so heavy into spy.
+Because it has a really great sharpe ratio, it has some correlations but the sharpe ratio makes it worth it.
+let's hedge that out with what.
+Parada routes comment we're going to hedge that out with I, why are what's I, why are.
+You could go back to the top I think that's the international equities right.
+say it again.
+The.
+It is okay yeah so what spy and I, why are have high high correlation they're both equities they both have high sharpe ratios, but one of them's a little better, which one spy so go long spy short I lie our.
+Domestic bonds really good diversifier but let's short QA eyes and QA is the real estate.
+it's the absolute returns so let's go long the one short the other why, because one of them as a little bit better.
+returns than the other in that sample but we're setting ourselves up for an extreme positioning here.
+lots of things that we've put tons you know very large positions others that we've taken very short positions, so we should be a little worried about how that setting us up.
+We could look at the weights and the performance of the optimal portfolio it's a sharp of 2.26 that equal weighted portfolio only point eight four it's only about a third is good, and then the risk parity portfolio is less than half as good sharp of point nine three.
+Well before we go to the in sample versus out of sample problem, this is fragile, when we go out of sample there will be problems, let me first round back to this idea that.
+The fragility stems from what if those mean returns have been just a bit different so I asked you to consider kind of a to asset problem, but I just for illustration also considered what if tips had a mean return.
+That was 1% higher than what we had estimated.
+So what if tips were 1% higher, why is this relevant right now well, a lot of people think, inflation is going to be significantly higher than it was in the past 20 years right.
+So, if you think inflation is going to be higher in the next 20 years than it was in the last 20 years than the mean return of tips should be higher in the future right.
+So let's say it's 1% higher per year not per month, so i'm going to adjust the access returns upward just for tips by point, oh 1% a year, or at least analyze to that.
+i'm going to recalculate the weights and what do I see, I see that the optimal adjusted weights that very last column look a lot, like the optimal weights for some assets.
+But then there's a big difference in tips the tips weights go from 10% to over 40%.
+Just by having a 1% higher mean return per year, what does that do to the performance, the sharpe ratio is almost the exact same the optimal sharpe was 2.27.
+And when I adjust the tips a little bit it's 2.32 what are you seeing there you're seeing what I showed on the slide that the mean variance frontiers almost the exact same the best possible sharpe ratio is almost the exact same.
+But the policy to get there has gone from 10% tips to 40% tips.
+And that's just because I moved to the mean return 1% a year now, you may wonder was that a reasonable move.
+Maybe I just jacked the number of pie, to get an impressive result it do you think a 1% per year return on tips is a huge move.
+I mean tips are not very volatile they have low returns, in fact, in the Harvard case I think they're estimating them at something like 3% a year.
+So me raising them a full percentage point, maybe that's unfair of me i'm taking them from 3% to 4% a year that's a big change right, well, we can check that pretty easily.
+We can use the central limit theorem to say what would the confidence interval What would the standard error of a mean be.
+Five data X, I can calculate X bar the sample average and I know that the sample average.
+will have by this law of large numbers, I know that it's going to have an the central limit theorem I know that it's going to have a standard error roughly.
+Of the standard deviation divided by the square root of the sample size right Well, I can calculate that and what I find is that the standard error of the mean, and this is not annualized the standard error of tips mean return is point O one one.
+And the adjustment that I made is point oh eight, so I adjusted it well within a single standard air and I blew up the recommendation should tips be 10% or 40%.
+that's a tough thing to go tell my boss good news I think tips have some opportunity, I think, maybe we should include them as a separate asset great how much should we put in well, based on the standard errors of the mean returns.
+and forgetting all the other problems I have with the covariance matrix.
+But just based on the uncertainty of the mean returns.
+And by the way, that's on 20 years of tips data which you, in this case don't have.
+My confidence interval says, if I took a 95% confidence interval i'd be getting something like oh I don't know negative 20% out to 60% tips.
+Even just one standard deviation i'm saying you know boss i'm not sure, maybe either 10% or 40% that's pretty tough.
+So this is a good example of a model that became very impactful mathematically but statistically you can't trust it this mean variance optimizer.
+The final way to see that, of course, is to not just tweak the parameters in sample that shows this fragility, but sodas doing some basic out of sample testing.
+let's give ourselves almost 20 years of return no I guess that's something like 12 years of returns you get all the way up to through 2020 to make your estimations to build your portfolio and then you've got to live with it during.
+you've got to let it go for those nine months, what did you see well, you can build the weights they're very similar to the full sample weights we don't need to worry about that.
+Well, what happens if we look at the in sample.
+Again, it looks almost like the full sample that we did before, but now we calculate the out of sample and what do we see here the sharpe ratio of our choice is 1.5 that's a fantastic sharpe ratio.
+But they equally weighted portfolio, instead of being one third is good is almost three times as good.
+The risk parity portfolio is not half as good it's twice as good.
+So now i've learned all these fancy models and statistics and out of sample i'm doing much, much worse, why is that.
+I don't know if any groups looked at this, but I think this should be particularly strange.
+Because what did the mean variance solution do mean variance solution.
+Put a big way into what.
+It put a big Wade into spy.
+In fact spy has the biggest the second biggest long position here.
+So it puts a lot of weight into spy.
+And then spy has the best sharpe ratio if I look at the sharpe ratios by even I don't mean over the full sample just in 2021 notwithstanding the last month spy has the best sharpe ratio.
+And our portfolio went much longer into spy than the others, so our mean variance portfolio is putting 78% into spy the other two are putting 14% and 12% and spies the best performing asset So how are we possibly doing worse than anyone look at this.
+Yes, let me try back here we remind me your name.
+
+Speaker
+To them.
+
+dent
+yeah.
+Absolutely so shoot them, I agree that the problem here isn't that are optimized you went long in the spy that I mean that was a fantastic decision in retrospect.
+The problem is that these MV optimizer is always want to build this long short position, like, I think, Anna rude was talking about earlier.
+So it didn't just go long into spy it took a huge short position into two things here QA Ai that we already mentioned, but it also took a pretty negative position in I, why are those foreign stocks strong but is that what you're going to add.
+Oh i'm sorry I keep saying foreign equities, and it was real estate, for I, why are Thank you.
+So john cena def was another big positive position, and then it under performance in 2021 that's right so when we look at the performance here it's great that we were heavy into spy it has an unbelievable sharp.
+But if we look at.
+QA Ai were shorting something with a sharp of almost one and we're shorting positions with with fairly large sharpe ratios, while going heavy into if.
+So what's the point here that the envy optimizer is fragile, for reasons of the mean returns are not estimated tightly.
+That wouldn't be a big problem if it were not for inverting that covariance matrix.
+I said that we cannot deal with 100 assets at a time because of the covariance matrix and what this problem should have made clear to you is we can't deal with 11 assets.
+Even with just 11 assets inverting this covariance matrix is a mess to where even minor discrepancies in the mean returns ruin the answer.
+So this is why the mean variance optimizer is kind of a classic little course, but no one should trust it in real life without doing what Harvard did bounding the weights.
+And that's the main approach and i'm going to say I don't like that, for the reason nate brought up choosing the bounce just chooses the answer.
+or they're going to just scrap portfolio construction entirely and they're just going to say go long the best sharpe ratio short the worst ones.
+And they're going to ignore everything we learned in lecture one about hedging so we would like to do better.
+And we're going to need a while to do better we're going to need to go through the course and understand better how do we measure performance, how do we think about performance beyond just volatility.
+What other types of measures should we care about, we need to think about how to forecast expected returns and we need to think about how to do all this in a dynamic setting where we actually deal with the fact that the parameters and returns change over time shoot them.
+So shoot i'm suggesting why can't we fix this with them saying the thing that is indeed most often used to fix this don't let it short positions.
+Putting constraints that say the weight of every asset, has to be greater than or equal to zero now, you might think that you can do that just by making sure all the mean returns are positive.
+Say that we're going to force all the forecast to be positive, now the optimizer won't want to short it.
+Because don't you usually short something that you think is going to go down usually but the envy optimizer is happy to short things it thinks will go up.
+Why would it do that because it gives it even more money to put in something even better the MV optimizer is happy to say this asset is going to go up 6% a year that's fine, I want to short it because something highly correlated is going to go up 8% a year.
+So it's not enough to just make sure the mean returns are positive, it will have all these problems explosively if the correlations are high.
+It will look for every little discrepancy and say terrific these two different equity baskets are 99% correlated one of them had 1% higher return that's a statistical arbitrage short the one 1,000% go long the other 1100 percent.
+And we would say no hold on this is not a statistical arbitrage this is sampling uncertainty and the MV optimizer has already ran out the door and done that, so we need to constrain it.
+But the the way to constrain it if we take that approach would be what Harvard does just add in these constraints that say weights can't be negative.
+Now, as I mentioned, that is the dominant approach if you're going to do this portfolio construction, but what we were talking about when when nate raised.
+Whatever boundary you choose your answers will mostly line up on that boundary that's just inherent in this type of optimization so we want to do better.
+and not to spoil all the exciting things later, but we're going to find that we can do better, even with tools like LASSO or like some other machine learning and regression tools so we'll get to those later fill up.
+yeah Phillips asking could we use some of what some of you know about last so that it can penalize regressions that try to take too many or aggressors.
+Could we use it in a way that penalizes the mean variance optimization.
+And the problems with that covariance matrix, the answer is going to be yes we're going to be able to do so in a very tight way in a way that's not going to take much work at all, but we're going to come back to that later.
+So harvard's approach of constraining the way it is is widely used to say again, the dominant approaches are ignored or portfolio construction and just go long things with big mean returns or big sharps.
+And only short things that you think will go down that's kind of a myopic view that ignores everything about diversification.
+And the second approach is do the optimizer, we all know, it's garbage so then compress the weights into reasonable answers.
+And now you're actually just making up whatever answer you want, and giving it the credibility of coming from an optimizer.
+So we want to do better than both those, but we need to work all quarter long to tighten up all areas here.
+we're not even getting to the fact that should our covariance matrix just be the entire 20 years of history or may I guess it was 12 years of history, should we be using more dynamic estimates so we're going to touch on a lot of things of that nature.
+Okay let's pause there, there are some things about section three in the extensions that I want to get at later.
+i'll say that maybe the most interesting extension is the extension about robustness that says don't use the covariance matrix as is use a diagonal is diversion.
+That is a pin toward what we're going to do toward the end of the class that's a hint toward using machine learning methods on this problem.
+So if you did that extension it's a little bit of a preview the other extensions hopefully are good we're good exploration but that's in Section three.
+Okay, with that.
+I want to get into the topic.
+For.
+Week two.
+Which is return performance.
+Oh yes.
+We first when you remind me your name Neil.
+Did you say what kind of optimization are they doing them so they're basically doing the optimization that was on that slide where I said homework one discussion where they're doing the.
+For a given me minimize the variance but they're posing the additional constraints that weights must be within certain bounds, they are running that mathematical Program.
+It doesn't have a closed form solution, but using numerical optimizer is you, you can get an answer, out of that.
+If if that were the method that I were most recommending to all of you, we would take you know, half of today's lecture to just solve that numerical problem.
+we're going to bypass it because there's going to be a much more elegant way to solving that but there optimization is mean variance with those constraints and if there were a part of that question that I missed feel free to ask me later.
+Just in terms of the volume.
+Okay, so with the return performance, I want to talk more about how we measure investment returns.
+What is it that we're measuring besides means, what is it that we're measuring when we talk about risk, this is discussion that will carry us through next week as well.
+Some of you are familiar with some nonlinear measurements of risk, including value at risk and.
+stochastic volatility and simulating with Monte Carlo simulations we're going to get into that next week today we're going to review some basics of return performance before the break.
+And after the break we're going to review linear decomposition, which is important for hedging and tracking.
+Your case this week is looking at a very common problem in the industry of tracking investment funds, using simpler instruments.
+So there's a big business and tracking hedge funds and saying this hedge fund charges big fees, maybe I can replicate it with cheap instruments simple instruments low fees.
+hedge fund replication that's a big business, if I can offer or an ETF for a mutual fund that mimics that hedge fund for much smaller fees.
+So there's actually a couple of really good cases that get into this i've assigned you the pro shares case there's actually a very nice aqr replication case as well, or we're going to talk about aqr later, so I didn't want to do to from aqr.
+So you're going to use statistical tools to look at how well, you can decompose a return into linear factors.
+So before the break let's talk about just what let's review what I would call some return basics afterward let's get into linear D compositions and then i'm going to look at this on a few applied examples i'm going to look at it for bitcoin and i'm going to look at it, for some equity.
+Some some single name stocks and etfs.
+i'm going to mention that we're going to talk about factor D compositions and they're going to be very different than factor pricing models nothing we do here will be about pricing.
+it's not about the CAP em or fama French models, this is just about statistically analyzing the returns, that will be the source of some confusion in two weeks, but we'll come back to it, then so let's get into this.
+First things first measuring performance for many of you, this will be a review.
+First, I want to justify the scaling is used in homework, one where we annualized returns by multiplying monthly stats by 12 if they were means and we multiplied by square root of 12 if they were volatilities where does that come from.
+Well, first, this will be our first glimpse of log returns, which will typically not be the object of interest, but for dynamics for compounding they're easier because I get to add them up, if I want to think about the return.
+At time T I can take the log return, where I use a slightly different car it's a little hard to see, but those are two different fonts.
+That are is log of one plus the other are so if my return Eric medically is 5% it's point oh five my log return is the log of 1.05.
+And i'm not differentiating here that this is the natural longer than most of you are used to the fact that so sometimes i'd read this El en.
+But most of you are used to the fact that in mathematics beyond high school mathematics to flee right log that's the assumed base, this is the natural logarithm.
+Well, why is this useful because, if I have a return that's not just one period in time but it's H periods in time, I would have to multiply those returns.
+But if i'm using the log return the log return of the horizon, H periods is just the sum of H single period log returns so that's very useful.
+that's why that will come up when we deal with some dynamics of returns, such as time diversification and compound over time, the barn stable pace.
+But for now i'm raising this for a moment and then we're going to forget about it i'm just stating that if I had logged returns and if those log returns were ID.
+Then it would be the case that the expected cumulative return would be H times the expected single period return, what does that mean it means that.
+The average annual return would be 12 times the average monthly return.
+Well, that sounds like our scaling factor scale by the number of periods if you're dealing with a mean if you're dealing with the sample average.
+How about for the variance we would get the same thing it's just the sum of the individual periods and if their ID they have no covariance so the variance over the 12 period return is the same as 12 times the variance of the single period bog return.
+let's take square roots, so now we have standard deviations we would scale by the standard deviation of ah i'm not going to prove this out its immediate, if you look at the some of the large returns.
+Well, this is where this industry standard of analyzing statistics comes from anytime we have a mean.
+we're going to analyze by multiplying by age anytime we have a volatility will analyze by the square root of H a sharpe ratio is a mean over a standard deviation so we can easily see we would analyze with the square root of age.
+You could complain and you maybe should complain that this formula required to big assumptions, neither of which will be close to true for us, one that their ID they're not.
+that's probably and to that we're dealing with large returns usually we're not.
+So when we analyze like we did in homework one are we justified in doing so, no.
+On the other hand, it's just an industry standard as an easier way, to quote monthly statistics, this is going to be approximately true.
+And we don't really care if the statistics are exactly annualized if everyone's using the same method it just becomes a common way of comparison.
+It gets messy to remember what's a typical volatility for daily weekly, monthly or annual returns, so if we just have measure, a way to kind of put them on common footing.
+And if that measure is approximately true for our purposes, it will be useful, so I want to make clear this annual ization of statistics.
+doesn't need to be exact, it just needs to be something everyone's using to communicate and in that in that case it is close enough that it works pretty well.
+So if you had daily access returns on the US stock index, and you had the volatility daily of point 1% what is the monthly volatility.
+Well, want to be careful here we don't want to apply by the square root of 30 or 31 because that's not how many trading days there are.
+Typically, people use the approximation 21 trading days in a month, so if we go from daily to monthly we want to multiply means by.
+And we'd want to multiply volatilities by square root of 21 So here we would get something like point 458 percent and empirically if we actually calculated this over that 50 year time period, we would get that the.
+Approximation that comes from log ID returns is almost spot on.
+I could calculate the daily returns take their volatility, I could compound the daily returns into monthly returns and then take their volatility.
+And it would be 4.55 times as big the log ID assumptions said it would have been 4.58 times as big.
+So what's my point here if you're not used to scaling the means and the volatility is this is the justification empirically it, it does quite well and everyone's going to use it to talk about these statistics in a common way.
+Whatever about some higher moment, so we just you know for a variable ex we just talked about the mean and the variance the square root of the variances and standard deviation obviously what about some higher moments like the skew eunice and the keratosis.
+So some of you remember these higher centered moments.
+Some of you don't that's fine will note that the normal distribution as occur toast this of three so usually what gets reported is the excess curtis's.
+So if you calculate the ketosis in your statistical package you need to be careful, is it reporting the ketosis or the so called excess ketosis where as subtracted three.
+Well ski eunice is like mean it has a direction it's an odd power so schooners can be positive or negative and it's going to tell me, you know whether the distribution itself is skewed positively or negatively.
+With most returns, we will see that they're skewed negatively typically that they have maybe a lot of positive returns, but when they get a really big return it's more often negative than positive.
+That won't be true for everything, but that will often be true for many returns strategies, the keratosis is telling us how fat the so called tales of the distribution are.
+Meaning something like How likely is it to get a three standard deviation move How likely is it to get a five standard deviation move for a normal distribution that would be astronomically.
+improbable but for financial returns it's not for currency movements, we can get I think the Swiss euro move maybe six years ago, was 12 standard deviations one day.
+12 standard deviations this were a normal distribution that wouldn't happen in the history of the planet Earth.
+Return data is going to have high ketosis typically.
+Especially if we look at frequent data daily data minute by minute data, if we look at monthly or annual data, the crypto SIS will be less typically.
+Is there any scaling that we need to do for the students or the keratosis know.
+Even if I had log ID returns, the scaling gets Messier so the industry does not translate them to some kind of annual ization factor.
+The scariness in ketosis get reported at whatever frequency, the data was.
+And as i've noted the ketosis tends to be bigger more frequent data, so if I have a return strategy and algorithmic strategy.
+And it has high ketosis daily if I compound the days and to a smaller number of months, and then take the ketosis probably going to look a lot better it's probably going to be a lot smaller.
+Again, looking at that 50 year period, we would see that the skew eunice of the daily returns on the s&p is negative point eight one.
+The scariness of the monthly returns is almost the same like I said there's not an obvious scaling factor there.
+And again what's the difference there i'm taking either the daily returns and just calculating the statistic or i'm grouping the days in two months.
+compounding them into monthly returns and then doing the statistics, the ketosis, on the other hand, is just like I said it's going to be much higher at the daily level.
+Do we see 10 standard deviation movements on daily returns, yes, on monthly returns very rare, so the keratosis goes from 22 to five.
+How would we estimate these things, we all know how to estimate a sample average that's the first line, we all know how to estimate a sample variants.
+i'm just pointing out that your statistical package is estimating skewing us in ketosis in the obvious way it's doing the method of moments it's adjusting for degrees of freedom.
+This is not something you need to know on a on a desert island you don't need to be able to write this out your statistical package is going to calculate students in ketosis yes.
+yeah that's a good question, so the degrees of freedom here matt springing up degrees of freedom adjust for the fact that to calculate the variance you're using a sample average instead of the true average so.
+To get an unbiased estimate, or you divide by T minus one, not by T.
+So then, it would seem, and that that's very possible that there might be a typo here in the the sample skew eunice is taking account of the sample mean and the sample variants.
+So I think that you're correct that the degrees of freedom there ought to be shrinking i'll double check, but I think that is a typo.
+You do not need to use these formulas ever i'm reporting them to just notes kunis and ketosis are just tire moments.
+Your statistical packages can easily calculate them next week, we will talk a little bit about why they might be useful measures to try to think about disaster risks so we'll come back to those.
+i'm introducing a few things we'll talk about in more depth next week, because we want to immediately get to thinking about risk besides variance.
+We just talked about optimizing a portfolio for me and variance I said we're going to make that prop we're going to fix that problem up we're going to fix our solution up a lot during the quarter.
+But we're also going to change the nature of the problem, who says we care about variance we might care about ketosis we might care about this item value at risk.
+So this is just an introduction to these Disaster risk measures we're going to talk about a more but value at risk is a statistic that is defined for a certain horizon.
+So here i'm saying the towel day, so the horizon is towel days is would often be 10 days let's say and we're going to look at the pie percentile value at risk.
+Of a portfolio value at risk is, in my view and unfortunate name for this, because it leads to the abbreviation va are which looks like variants.
+And even worse, this is a measure of risk so is variants so it can get a little confusing if we're not careful, people typically write it with that capital V lower case, our capital r.
+But apologies that it just looks a lot like an abbreviation for variance.
+But the value at risk for a pie percentile over town days it says that there is a pipe percent chance that over tower days the portfolio will lose an amount greater than this value at risk.
+Now, whether I should say, greater than or less than depends on how we're defining the loss is a loss, a positive number or is it a negative profit.
+Either ways obviously fine but we're saying it is a loss bigger than that number the value at risk or it's a profit, even more negative than this negative number.
+Usually, we would rather just calculate the value at risk as a return rather than $1 amount, because if I say they're my value at risk is a million dollars.
+That might be very alarming if my portfolio is $2 million, it might be nothing to worry about if my portfolio is $100 million so let's express it as a return, then.
+You could look at this mathematical formula, if you want to do that in your spare time that's fine it's really just saying it's the inverse ETF, where a CDF is that cumulative density function.
+Writing it out that way is making it seem a lot more complicated than it is, it is simply the pie quintile of the observed returns, so if I look at towers, one day, then i'm saying get the daily returns.
+and choose pie, to be 1% 5% i'm just asking what's the first percentile of returns, the returns for which only 1% or worse.
+what's the fifth percentile if pie is equal 2.05 what's the return for which only 5% or worse.
+The typically estimated values that risk or 1% and 5% partly because regulators want banks, in particular, to report this value at risk.
+So in the US value at risk, takes a lot of prominence, and also a lot of controversy, because bank regulation involves reporting this number on the portfolio.
+In the financial crisis, there was a lot of conjecture that the way this is calculated added to banks poor estimation of their risk, we will get more into that idea and disaster risk later in the course right now i'm just putting it on your radar.
+Because if we want to calculate the fifth or first percentile of returns that's really easy in Python we can do that in one line and we'll look at it in a demonstration after the after the break.
+I need to give you two other terms here the next is expected shortfall it's sometimes referred to as conditional value at risk the C Var.
+I really dislike that term because usually conditional we mean conditional at a point in time and that's not what it means.
+So I would like to think that my value at risk, I can estimate over a whole sample or I can estimate it for just this point in time.
+that's a useful tool and to me that's what would be more useful called conditional value at risk instead What this means is another thing that's quite useful.
+But what I another term, for it is expected shortfall and it's the idea of look at the returns, that are the value at risk or worse.
+And again value at risk is itself, maybe unnecessary jargon it's a quantifiable, it says, look at the fifth quintile and lower, what is the average return of those.
+Now let's you say it's just the 2.5 percentile.
+No it's not because there's probabilities multiplied by magnitudes there.
+So we could take all the returns from the fifth percentile down and we could take their average.
+And that would give us a nice risk measure that says if you've hit that fifth percentile or worse if you're having a bad day how bad is it on average.
+The value at risk is giving you a boundary this is how bad a return is on a bad day on your worst 5% of days.
+The expected shortfall saying, given that you're in a bad day how bad is the return, so the conditional word, there is not conditioning on time dynamics it's conditioning on you have hit that threshold how bad do we think it will be.
+there's a lot of reasons that the conditional value at risk or this so called expected shortfall is a better risk measure it has some properties that make it more usable that will get into later.
+For those of you that want a little preview its sub additive where's the value at risk is not so it's going to have more of those diversification properties it's going to be a more it's a better estimated number.
+that's probably not surprising, which do you think we'd have a better estimate of a boundary line or an average, which is an integral of everything.
+Past that boundary we're going to have a better measure of an integral than of just a boundary line, so this expected shortfall will be an important number.
+i'm going to finish with something that in terms it's not maybe as quantitatively sophisticated.
+Because it's somewhat poorly measured but it is one of the most talked about metrics of risk in the industry, and that is the maximum drawdown.
+So the maximum drawdown of a return series is the maximum cumulative loss suffered during the sample or during the simulation or whatever you're looking at.
+So visually this would be the largest peak to trough of the cumulative returns that's important by just.
+graph returns they're up down up down up down fun looking at cumulative returns it's going up and maybe down a little, but it's kind of charting a path through time.
+The maximum drawdown is going to be that biggest peak to trough.
+And this is going to be widely cited in performance evaluation of securities mutual funds hedge funds, whatever investment we're going to after the break take a look at this for bitcoin and for some other securities.
+At that point will then get into some linear D compositions those will be the rest of the lecture notes and that will be a big part of the homework so let's take a 15 minute break will reengage at 748 okay everybody played down we're going to look at a demonstration here.
+In the github repo if you look online here the github repo has various folders mine has a few folders yours does not so you won't see all those folders but in the repo even right now, you could go there and you would see this bitcoin example.
+i'm going to show a few performance metrics from this so i'm just downloading from Yahoo finance to try to make it easy for those of you that want to follow along.
+Making sure that we're not having to worry about authentication right now, so I pulling data from the s&p 500 ETF spy and I also pull in bitcoin data, this is daily return data and I clean that up a little I get it into our returns.
+And then i'm going to build some metrics and what I want to start with here is just noting that we can look at some performance metrics like.
+mean volatility and sharp are used to that bitcoin has a mean here that's been analyzed you'll know at the very top of the screen, you can see i'm analyzing with a factor of 252.
+Why is that because there are about 252 trading days in a year so i'm going from daily data to analyze statistics, so my daily factor there's not going to be 365 it's going to be 252 if I look at roughly 21 trading days a month.
+What I get is that the bitcoin mean return is over 100% a year since.
+And that spy has also been doing, you know quite wellness time but not 100% a year closer to 15% a year the volatility of bitcoins been close to 75% a year and for spy closer to 17% a year.
+So it gives us a sharpe ratio of about 1.35 for bitcoin and about point eight two for spy.
+I think that if I asked you beforehand, most of you would have guessed that bitcoin sharp was much bigger than spies probably a factor of I don't know, three or four or five.
+What this shows is the bitcoins returns have been enormous so 100% a year compounded leads to explosive results.
+But because its volatility is so high as well if you were looking at this as a mean variance investor.
+It would be attractive in many ways, but it would not be off the charts unlike anything else we've ever seen what's so off the charts is the scaling.
+The scaling meaning you're getting a sharp in the range of what we've seen before, but instead of being at numbers like 20% mean 15% ball you're getting it at five times that scaling.
+So it would be a lot like taking another asset and leveraging it scaling it up by borrowing get the risk free rate, but with bitcoin you're getting all that size, in the sense of big balls big means without having to leverage it.
+let's look at a plot of spy and bitcoin I want you to notice the scaling here.
+is different, the Left axis is the bitcoin scaling and the right axis is the Spice scaling I need to do that because bitcoin has been so explosive but that it's cumulative returns would leave the spy figure.
+Complete it looked like a flat line, what we see here is that on the left hand side $1 invested in bitcoin at the start of.
+Using the Left scale and the red line would would have hit a maximum of about $200 so it would have scaled your investment by a factor of 200 over those six years.
+And on the right hand side that axis, we see that $1 invested in spy at the start of 2015 we would have gotten you up to about 2.4 dollars here by the end that's pretty amazing and that the scaling you're going from 2.4 to 200.
+That sounds like it's 100 times as big of a mean return it's 100 times as big of a cumulative return the mean return was only six times as big but that's the power of compounding there was a comment or question yeah will you mind me your name Alan.
+that's a good question, so I scaled the data by for the annual ization factor that should really flow from how many days a year at traded so something trading on an exchange like spy.
+makes sense, some currencies, you know we're going to trade daily, so it really depends on what my original data was I took data that was only from.
+Day trading days, where the exchanges were open so even though you could have traded bitcoin on other days you know I could trade.
+So I could trade spy tf off the exchange on other days, the key is what did my data come from my data came from only trading days.
+that's it skilled for the 252 trading days a year, if I were taking say currency trades that were every day of the year than you know I could use 365 good question so let's look at this maximum drawdown idea.
+First visually, I guess, I should point out where do you think the maximum drawdown is for spy.
+spies in green maximum drawdown again this is cumulative returns i'm looking peak to trough.
+If you want to get comfortable dealing with cumulative returns this code is in the repo I could screw up a little one point out that cumulative returns we build those by doing one plus.
+The individual returns and then accumulating them with a product, so you can see that code it's easy enough, I think most of us would see that spies maximum drawdown seems to be at the outbreak of coven.
+We see a very big peak to trough but this can be misleading when the scale gets really out of whack.
+With bitcoin maybe the drawdown could be early in the series where the lines looking totally flat and we just haven't zoomed in enough.
+But from the portion, we can see the maximum drawdown looks like it's in this early part of 2021 let's see, though, calculating the maximum drawdown is a little bit.
+takes a little bit of thinking this i've provided this code.
+You can look this up, but the idea is i'm going to take the cumulative return so i'm going to take one plus the individual daily returns and then i'm going to do this Doc human product.
+that's just going to take the product of everything from the first state of point to the end data point and it's just going to take all of their product, the product of all of those.
+And then I want to say what was the maximum i've ever seen of that so i'm going to take the rolling maximum.
+As can tell me how high have I seen that cumulative product so graphically how high has that figure gotten.
+And then the drawdowns going to say okay let's take that maximum of the cumulative graph let's subtract where we are right now.
+And then let's divide by that maximum to make it a percentage drop so doing that it's going to give me my draw down at that point in time that's going to give me a plot that looks like this one here for every point in time how drawn down, am I from the previous maximum.
+Well i'm almost you know i'm rarely at my maximum I hit a maximum and a few days later, I go down a bit i'm i'm in a drawdown so this chart showing me i'm almost never at zero i'm almost never at my maximum i'm usually a few percentage points below my maximum.
+Well, the maximum drawdown is really saying calculate the drawdown at every point in time and now take the minimum of those numbers in the time series.
+So bitcoin in 2016 was down about 10 or 15% off its previous highs in 2019 it was about 20% off of its previous highs and then, when Colvin sorry i'm sorry we're looking at spy and then spy is about 35% below its its previous highs when Kovac breaks out.
+We can do the same thing with bitcoin and it's much more volatile so throughout its history it's typically around 20% or more below its previous high that's partly inherent to it's much larger volatility it goes through a huge drawdown and in hits 80% below its previous high.
+This drawdown in early in 2021 gets it down a ton 60% that's bigger than that's about as much as spy was down in the financial crisis it's rebounded Simon it's now about 40% below its previous high want you to go back to the cumulative plot and notice oops bitcoins.
+Max drawdown is actually.
+The figure makes it probably seem like it's early 2021 but what did I note that in these cumulative.
+Return figures, the later I go and time i'm dealing with bigger and bigger amounts of money, and so it is visually more distinctive, but if we look at.
+It was at a number 50 and it got down below 25 that's a very big loss compared to in 2021 were dropped, so this maximum drawdown is relative and those cumulative return plots usually make the later dates look more dramatic.
+Actually we're going to pause right there.
+
+Speaker
+For a minute.
+
+dent
+Because we want to go on to our.
+Return D compositions i'm actually going to show one other DEMO.
+In this DEMO folder I also have some metrics on equities not going to go on everything here and i'll note that you can't run this yet.
+i've built a function that prints this nice table this looks a little bit like the function, I put in homework solution, one.
+But in homework solution, one I stopped at the men and the Max here i'm going further and i'm printing this value at risk and the conditional value at risk.
+I don't show what these are but you'll notice apple Amazon Goldman Sachs JP Morgan Microsoft spy and then what are all these things that start with X, these are etfs that represent a sector of US equities consumer goods technology, healthcare, etc.
+And what I want to show you here is that I can print my men my Max I can get my value at risk what does apple's value at risk here mean.
+i've defined evaluate risk 4.05 the fifth percentile what does it mean that it's negative point one four can anyone put that in a sentence.
+And I didn't tell you the time period here and I don't think I printed it i'd have to double check what the time period was but let's say it's I don't know 15 years of data What would it mean that apple's value at risk is negative 14.4%.
+yeah shoot them.
+that's right, so in this time period there's a 5% chance that apple's return will be worse than 14.4%.
+Now, what do I mean their return over a day over a week over a month I didn't tell you guys that, but this is monthly data, so it would be here's a 5% chance that apple will have a month.
+With a monthly return worse than 14.4 money, what does the 24.95 main on the on the conditional value at risk, any thoughts on that.
+I know many did you have your hand up earlier oh i'm sorry, would you like to respond.
+yeah exactly right and remind me your name.
+say it one more time gentlemen okay i'll work on that Jonathan.
+So you're writing your explanation that the conditional value at risk the expected shortfall for apple being negative 24.95% means.
+Get when apple is in one of those worst 5% of months, we could line all those months up, and we know that the best One of those is negative 14.4.
+Because that's where the boundary was that's what put you into the worst 5% well now let's line those up and take their average and like you said, the average of being in those worst 5% of months is losing 25% so if we looked at the s&p 500 here.
+we'd see that losing seven and a half percent means that the s&p is in one of its bad months as defined the fifth percentile.
+And that, given that it's in one of those bad months it averages being down about 10%.
+Okay let's keep going what I really want to show is this function that I built which i'm you guys don't have so you'll you'll figure out how to calculate this kind of thing in the homework.
+But I want to calculate the Max drawdown Oh, and here I forgot the data for the single name equities is going back to 2000 so it's about 20 years of data.
+And we see that apple's Max drawdown in this period 79% amazon's is 91%.
+These single name equities went through some rough times when did they go through these times in the tech bubble of the early 2000s so in 2000.
+apple and Amazon both peak right around March and they crash hard they bought them out Amazon crashes quickly within six months it's lost 90% of its value by late 2001.
+And Amazon does not recover to its previous high until 2007 so its maximum drawdown last 2600 days, those are not trading days, those are calendar days.
+apple crashes and bottoms out in 2003 it doesn't recover until 2005 Goldman Sachs, on the other hand, it's Max drawdown is 68%.
+Not during the tech bubble, but during the financial crisis, this is when it gets that big injection of 5 billion from Warren Buffett that we brought up in the market series, and it doesn't recovering till 2016 the last almost 10 years this maximum drawdown.
+JP Morgan their their biggest crashes actually in the in that kind of tech bubble era same with Microsoft the s&p 500 Max drawdown is 50%.
+And it's in that financial crisis period you'll note that the other DEMO comparing it to bitcoin showed a maximum drawdown that was not so bad, but that's because the data only went back to 2015.
+So we hear the ctf is still in a maximum drawdown or sorry it, it has not recovered it lost 64% from 2014 to 2020 and it has still not recovered to its previous highs.
+Okay, we can exit these demos let's talk a little bit more about our linear D compositions.
+So, first I want to talk about some other ways to evaluate performance assets might have an impressive expected return, but we want to know how that compares to the risk.
+Otherwise a fund manager might get high expected returns just because they're taking on high risk we don't want to reward that we may be happy to take on additional risk for return, but we want to be aware that that's what's going on.
+it's obviously a very different thing if we're getting higher returns for higher risk than simply higher returns due to skill.
+mean variance analysis, obviously, is one way of dealing with that that gives us the sharpe ratio and it penalizes mean returns for volatility, we could eat equivalent we do variance.
+On the other hand, a linear factor decomposition of an excess return our eye on to some factor X, is where we regress the time series of returns.
+And again i'm using the tilda to mean excess returns, we could do this for total returns, it would make no difference.
+we're going to mostly deal with excess returns because they're more convenient for pricing, but no, I could add the risk free rate on to this, it would make no difference.
+I can regress that return on to this factor X, maybe X has more than one thing in it so X here is a vector potentially This could be a multi multivariate regression.
+And what this model would say is that the variation in the return on I I could be a security, a portfolio of fund it's our object of interest that the return variation and I can be decomposed into the variation of X and the variation not explained by X epsilon.
+Now, if these factors are useful to us, they should I say, should, but I really just mean we might desire that we've chosen some factors X that lead to a higher squared in this regression, if I have a higher squared in this regression, it means that my risk factors X.
+make up a lot of the total risk in my target in my object of interest by.
+On the other hand, if i've chosen some factors X and they don't lead to a higher squared, then it would mean those factors may be interesting in the market, they may be sources of risk to other things, but they really do not coincide with much variation in my target.
+Yes, ma'am.
+So why do I use the subscript T here, I really just mean that this is a time series, so I have our tea let's imagine monthly data so i've got returns across various months let's think of that as a column.
+And then i've got some factor X T over various month and other column and i'm going to regress RT on X.
+y is X a vector.
+alpha.
+Oh i'm sorry beta Why is beta vector yeah.
+So X is a vector potentially so what so if if I then take the time series X is a matrix so beta is potentially a vector i'm really just saying this could be a multivariate regression.
+There could be three axes and there could be three betas i'm writing for a single period in time, a single month.
+So if there are three axes than X is a vector a three by one vector, but this is happening in across every period of time, so this is just our typical multivariate regression what might be a factor X that I might use here.
+Well, it may well be a return series, so I don't write it as our J or our X, but I could in fact we're usually going to use return series as our risk factors.
+I don't have to but that's usually going to be what's interesting so if i'm looking at those equities that I just showed what my return what might be a good risk factor to think about in driving variation of JP Morgan or Microsoft or those etfs.
+Market, I heard yeah I think in many models, if not most models, the number one risk factor i'd want to look at is regressing them against spy regressing them against a broad equity index.
+What if i'm looking at the return on some commodities, maybe I want to regress it on the return of crude oil, maybe I want to regress.
+Currency on the return of the US dollar maybe I want to regress Microsoft, not just on spy.
+The broad equity index maybe I also want to regress Microsoft on a basket of technology stocks in that case i'd have multiple axes now what am I doing here i'm trying to understand the variation of my target in terms of the variation of these factors, why is this useful.
+it's going to be useful for lots of things that we do for risk management.
+but also for simplifying or models, where we have 100 stocks and we really want to understand them as a in terms of five key factors.
+Because we're going to say, maybe a set of key factors drives most of the variation in a larger number of returns, if there were equities, maybe the return on the s&p 500 along with the return on a few industry baskets is driving a lot of the variation.
+Maybe I have saying your homework case, maybe I have a hedge fund and its return series is really mostly driven by a basket of equities and a basket of bonds and a basket of commodities and maybe I can use those to explain, most of the variation in the hedge fund.
+Now this linear factor decomposition is not saying anything about pricing, it is not a theory.
+That will be a stark contrast to what we do in about two weeks, this I need no theory behind this For those of you that well very little.
+For those of you that did the August review, you know that a regression is just a linear decomposition I can view it as a linear projection.
+i'm allowed to project ri on X if I want the theory, the structure would come if I want to make causal statements about X, causing our or it might come from the idea of.
+Then interpreting the beta is the causal effect but i'm not saying anything causal i'm saying when X moves are tends to move as well.
+am I saying that my return is caused by the s&p 500 if I use that for X no but as a risk managers it's still useful to me absolutely maybe it's not the s&p 500 causing my variation maybe, something else is causing the movement in the s&p and it's causing the movement in my target.
+Well, as a financial economist that's very interesting, but as a risk manager doesn't matter to me if the SMP moves my thing moves so that's good enough that i'm going to be able to use that to track the variation.
+So I want to be really clear, this is not a model, this is not the CAP em if you don't know what the CAP m is that's fine This is absolutely not it, this is statistical decomposition of risk daria.
+Okay, so why am I using LSD i'm using it to contrast with when we do deal with pricing things like the CAP, so I want to keep them very distinct, so we are using we're going to use lls regression to estimate this equation.
+Oh well, this is a tool of estimation, the question is where did the linear equation come from it comes from a model.
+and for us this linear equation is coming from a model of risk that we are going to say, maybe a lot of the risk in this target can be explained by risk in these factors, I have to choose what the factors are so in that sense it's a model.
+Maybe they're not exactly linear, so in that sense it's a model, but once i've chosen the model how am I going to estimate it unless.
+you're getting into options pricing, most of you would a linear model be the best way to explain the risk of a call option no it's nonlinear for a portfolio is a linear model, going to be a good way to explain risk yeah a portfolio is a linear combination of assets.
+Is one equity is you know Microsoft stock exactly a linear combination of other tech stocks no but statistically does it work well as a model, absolutely.
+So a portfolio is linear literally a linear model, a call options definitely nonlinear, but when we deal with the relationship between various equities when we deal with the relationship between various commodities.
+They are not structurally or causally linear but statistically we're going to get great results out of this.
+So this is going to be the workhorse this is going to be the starting point for understanding the risk of one security in terms of other securities.
+We have these simple what I would call unit various risk measures, what is the unit very at risk measure it's a measure of risk of that asset just by itself volatility value at risk maximum drawdown.
+This is a multivariate measure of risk, what is the risk of this target relative to something else, what is its beta what is its alpha.
+yeah can you remind me your name.
+say again, Carlos yes.
+Yes, why did I write X here, instead of our Carlos says, could we use, you know macroeconomic risk factors we could.
+it's going to change, maybe the interpretation in the if I use returns from other securities, then the results of this regression may tell me hey wait a second maybe I can hedge the target with those other securities.
+If I use non security returns like unemployment or inflation or things it may still tell me hey when inflation goes up this hurts my portfolio, or when.
+Unemployment goes up this hurts my portfolio, but I won't be able to use that to directly hedge I can't buy unemployment is not a security return, so I can't directly hedge with it right.
+But you're correct the reason i'm writing the notation on X generally is because I could use financial data I could use maybe macro economic data here.
+we're going to mostly use financial data, because if I find good factors that are also returns they're going to tell me exactly how to do the next section of these notes hedge or track.
+I can use the word replicated instead of track.
+So I would hope if i'm getting a tight if i'm getting a good explanation of the risk here that I might get a higher squared.
+What is alpha telling me here it's telling me how the mean return of the target of the left hand side the rigorous and how was that higher or lower than the mean return of the instrument of the aggressor.
+And this is really tough because we're regressing something of interest on some factors and then talking about Alpha and beta.
+So those of you that know about the CAP em or know about linear pricing models it's going to drive you nuts, it feels like that's what we're talking about we're not.
+That is a question of whether something is priced correctly it's a question of whether we can forecast a price we're talking about.
+Can I understand why this portfolio, or why the security moves, why would I want to know that, so I can hedge it, so I can track it, so I can as a portfolio manager know i've got 1000 things in this portfolio which things when I wake up in the morning, should I look at first.
+Maybe my object on the left, maybe it's a portfolio with 1000 instruments 1000 bonds.
+A I wake up, I can't you know I could scroll through all 1000 but if I had a good model here I would know you know what most of what moves the returns.
+are three key factors what happened to interest rates which Carlos would be an example of it not being a return, you know the yields.
+Are not returns, or I can look at maybe what's happened with some other measures, and that would tell me, mostly whether my complicated portfolio went up or down so.
+alphas going to tell me, is there some mean return that is unexplained by those factors, not for CAP m reasons, but just for is the trend of the Left higher than the trend of these instruments, the vector beta is telling me how to combine those instruments.
+beta is telling me if I had multiple axes, how should I combine them to try to hit the target and they're telling me how much is the target related to those instruments.
+Then we have the residual, which is the part of this target that is just unrelated linearly it's linearly unrelated to our factors X.
+Now interpreting alpha is tough because again we're going to think about this differently in a pricing model.
+So high alpha could mean a pricing models bad, but that's not what we're talking about yet what it could mean is that our performance is good, relative to those risk factors a high alpha would say our.
+object of interest what i'm client our target has a higher mean return than the bundle of risk factors that mimic it.
+That seems good or maybe it's just looking like it's high because I really should include some more factors, maybe if I included some more x's that would capture what is just going to Alpha and epsilon.
+there's this idea that maybe a high alpha means you have skill and investment but say I run a hedge fund.
+And you use some instruments like bonds and stocks and commodities, to try to replicate my hedge fund that's what you're going to do in your case.
+And let's say that my alpha is still positive it means your attempt to replicate me with those risk factors couldn't couldn't replicate my mean return.
+alpha is this portion of mean return, you have not replicated that could mean it's because i'm skilled.
+i'm trading equities and bonds and commodities, but i'm doing a better than you can so when you try to replicate me statistically you're not replicating my skill.
+But it could also mean you're using stocks bonds and commodities and you just don't know you need to throw some currencies in that regression and that's what's driving the rest of my alpha.
+So this idea is known as performance attribution should I attribute a port a return of a security or have a portfolio.
+Should I attribute that return to these risk factors, or should I attribute it to this alpha plus epsilon, which is the unknown mysterious part of what you're doing and i'm simply pointing out that any regression I run can only answer that question with respect to the factors I included.
+And if i'm a hedge fund manager, maybe I would love to have you run the regression just using the s&p.
+Because it will leave some Alpha and make me look good when Actually, I know that i'm also using commodities right so there's a question of how many risk factors were checking their.
+I could get a large alpha due to luck my return really as well explained by X, but I had some extra luck in there, or it could be that it is skill I trade single name equities I go long some equities I go short some equities.
+I don't show you what my positions are all you see is the total return you run a regression on it and you can't mimic it.
+That might be because i'm skilled at trading equities long and short I want you to know, and this will come up in the case that using this type of regression to understand my risk is really a top down approach.
+If I hold a portfolio of 100 equities, then, if I want to know what most impacts that maybe I should just look at the actual 100 equities, and I should start with which ones, have the biggest weight.
+This approach says, I don't need to know what's in all 100 equities, I can look at the total portfolio return, and I can regress it against these factors, and it will it will reveal to me.
+Whatever you're actually holding you behave as if you're holding these factors X.
+Now, as a hedge fund going to report their individual positions to me know is a large portfolio from asset allocators Am I even going to understand all their positions Probably not.
+But this top down approach can be quite useful to understand the essence of what's in that portfolio and again it's a question of how it behaves not whether i'm literally holding those positions, so this is known as a top down approach on that.
+trainers measure is another relative measure, so we talked about getting the Alpha getting the beta we might want to take the expected return of the target.
+And instead of benchmarking get against volatility that would give us a sharpe ratio, instead of benchmarking to volatility let's bench market to beta.
+We could do this for any risk factor but trainers ratio really refers to when we do it for the risk factor that is most popular to look at.
+Our return on an equity index, so the s&p 500 as i've mentioned before, unfortunately, maybe this gets referred to as quote the market, so I use em but the market really means the equity market and it means a broad index of the equity market.
+So that would give me trainers ratio would, why is this ratio important Why would it matter well it matters, if you think market beta is a more important measure of risk than volatility.
+Is it well, it depends on your objective you're a portfolio manager, do you care about volatility, or do you care about cool movement with the equity market.
+Either could be reasonable, maybe you hate losing money right when the equity market loses money because that tends to mean it's a really bad situation.
+Maybe that means you're losing other funding and you, you have financial difficulties, and maybe you should be worried about market beta more than you should be worried about volatility and maybe you should be maximizing the trainer ratio, not the sharpe ratio.
+The information ratio is even more widely used the information ratio is it says Instead of rewarding you for me in return i'm going to reward you for alpha.
+What is alpha.
+In a sentence.
+conceptually.
+alpha is the portion of mean return, that is not explained by X.
+So it's that unexplained mean return hold on i'm not going to reward you for me in return.
+If your hedge fund just involves loading up in the s&p of course you're going to get some in return you're in the s&p i'm going to regress you against the s&p and say all reward you for the portion of the main return I can't explain.
+Now, maybe it's because I should have included commodities in the regression that may be that it's a mistake on my part, but it also might be fine good enough i'll reward you for that.
+What i'm comfortable doing on my own is investing in the s&p so i'll reward you for any mean return beyond that.
+That would be a case where I regress your return against the s&p, and I say alpha is the mean return that you're getting beyond that great I reward that by reward that I mean i'm going to score it high sharpe ratio scores anything with a good mean return and a low Vol.
+info ratio scores unexplained mean return against unexplained volatility what is stigma epsilon here it's the volatility of epsilon that's the unexplained volatility.
+So information ratio is very simple it's the sharpe ratio of the unexplained portion of the regression beta X or in this case beta times the return on the market that's what I can explain alpha plus epsilon I can't explain so let's take the sharpe ratio of alpha plus epsilon.
+what's the mean of alpha plus epsilon.
+Just alpha the mean of epsilon zero and the main of alpha is alpha what's the volatility of alpha plus epsilon.
+alpha is a constant it has no volatility it's just Sigma epsilon be information ratio is this the mean of alpha plus epsilon divided by the volatility of alpha plus epsilon.
+So that is to say, it is the sharpe ratio of the unexplained portion of this regression so in the industry, it is common to pay attention to the information ratio of a hedge fund or of an investment.
+
+Speaker
+it's.
+
+dent
+It avoids the situation where maybe i'm favoring a security just because it's massively loaded into the s&p which we know, has a high mean return.
+The other nice thing about the information ratio is it's telling me.
+what's going to be more.
+marginally impactful.
+Because it's the portion of it's the mean and the vault of the portion that has nothing to do with the market.
+So if somebody shows me their hedge fund and they say i've got a great information ratio i'm going to be more confident it's going to really help my portfolio.
+Because my portfolio is probably correlated to the market and an information ratio being high means that even when I mix it with my portfolio that's the portion that's going to be very.
+That that's the part that has no covariance to what i'm doing so it's going to be more diversifying it's going to be more useful.
+let's actually jump to the demonstration of this so let's stick with these equities for a minute and let's run a regression let's regress each of these equities against spy.
+And i'm going to do this in a function, so this DEMO for you won't actually run, but you can look at it.
+Because i'm going to write a function, so I don't I need to regress apollon spy I need to regress Amazon on spine, and you regress Goldman Sachs on spy.
+I would do that in a loop obviously right or I could do that in a number of ways i've built a function to just do all of that, and to print these statistics for me I regress apple on the s&p.
+The R squared is 28% so that tells me the s&p drive some of the variation of apple but definitely not all of it.
+what's the correlation between apple and the s&p.
+Yes, on a rude.
+say again.
+Did you say point 141 point 4170 that's the beta of apple to the s&p so every for every percentage point the s&p is up, I would.
+predict that apple that same period is up 1.4% that's right the R squared i'm searching for this idea if anyone remembers from August.
+These regressions are all unitary regressions i've regressed apple on the s&p i've progressed to Amazon on the s&p and so on.
+You know unitary regression the R squared is just the correlation between the two variables squared so I I have this sense, then, that.
+The R squared being point two, eight means apple in the s&p have a correlation of the square root of point to it right, so there are a little over 50% correlated so that's definitely substantial examiner does mentioning the spy column is my spy beta.
+that's different than the correlation because it accounts for unit size correlation normalizes things the beta says you're up 1% in the s&p than apples probably up 1.4, why is the beta bigger than the correlation because apple is more volatile than spy.
+What is the information ratio saying here.
+it's saying that there's a big portion of mean return that spy cannot explain about apple is apple just riding along with spy to those high main returns know 21% per year of mean return cannot be explained by spy that is a huge amount obviously apple's done very well over this period.
+That portion of the mean return 21% a year is totally unexplained.
+However, apple's also volatile stock and it has a lot of volatility that that's unexplained and if I take the 21% Alpha and divide by the unexplained volatility I get an information ratio of 63%.
+If I hold apple and I try to hedge out its exposure to the s&p what will the sharpe ratio be.
+63% that's the portion that's totally unrelated to the s&p.
+What is the train or ratio mean here.
+it's the expected return of the stock divided by the beta.
+So point 192 saying apples getting a fairly high expected return per unit of beta I think that this is not annualized so these these numbers are monthly.
+let's go back to.
+let's see here.
+let's go to the spy bitcoin example.
+Okay So here we regress bitcoin on spy.
+Here is what you would get out of the stats model package.
+What we see is that the R squared of spy or sorry of bitcoin on spy is point 021.
+The R squared is point zero to one, so what is the correlation between bitcoin and spy over this period that holds the square root of that right so it's a little over 10% correlated.
+somewhere around 15% correlated pretty low, which may be interesting because there's been a lot of controversy around bitcoin of whether it's actually a diversifier.
+Because it crashed, the same time, this and he crashed it coded so there was a lot of discussion around wait a second bitcoin was supposed to be this alternative asset it's supposed to be a diversifier and then it crashes, the same time as the s&p.
+Well that's an interesting question and we'll talk more about it with nonlinear risk measures these these crash risk measures, but if we look at correlation even including that period, they have had very low correlation only about 15%.
+The beta, on the other hand, is quite a bit higher so this number here is stats model.
+I know sorry I don't know why this keeps dragging the window this point six one is spies beta when we regress it bitcoin on s&p on spy.
+Why is the beta so much bigger than the correlation R squared is tiny it's point Oh, to the beta is point six one every percent the s&p is up, we think bitcoin is up Point six 1%.
+Well, yes, and my me your name, one more time that's right chin chin chin.
+yeah so one thing Tintin is noting is who knows if we should even trust this correlation they're both trending up pretty hard in this period, not sure that's indicative of the future.
+On the other hand, these are daily correlations, so there is room to capture difference in days one thing i'll notice that, if they even have a little bit of correlation bitcoin is how much more volatile than spy.
+I think it was wasn't it four times as volatile for five times as volatile so that means, even if they're correlated correlation is about one standard deviation up.
+One standard deviation up it normalizes but if bitcoins returns or four or five times as volatile, then the beta is going to be four or five times as big as the correlation.
+So the correlations about 15% i'm i'm inferring that by taking the square root of the R squared.
+I think it's about 15% correlated bitcoins about four times as volatile, so the beta is going to be about four times point one five that gives me about Point six.
+If you're not following that that's Okay, but trying to get us comfortable with pound R squared relates to a correlation relates to a beta they're all closely related.
+Is this relationship, statistically significant.
+Well, we would love to see a ti staff for that the stats model package does print us a T Stat if I look next to spies Point six one, I see a ti Stat two columns over of 6.084 and a P value of point 000.
+And a confidence interval point 412 point eight oh yeah this thing is definitely not zero the beta is statistically significantly positive, even though the correlations fairly weak.
+How about the Alpha the Alpha is that constant above it's this point oh three, six, remember this is daily data.
+So point oh three, six looks like a pretty small mean return that's per day for 252 days a year that's fantastic is that, statistically significant yes T Stat is 3.2 that's telling me the bitcoins mean return can definitely not be explained by the SNP no surprise there.
+let's keep going if you're benchmarking me to calculate my information ratio if you're going to run this regression to assess my performance.
+I might hope that you assess me against a very easy set of factors hedge funds or other funds may try to manipulate their benchmark they may say our benchmark is this.
+Is some benchmark that has a lower mean return, but then they're actually trading very different than that benchmark.
+If you then use that benchmark they'll have a high Alpha and they'll pass it off as skill when it's actually because they've just given you a benchmark that really doesn't make sense, so if I see a benchmark, I want to see a high correlation to that benchmark.
+i'd like to see a high correlation and high alpha because that would tell me, you really do behave like the benchmark, but you somehow do it with higher mean returns.
+If you run this regression and as a lower squared and a high alpha then it's okay fine it doesn't explain your mean returns, but it really doesn't explain your risk either, so why should I care.
+So we might want to, you know as quants we don't have to just each fund is going to report their benchmark, but we can do this top top down regression and check does it seem to make sense.
+Okay, to conclude we're going to motivate a lot of what's going on in the case with this idea that the linear decomposition is how you're going to do optimal hedging.
+or replication.
+Now we don't have a lot of time, but we don't need a lot of time because the result is what you've already seen.
+If you want the optimal hedge of your target using some instrument X, how much do you think you should invest in X to hedge.
+You should run the regression we just ran and beta is exactly what you should hedge.
+What if you want to replicate the target with the instruments X, what do you think you should do.
+run the regression we just ran and beta tells you how much to use to replicate the target, so this result is going to be is going to be easy.
+I can motivate it by showing you mathematically it's optimal i'm going to actually skip those slides it's it's the sketch of a proof.
+But we can cover that in the ta review so i'm going to skip about five slides here to say, if you wanted to get the sketch of a proof.
+You would see that the optimal hedge ratio is the correlation between I nj multiplied by the ratio of their volatilities.
+Does anyone remember what a correlation multiplied by the ratio of volatilities is, it is the or less beta exactly the or less beta So if I just run the regression, it is the beta.
+So if you want to know the best way to hedge if I run let's actually go to it if I go back to spy bitcoin if I would like to optimally hedge my bitcoin position for spy risk for every dollar i've invested in bitcoin what should I do with spy.
+I should go longer short spy.
+I should short it i'm gonna i'm going to hedge by taking the negative of the beta the beta is telling me how to replicate it.
+So if I want a bitcoin position that is completely hedged to spy then for every dollar i'm long spy I should short Point six one dollars of sorry for every dollar long of bitcoin I should short Point six one dollars of spy.
+Then I will be uncorrelated despite at that point well I have reduced my risk a lot.
+Not a ton we said this doesn't have that high of an R squared not that high of a of a correlation What about what these equities what could what would I do to hedge my position in.
+
+Speaker
+apple.
+
+dent
+If I wanted a position and apple but I said, you know apple takes a lot of overall equity market risk I don't want that.
+Then I could go long apple and I could hedge my exposure to spy i'd run this regression I would see that the beta is 1.4 and I would say, for every dollar i'm long apple I need to short 1.4 dollars of spy.
+that's kind of strange, why do I need to short more than $1 for $1.
+Because they have fairly high correlation about 50% and apples much more volatile.
+let's imagine they were 100% correlated but apple were twice as volatile every time apple moves spy moves up every time apple's down spies down.
+But if apple's twice as volatile, it means when they're both up apples up twice as far.
+Then, my head ratio obviously needs to be two to one for every dollar i'm an apple apples always moving twice as far I need to hedge $2 of spy.
+that's what's happening here they're not perfectly correlated or 50% correlated but apples volatility is much bigger so when they move together apple tends to move further so I need to hedge by doing more than $1 short spy and I apologize What was your name again.
+say again.
+that's right here.
+Oh, Peter okay.
+yeah, this is a great question, so why bitcoins way more volatile than spy so Shin you know it's four times as volatile so shouldn't we have needed to short $4 of spy for every dollar bitcoin.
+know because the optimal head ratio is a function of two things it's a function of their relative volatilities.
+Look at a star here but it's also a function of their correlation so the relative volatility of bitcoin despite is for that ratio Sigma Sigma J is about four, but the correlations so low.
+That the optimal head ratio is going to be quite a bit smaller, whereas for apple that correlation row I think is about point five, and then the relative ratio is is something like 2.5.
+So the optimal head ratio is the regression beta, but this is actually a very useful thing to remember about regression betas for those that don't know regression betas are a mixture of how correlated The thing is, and how the relative volatilities look.
+Okay, so hedging the returns, does it have to be a unitary regression absolutely not I can regress it on multiple things.
+Maybe I want to hold a position in apple and I want to hedge out spy I want to hedge out a basket of tech stocks, I want to hedge out the US dollar we could do that the demonstration here does that, let me get back to the equity demonstration.
+And i'm sorry for the latency here here I run a regression of apple on a bunch of industry baskets What if I want to hedge apple against all of these industry baskets I run one multivariate regression.
+Apples beta to excel be is point to one apples beta to excel Lee is point one, three, those are not separate aggressions there it's a single multivariate regression.
+Then, how do I neutralize my position I go $1 long and apple and I short point to one dollars of X lb I short point one $3 of X le and so on.
+What would happen if I do that, then I will have a net position that is uncorrelated to all of these things so i'd be very neutral.
+And if there was a higher squared here which there is a point five R squared i've now neutralized what was driving 50% of the of the variance was driving more you know much more than that of the of the total correlation.
+So my head ratio is negative, of the beta whether that's a single variable regression or a multi variable I can do that in total returns, or I can do it in excess returns really doesn't matter.
+here's the toughest question of this whole exercise of hedging.
+or tracking, this is the question that I get the most from students in the class that's probably the question I get the most about this in industry work from alumni and from interviews, should you include in intercepting the regression.
+mathematically, the result would rely on yes.
+Well, it depends on how I formulate it, it would seem.
+So, depending on how I formulated in the slides actually no regression.
+You could imagine situations, you need a regret or sorry and intercept you could imagine situations, you need to enter in intercept.
+i'm going to give you an answer that's both maybe reassuring and confusing reassuring and that both are reasonable, there is not a right or wrong answer.
+You could include it and intercept or not, so I hope that's reassuring, but it might be confusing of why is it okay to include it in interceptor not it, it will change the regression, it might change the regression a lot.
+The betas.
+So what's the deal, the issue is, are you saying that you want to hedge both the trend and the variation.
+Then, your aggressors your factors need to mimic the variation and the trend.
+You need to make the aggressors do both jobs, so there should be no intercept the intercept is cheating it's allowing you to not worry about the trend about the level.
+And the aggressors only focus on the variation So if you want those factors to really mimic this thing in both variation and trend, then no intercept.
+That would be the case if i'm using a set of liquid instruments to try to replicate a hedge fund if I go to my boss, and say hey I use the six liquid instruments and I have replicated the hedge fund 90%.
+But, by the way, I included in intercept I replicate its variation but their trend is 8% of your higher than mine.
+My boss is not going to be enthused so i've replicated a hedge fund i've replicated everything about them, except their mean return.
+that's not very useful I should have not included in intercept so that the regression would have forced the aggressors, to try to mimic the the level as well.
+The intercept of returns is the mean return the mean return is what causes a trend over time, so if I want to mimic that where if I want to hedge that I need to leave out the intercept no intercept.
+But if I don't want to mimic that if I don't want to hedge that if I only need to focus on the variation then, including intercept have that handled the mean and let the aggressors fully capture the variation yes Chen.
+yeah if you're not including an intercept in this regression Chen has right that epsilon could be large in the sense of it won't have mean zero.
+Everything you're used to about a regression the R squared being between zero and one epsilon having mean zero and being small none of that necessarily applies.
+So, whether you include the intercept in your head your your replication depends on what is your purpose, are you matching variation or you matching trend and variation.
+What is the reason I might include an intercept, even if I wish it, I might say look, I want to replicate the variation and I would love for it to also have to replicate the mean return but i'm going to include an intercept anyway.
+i'm going to give up i'm just going to include an intercept anyway, why, might I do that.
+I wish the aggressors had could do everything.
+But i'm going to throw in an Alpha and just let them focus on variation what's, the reason I might be that.
+it's like it's too much for the aggressors to do both why might that be an Earth.
+yeah and that's the $1 million answer is that I don't trust the mean return of the target mean returns are estimated so poorly a sample averages.
+That, if I set the regression and don't include intercept I better be sure I want the aggressors to chase that mean, because they will.
+And they're going to and they're going to tilt the betas significantly to do it, so what I might worry about is saying like look, I want to replicate this portfolio.
+And I want to replicate everything about it with these aggressors, but the problem is that only have five years of data we're not always gonna have 20 years and even with 20 years the estimates are bad.
+i've got five years of data Lang really trust that the mean return over the last five years is going to persist in the future.
+Well, if I don't trust that maybe I shouldn't tilt all of the betas to chase that mean return, because you can try this yourself with regressions if you include an intercept versus not including intercept.
+For many cases it depends on the regression it's going to significantly impact the betas so if i'm building the optimal hedge if i'm building the optimal replication.
+I need to decide, am I trying to mimic the means and even if I am do I trust the means in the sample if I don't trust them.
+throw in an alpha so that the betas don't waste their time so that the betas don't bias themselves toward that For that reason, I would say that in practice.
+I much more often include an intercept on these types of regressions because it is rare that I trust that the mean the sample averages between the two in my five year sample or something are going to persist into the future.
+So, why would we hedge i'm trying to get it, this idea that if I had with negative beta my net holding is the equation on the bottom i'm invested in ri.
+I short beta times the factor in this case the market, I short beta m sorry beta times the return on the market, what does that leave me with just Alpha and epsilon.
+It leaves me with whatever the mean return was after the hedge that's Alpha and it leaves me the variation after the hedge that's epsilon So what is the sharpe ratio of the hedged position, you should recognize that it's going to be the information ratio.
+The information ratio is in a sense, the sharpe ratio of the hedged position.
+last thing i'm going to say you could just reverse the perspective don't short beta times the factor use that as your building block and it will give you the optimal replication of the target.
+I wish I were invested in our I think of a hedge fund I don't even know what they're holding, but I do see their monthly return series.
+And I run a regression of five years of that hedge fund on the return series okay we'll call it a night, thank you, everybody see the ta review see the office hours.
+One second.
+Transcript Auto-ScrollPowered by Otter.aiTM
