@@ -1,0 +1,970 @@
+Okay welcome out, I hope that the sound is picking up Okay, I apologize that I probably won't be able to pick up sound well from you, so when you make comments.
+i'm not going to be able to I think run mike's in such a big room so when you make comments I mean I need you to really speak out okay.
+With that.
+I want to mention that this course, to me, is really exciting because it's the foundation of most quantitative finance.
+So I think that this course is about as broadly useful as possible, given how many different areas, you can go in as a client in finance.
+we're going to get into a lot of classic results we're going to get into a lot of the core essence of what quants do.
+Whether you're in portfolio theory risk management algorithmic trading whether you're doing that in equities or commodities or currencies or crypto currencies we're going to get into all sorts of things.
+and in doing so we're also going to use a lot of interesting technical tools so though this course is going to lay a lot of foundations, we will immediately be in to the the tools.
+And the applications that dominate the field of quantitative finance so that's not always the case, many times.
+We find in a in a field that you learn a lot of foundations and it takes a long time to get to what's actually being done in the field we anticipate getting into that basically every week that we're doing our case studies that we're talking about these tools.
+Now, this is a big class.
+And I think that's exciting that gives us a lot of opportunity for participation for learning from each other for getting to know a large network as we do that again if I think we'll just need to be mindful of I want this to be participatory you're going to need to speak up.
+With that let's go ahead and and talk a little bit about an overview of the course before we get into some more of the specifics.
+So you all, should have received a canvas course invite.
+And in that you'll see these notes are posted so don't worry about taking further notes on on any of what i'm about to talk about.
+So why this class I think we've talked a little bit about the fact you're going to do the foundations of clump finance a lot of the classic results, which would include mean variance optimization portfolio attribution.
+Factor models for decomposition factor models for know arbitrage pricing we're going to talk about classic trading strategies, including so called carry strategies.
+dividend price strategies macro forecasting we're going to talk about dynamic strategies, whether we're using time series dynamics for volatility modeling like darch or whether we're using that for back testing out of sample testing.
+So we're going to get into a lot of things this like I said, should be I think at the core of what a lot of you will do in your summer internships or in your first jobs.
+i'm happy to get a lot of interaction with our alumni who seemed to have a lot to talk about from what what we end up covering in this course.
+Now this course, we will get technical, we will talk about interesting mathematical results, but this course is meant to be suitable and interesting.
+for students from a wide variety of backgrounds so most of you here are in the master of financial mathematics program some of you are not that's okay.
+But this we're going to use technical tools, but always with a focus on applications so most of you here already know me and you've heard me talk about the fact.
+That when we run into a result we don't know we don't want to go chase down the whole you know read a whole textbook on it we're going to take key elements of linear algebra statistics regression time series optimization etc finance, you know basic knowledge of markets.
+So we're going to do that, but always with a focus on application you're going to see in this class i'm not going to spend a lot of time on proofs in fact in our first topic i'm going to put all the proofs in the appendix.
+they're interesting mathematically there's some classic results they're not very important for our application, because in in true application it's going to be much Messier and none of the formulas will hold up so we're really going to focus on what we need to take away for that application.
+So we have some objectives we want to deal with portfolio attribution that's the idea of figuring out why a portfolio is doing well why it's doing poorly.
+What other factors, what other portfolios, does it relate to this is how you get judged as a as a fund if you're running say a hedge fund or a mutual fund.
+attributions important if you are the asset manager and you're selecting how to allocate your money to various groups or instruments.
+we're going to talk about risk scenarios So how do we do, how do we measure risk and how and.
+Very importantly, do we think about various scenarios which portfolios would do well how we can make them do better we're going to do replication and decomposition, how can we replicate a portfolio with various securities, how can we decompose it into it.
+into its key factors know arbitrage pricing is going to start with something as classic is the CAP em but we're going to go into the the key know arbitrage pricing models used today.
+These are going to be used to try to help us understand which securities have high relatively high prices are low prices, thus meaning which ones have high expected returns or low expected returns.
+we're going to do some forecasting models These will include using time series regression, which is still very important, in particular, it will include using so called.
+regime models, also important and popular, especially in slightly less quantitative areas.
+And also quantitative but i'll explain that comment in a few weeks we're also going to look at some machine learning tools used for forecasting, including things like regression trees random forests neural networks.
+And we're going to do portfolio optimization I list at the bottom, but we're actually going to touch on it today because.
+In order to see all of these things we're going to go through kind of a classic example with mean variance optimization but ultimately we want to get beyond that we want to be able to think about optimization and a lot of customized specialized settings.
+So the kinds of tools that we go through here include the obvious will use results from linear algebra and regression and time series.
+But I wanted to highlight a few that may be new for some of you, and may be very comfortable for others will use some parametric and non parametric methods.
+If you don't know what that means that's okay it's really about the idea of how much structure to impose on a statistical problem, the more structure we get it.
+The more the data can give us back what's the problem with that, what if we give it the wrong structure than the data is going to give us back bad results.
+So some things we do will be highly parametric and other things we do like maybe assessing crash risk or tail risk will need to be a little more judicious a little more semi parametric or non parametric.
+we're going to do plenty of Monte Carlo simulation but we'll think about mining crop Monte Carlo simulation broadly.
+Do we simulate returns just from historic returns that's the typical way to do it, or can we generate some processes to generate.
+to simulate returns to see about the performance of our models we're going to need dimension reduction, whether that's through careful model selection meaning, we need to put in, we need to make the models.
+Just complicated enough to give us meaningful results and no more complicated than that well whether that's through.
+various ways, including something like principal component analysis, but also other techniques LASSO and, as I mentioned, will touch on some machine learning techniques that I that I already mentioned in the forecasting.
+So in quantum finance what's the idea, we need to know the market, we need to model it mathematically.
+let's start right there so we're going to know the market by working with real data every week you're going to work on real cases every week when I say real cases based on real firms real problems those cases.
+aren't important and that i'm going to test you on did you memorize who the manager of dfa was in that case, what What was their name.
+What year did the case take place, I don't care about things like that, but it's really to give some color and some context into these markets so that we can have Richard discussions about why this stuff is working, or why it's not working.
+So I encourage you to read the cases and get to know them in some sense.
+it's a way that students can go above and beyond, because i'm not going to test you rigorously about some of the market detail in those cases.
+But it's going to provide context, I think, will serve you very ritually i've had you know many, many alumni in the past.
+Talk about getting jobs based off of knowing these cases they'll go interview with the firm and sometimes even say oh yeah I did a case on your firm.
+and be able to talk intelligently either about the firm itself or about problems that the firm finds meaningful.
+For some of you, if you haven't been much in finance this is going to be a great way to immediately get something to talk about to be able to say two three weeks from now i've worked on real you know projects that that investigated some issues with this firm or with that that issue.
+I then we're going to model it mathematically I said, well, here, this is a multi disciplinary class I love pure mathematics it'd be great if we could spend.
+All of our time on that we just can't so we're going to take the results we need we're often not going to spend a lot of time deriving are proving them we're going to kind of take them and use them.
+we're going to be careful, make sure we know where the weak spots of those mathematical models are especially in this in this first week we're going to estimate those models statistically, because we need to know whether the mathematical models are fragile with respect to uncertainty.
+We talked about that for the financial mathematics students in a few seminars, including last week and that's going to be of immense importance right off the BAT today.
+we're going to implement all this computationally we're going to use Python in this class sometimes I have students ask if it's okay to use.
+Our or maybe matlab it is, but if you don't know Python there's no better no better time to get to know it then right now.
+we're all going to be using Python so it's just going to be more efficient, for you to do so as well, and like I said, if you're a little new to it, then even better you're gonna you're going to learn it.
+In doing that I don't want to scare anybody off it's Okay, if your if your experiences a little bit thin and some areas of math or some areas of statistics or markets or Python.
+But what I need from you is a commitment to fill in those gaps so again 90% of you are very used to these ideas, because you've heard a lot from me in the in the past six weeks.
+Probably too much, but I promise i'll give you a break after after this quarter.
+we're going to then communicate our results so i've mentioned that I rarely worry that you should have known one more black box or one more formula.
+I worry much more can you communicate about the things you've already learned.
+So when you're going off to an internship or to work or graduate if I sat down with you in my office, could you communicate with me effectively about what the five factor model is, could you communicate effectively with me.
+about how we think about carrie return strategies, something we do in this class to try to build that a bill to try to increase that ability.
+Is we write up our homework in and an actual right up, so I don't want a messy scribble of various proofs or a messy trail of excel formulas you're going to write up your solution.
+And it can be in a Jupiter notebook and it can show the Code and the results that's fine, but I want to see in certain cells, where you describe what the point was what What did you learn from that analysis, what is the takeaway.
+Then, when we get together in class, we are going to discuss these cases, not in the sense that it's a ta review to go over the solutions.
+i'm not going to compute through those with you you'll have lots of other chances to do that, but we're going to discuss them because they're meant to generate a lot of our.
+curriculum and a lot of our learning so these cases are at the heart of our curriculum they're like the lecture notes.
+text of the course, something that will consider.
+You know testable material, so we will spend substantial time each week talking about what came out of those cases and i'm going to ask you.
+and your homework groups to be able to respond and to put your solution on the screen and to talk a little bit about what you got out of it so working on communication communicating with each other, is going to be a really important part of the course.
+So you already know that there are many career areas that you could go into we talked about that and i'll wrap up with whom I again 90% of you already know that.
+My name is mark Hendrix i've been teaching for a number of years at the booth school of business, the Department of economics in here in the master financial mathematics.
+And that i'm the associate director in the master's program and i've done industry work, particularly with client research for hedge funds, but also other.
+Consulting work particularly around whether it's data science for non financial firms or risk management or financial firms.
+So i'm looking forward to a great quarter and with that let's go ahead and talk a bit more about the course mechanics themselves.
+This may be the you know less exciting part we're not talking about quantum finance, but it's important we're all on the same page, so I want to go over a few things here.
+So on the canvas page, you have the syllabus there at the home button.
+And i'm going to go through a little bit of this we're not going to read it, but in order to avoid a lot of misunderstandings later I do want to hit some issues here.
+we've already talked about the prerequisites financial math students are in good shape, from the August review and Sep tember launch you're not a financial master you've gotten permission to take the course and i'm feeling good about your direct.
+Again, we already talked about it's multi disciplinary fill in the gaps were needed.
+are required materials are just the lecture notes and these Harvard Business cases.
+they'll end up costing around 30 $35 for the whole quarter you'll buy those at a link that i'll be sending out in the next day.
+And the lecture notes, which all post so there's no required textbook for this course I wish there were in some sense I like learning from a textbook with.
+I learned well in that format, our problem is that the textbooks that deal with these issues are not quite what we need so most of these textbooks are going to be geared more toward mbas they're just not technical enough.
+But they can be fantastic resources to build up your general knowledge other textbooks are going to be geared toward PhDs.
+they're interesting with a lot of formulas they're not nearly applied enough.
+it's not an issue of whether we could read them and learn them, we absolutely could it's that the next step going off to work in the field, they would not be of much help if any.
+And then there's another segment where we get kind of the undergraduate textbooks just just not enough either way so you'll see that I post references from time to time.
+But those references are really coming from those areas, so if you're feeling, you need a little bit more of the understanding of why are we doing this.
+Some of those MBA type books can be very useful i'm i'm a big fan of some of those.
+If you need a little bit more of the you just want to see it fully laid out of the proof of all of the main variants mathematics great some of the.
+PhD style textbooks may may give you what you need there we're not going to, we need to stay a little bit.
+On top of that, because we're going to be going this other direction, with very technical yet applied and that's why we're going to stick mostly with lecture notes, but i'll provide references wherever I can.
+So what's our course plan we have a number of things we're going to do to try to learn this material and to try to be very active learners.
+Number One is that we have these weekly class sessions, now there are three hours which can be a lot, I understand that.
+we're going to try to keep it active by having a few different segments more or less each week this week's a little different because you didn't come in already having worked through a case study.
+But in the first segment of the class we're going to talk about what we learned out of that case study what we should have learned and what it revealed about the topic of the week.
+This topic is it you know these these formulas do they actually work in practice, what are the challenges How did we fix them what does it mean going forward we're going to talk about that in that first segment.
+And and really think about the application and lessons of those tools in the second segment we're going to lecture on typically on on some new tools and some new objectives.
+And that will be a little bit more standard lecture style where's that first segment i'm going to be calling on you to answer quite a bit, and I will cold call.
+yeah so you should come ready with your group to be able to say something.
+And, and then the third segment we're going to try to explore the idea that we lectured on with some real data.
+So before sending you off to tackle it in a case application let's talk a little bit about some of the exploratory analysis together.
+we'll take a break during each class session sometimes i'll give you a small task to do and i'll lengthen that break instead of being 15 minutes I might give you 25 but asked you to take a look at some data.
+Depending on the week so that's the idea for our class sessions, all of them will be webcast on zoom.
+We have just a couple of students in the class who who are not able to get here yet almost everybody is here, and should be able to attend class.
+I have no interest in micromanaging whether you're sick or whether you have a job interview, and you can't be at class that's why it's on zoom I would invite you to participate if you can't make it a if you really can't even participate on the web of course it will always be recorded.
+But we do care about you know active learning is going to pay off, so I I would strongly encourage you to stay active in your learning.
+Now, there will, at times, be some a synchronous lectures, these will typically be me doing some foundations that I don't think everyone needs but may be of interest to some.
+It might be me going over an advanced topic for those who are interested in a little bit more about it, but those asynchronous lectures typically won't.
+Or it might be me catching up on core required material if we went short on class, we might go short on the three hours for two reasons, one is on exam days.
+we're not going to be able to have three hours of class on top of an exam.
+So that's the big one on the two exam days, we will only have a little bit of time together and you'll do you'll do a little bit asynchronously.
+And then there are other times, where if if the three hours were were sagging a little and energy and there's a lecture piece that I can just put asynchronously we may do that.
+On the reviews we this class it's important to be active and it can be hard to be as active as you want to be in a big setting.
+So we are lucky to have a number of key a's and those teams are going to give you a chance to have a lot of close interactive time the first way we do, that is, with our ta review, which will be weekly, and it will be.
+accessible to both in person, students and and if you need to on zoom.
+Depending on the details, we might do it in one hybrid session we might split it into two sessions, where you can come in person, and then you can also go to a separate session on zoom.
+But it will be accessible to everybody and that ta review is a little different than office hours because the ta will present a prepared material, with the focus on what what and which topics.
+Do he and I think are the most important and, possibly, causing the most confusion, so those ta reviews will go over the real meat of where we see people getting stuck.
+And my teachers are instructed to absolutely dig into homework, so I give them notice friction on talking about how to solve the homework.
+we'll talk more about that in a little bit so that review session will be a great way for you to see where some of the tricky spots are and how to get through, maybe some issues in the homework.
+In that to review the table also discuss questions that you bring but it's it's a little different than office hours and that he will be ready to record and post his best thoughts on on how to do those things.
+So let's go ahead and have jack come up and reintroduce himself most of you already know jack.
+If you're a financial math student who doesn't yet know jack it means you didn't chat with him in the Sep tember launch or August review and I think you missed a good opportunity i'll let him go ahead and reintroduce himself.
+So hi guys i'm jack i'm a second year student in the fight Jana come step on this yeah just in a financial math program and so.
+My experience is I worked at Morgan Stanley this past summer as a strat intern on high yield best and i'll be going back there full time as a strat in February still looking forward to that.
+When it comes to the course I took this course, last year I was in your seats, except on zoom.
+For me last year it's a great course I really recommend being really active on the discussion board, because I think a lot of great thought goes on there, and you can hear kind of.
+Like classmates perspectives and then you know Th and mark will also be active on there, so I recommend going to that and then we'll also have their view sessions and other office hours so definitely.
+participate come to these sessions, I think there'll be helpful and I guess, really, really excited for everyone to go through this course, I found it really valuable.
+Not just for interviews but also kind of understanding the industry and I used it a lot in my work this past summer and i'll use a lot going forward, so I think it'll be a great course for for everyone and looking forward to working with you all thanks jack oh yeah actually.
+Thank you, that was great to hear from you jack, though, the only thing I heard, is it sounds like you're going to quit being my ta in February I.
+am alarmed at that, but we'll chat later so jack is going to lead those ta reviews like I said most weeks, it will be jack and I really think.
+You should make good use of him now there's more actually there, we have two other teachers in the course that you're going to meet.
+Later this week, and they are going to be providing ta office hours emailing with you, helping out on the canvas discussion board resolving homework questions.
+So we're lucky to have three great ta is here that's where if you're feeling you're not getting enough interactive time in the big class session use the ta.
+So if I put on my my associate director hat here I would tell you that one of the things that frustrates me the most historically is that the students under utilize our ta.
+We hire among the best teachers at the university we, we are very thoughtful about our ta setup and so, then it drives me crazy when in many classes, they just get under utilized and students.
+don't learn as much as they could this is your chance to get that close interactive.
+Discussion so jack plus plus are two that you'll meet later this week.
+should provide you a lot of opportunity for that, and I would encourage you to be at the reviews essentially every week.
+If you're feeling totally set that that's fine you can skip it, but I view those as a core piece of the class rather than the way I might view say office hours which we should discuss.
+office hours will be arranged by by me and by the Th so you will have many chances to talk with us, I will have to office hours each week I will have one on zoom on Wednesdays at four and i'll have one in person in my office on Thursdays at four.
+If neither of those times work for you and you want to speak with me.
+You will have the opportunity, you can email me.
+Some of you may chuckle up that right now, because this is the period of the year, where it's a little bit harder to get a meeting with me.
+But during the quarter, I want you to know those are the two primary times that i'll be ready to meet with you at any.
+any time during those hours, but if if you can't meet then or, if you have an urgent issue say with an interview, you should definitely reach out and and I will try to accommodate all of those notwithstanding Sep tember being a little bit tricky to do so.
+Now, in those office hours with me you're welcome to talk about anything the course the lectures, maybe, how it connects to some industry things.
+Those are usually left of the time that i'm going to go through deep, step by step, how to you know solve a homework problem yeah I mean you can ask you can come for anything.
+But we're lucky to have three Ts and they're going to be multiple hours, both on zoom and multiple hours in person, every week with them that's in addition to the ta review we just discussed.
+So if you want to get really into how do we get through this homework either the homework you just turned in or you need some help and some tips on the current homework.
+i'm going to really encourage you to go meet with them in their office hours, both on zoom and in person, so make good use of those.
+don't don't finish the quarter don't finish the year being one of the students i'm talking about who barely saw oddities and then didn't feel like they learned enough.
+The final learning mode here are these canvas discussion boards most of you have heard me talk about this in past years.
+i've had a great experience with students learning from each other on the canvas board from our ta is from me it's the most efficient way to get help fast because me and all the ta see it.
+Even better, you get good comments from your classmates so sometimes the best explanation to the question isn't from us it's from one of your classmates that is in your same position and and maybe has a vantage point that aligns well with with yours.
+it's also a great place for students to post interesting extensions things that they saw on the news that are really related to something we did.
+So please be active in that that's our chance to develop a little bit of a course Community if this were a course of a dozen people we build that community in the class session a bit more by chatting.
+Any class bigger than about 20 people that's not feasible, so if you take the spring elective with me it's not a huge class it's it's an elective it's a little more specialized it's still too big for kind of.
+Seven English seminar style class to really chat that way so canvas discussion board can can really help us build that community.
+i'm going to skip this list of topics for now, just because I think it will make a lot more sense to talk about some of those topics as we go let's talk about grades.
+So those of you that have already heard from me a lot in the last six weeks, the differences, none of it was for grades Okay, now it is.
+So there are four categories for your grades, the first is participation, and it is a tiny amount of your grade it's 4% what does that mean.
+It means that, exceptionally good participation, if you were right on the border could bump you up exceptionally bad participation, if you were right on the border could bump you down.
+We have good students in this program and typically everyone's participation is pretty great.
+it's really just an outlier positive or negatively on participation will be what influences me if you're at the border.
+So when I make the grade cut offs and you're really close to that border that's what i'm going to think about.
+What i've worried here is that you will think I mean that, in a sense that.
+They might mean it and, like an undergraduate class of they're going to track your attendance or they're going to count how many times, you made a comment and class.
+I think that sounds ridiculous we're not going to do either of those things.
+But what I do mean for participation is that, in my view from the ways we see you're being an active learner you are engaging in the class again it's fine if you have a job interview, or you get sick and you can't come on.
+But but you're a known entity to us, you didn't you didn't skip class seven weeks out of the quarter and then you know get really close to an a minus that's knocking influence as well.
+That the Th you know if you're having questions know who you are.
+More importantly, that you're on the canvas discussion board if you have questions or, if you have connections hey I did an internship in this and.
+here's some of the ways that connected or I did the CME competition and I noticed these connections, or I just have a question about homework for does it has anyone figured this out or.
+Actually, I did figure it out here's some ideas on it so participation can mean a lot of things here, and it does not require you to be speaking in class.
+or one of the biggest ways that I would want to see your participation is that when we talk about those cases.
+i'm going to call on groups and i'm going to say hey group 17, can you tell me a bit about what you did.
+Are you guys ready, can you talk about what you did a little bit that's that's how I think about participation, I don't want to over emphasize this, that the.
+You know courses about tallying up marks of raising your hand or how many times, you asked the ti question absolutely not that would not just be ridiculous and distracting it'd be counterproductive.
+it's just this broader sense in which are you an active learner and being one has positive externalities on the rest of the class, so I care a little bit about it.
+That weight of the grade 4% and given that most of you are going to do well on that it's really saying if you're at the border is going to be an influence and influencing factor I think that's true of most classes, they just don't formally state that second component homework.
+A we're going to have homework every week it's there are going to be eight assignments there each worth 2% of your grade are equally weighted and you're going to complete those homework assignments in groups.
+you're going to complete them in groups that i've randomly assigned for really candace is randomly assigned your group will have roughly five people in it.
+that's big enough to lean on each other for help and ask questions small enough that you should feel.
+involved with it.
+your homework group will change, you will be in three homework groups during the quarter, so I don't want you to overly worry if you don't.
+buy with your homework group as much as you would like to if there is some real problem with your group, please tell me.
+But you are going to be in three different groups when I talk to alumni and when i've talked to you know students once they finished the course.
+This typically is something that they'll mention that it's a good way to get to know their classmates early on.
+we've talked about this before, but your alumni network you think about all the students that people have gone before you that's going to be great.
+But the truth is in 15 years by far the most influential part of the alumni network will be your interactions with each other.
+So we want to build those we want to build those across groups that you already know, because you both love basketball, or you both love you know going and eating.
+sushi or whatever it is, we want to mix you up a little bit so that's why I randomly assign there's one exception to that.
+I artificially go and stack all the part time students in two groups among themselves.
+So to start things off if you're a part time student you'll notice you're in group one or two.
+And that doesn't mean you'll you'll again we're going to change the group's twice, but just to get things started.
+In the past I found the part time students enjoy being in a group with each other.
+So that's how you're going to process these homework assignments you're going to turn it in one per group.
+I guarantee i'm going to get that question several times in the next week, so I want you to listen, right here one submission per group canvas knows you're in a group and it's going to give you all the score.
+So one good writeup that's why i'm able to say I want a decent writeup you've got five of you doing this.
+Okay, so why should you know about these homework assignments they're graded for a good faith effort.
+There are two ways to think about homework assignments, are they for assessment, or are they for learning man, I guess it's possible that you know that they can be for both I very much want them to be for learning not assessment, you should be getting very high homework scores every week.
+So that 20% of your grade, I think you should be getting a very hot or sorry 16% of your grade that plus the participation, you should be getting a very high mark.
+It means, if you don't do the homework assignment it's really going to hurt because everybody else is going to get a good grade on it.
+It also means, I do not want you, stressing about whether your group has as much advantage as some other group where somebody already did portfolio theory.
+I hated group work when I started Grad school for some of those reasons that never seems quite fair, whatever else these these assignments are just for learning.
+So you don't need to be stressed, about whether your group was randomly a little bit better prepared than another you just need to worry about whether you're learning from the homework assignment.
+Because eventually you're going to hit a mid term and i'm going to try to test you on the stuff you were doing in those assignments.
+So I hope that the homework is very focused on learning and it's why I tell jack and the other ta is not you know there's no limit on what they can tell you.
+they're not going to do your homework for you they're not going to you know write down all the solutions for you, but if they think it will help your learning to discuss exactly what the problem is getting at they will.
+What else should I say about the homework oh one big thing it's open everything, but you need to list any non course sources that you use, so this is part of academic honesty.
+And you need to be careful on this because i'm gonna let you use any source i'm gonna let you work in groups.
+But there are other courses in financial math that do that take a very different approach to that, and you need to make sure that you don't get loose with the rules of those courses academic honesty is very important.
+To each instructor to us and in the program and we'll talk about in a minute, so you need to list any sources you use we don't mind, I just want to see it you found.
+You know, a really helpful guide online of how to implement mean variance great list it you found some great Python code that helps you think through how to calculate a maximum drawdown list it.
+So document your sources, furthermore, and again don't take this outside this class because other classes have different rules, you can work with anybody in the class.
+I should say you can.
+confer with anyone in the class these homework groups are not walls.
+you're not being put in silos and now you can't talk to the other your friends in the class, I hope you do talk to them about the homework, if I find out that on the weekends, you and your friends talk about portfolio homework i'm going to be thrilled.
+But what I want is that you then go to your group to actually write it up.
+it's no problem, in fact, I encourage you, putting a question on the canvas discussion board and another group chimes in here's how we did it.
+I have no problem with that, in fact I like that I have two problems one clicks I don't want some groups feeling like they you know we're on an island and a bunch of other people confer so the way I want you to confer is on the canvas discussion, because then everybody sees it.
+I obviously if you chat with your friend in the class that's fine, but I would I really like to push you guys to use the canvas discussion board so that it's all in the open.
+The second problem is, if you take Code and the group says here's the code, we used to do it and you go just run that code and call it your own That would be a violation of academic honesty and it would it would create some serious problems for you for your group for the other group.
+This is a bit like high schoolers who think they won't you know their teacher won't notice when you know they turn an essay by somebody else that doesn't sound anything like them.
+Students vastly underestimate how easy it is to notice when people are passing around code okay and it's going to be a big big deal and subs class because you're coding all the time.
+We so when you're collaborating with other groups when you're using the discussion board, you can talk about anything but you can't just wholesale use somebody else's code.
+What if you said i'm struggling to implement the Max drawdown function can anyone tell me how to use this line.
+yeah you can post a line of code and Sean I again that's that's fine The other thing is, if you post on the canvas discussion board i'm going to assume that's good faith effort, because you know that we can all see it.
+So you're not going to run into an issue of you know hey Jackie I cannot believe you posted all that code on the canvas discussion board, this is a major problem.
+If it's on the canvas discussion board, I know that you clearly are showing it to all of us so it's it's hard to run into a problem there okay.
+So I don't want to belabor this too much it's one of those things that most of you, you never need to think about it, a few of you, it could really ruin your education, so I just need you to be careful.
+The title the courses risk management, so I think it's fair to discuss.
+Finally.
+Because this homework is for learning on assessment it's more like in science class where you have a lecture in a lab.
+So we're in a we're in a chemistry room right here we've got all the gear to crazy experiments that's what the homework and those cases are for us that's why in class i'm going to spend substantial time talking about them.
+And I just want to be clear it's not solutions walk through that we do in a ta office hour, it is the lab of our course, so I want you to get involved in those What if you don't get very involved the homework graded for a good faith effort well you're going to hurt yourself on the exams.
+I believe in homework for learning and exams for assessing and if there's something I really wanted you to learn in the homework i'm going to assess it through the exam.
+The exams are going to be open source closed collaboration, so you never need to worry about memorizing a number or you know something absurd like a name from the case.
+You don't need to worry about that it's going to be open source you're gonna need to worry about Do you understand the point of what we're doing, can you implement it.
+Can you make conclusions about the results it's not going to be just post these final numbers, it might be a now explain to me is that a problem for this theory or How does that relate to this model, or do you think we could proceed with this with this route.
+And i'll very much lean into the things that I think you should have learned from the homework so being great at the homework is going to pay off in your grade.
+mostly by making you do better in the exams because, again, as long as you're doing a good full faith effort in homework, I think the class score on the homework is going to average 90%.
+So it's going to crush you if you don't do it if you if your group did it and you kind of tagged along I think it's going to you're going to.
+be disappointed in the exam.
+exams will be distributed on canvas, just like the homework assignments, the link will appear right at 6pm.
+you'll you'll get the questions and the data you'll then submit your answers by uploading it to canvas exams are not by group exams are individual okay.
+So we'll do that here all together at 6pm on a few different dates will discuss in a minute.
+But you'll need to have your laptop you'll need to be ready to use your laptop to complete the exam we're not going to do it with pen and paper.
+The reason for that is because I want you to do the types of things you'll actually do as a client on the exam use real data, and I also don't want you to worry about memorization.
+We already noted the exam is closed collaboration, you may not communicate with any classmates doing so would be a serious and and violation of academics standards, and it would carry serious consequences.
+exam attendance, so the exams will be proctored in person, right here, you will need to have your laptop.
+If you cannot be at this room, I think we have three people I expect will not be able to be here because of some visa issues, you will need to.
+petition to me to take it at a testing Center that I approve of where will be proctored.
+If you can be here, but your problem is a serious conflict on date and time what I mostly have in mind here are job interviews I am thrilled if you're doing job.
+like an accommodation for that I will make an accommodation for some other circumstances, you are welcome to email me if if you're seeking such an accommodation, but this is mainly about job interviews.
+or a serious health issue or something like that, if that happens, you will take the exam proctored with us at a date and time that we give you.
+If you are in either of those categories, you need to petition us immediately as soon as possible, we do not look kindly on petitions that come in.
+You know, two days before the exam that there was something you could have told us much earlier.
+Now for job interviews if you get invited to a super day one week before the exam I get it you didn't know that earlier.
+But you will work with CEO to certify that so that your instructors will give you the the accommodation.
+So if you say i've got a career reason you know, an interviewer super day that prevents you from taking the exam.
+In this class and in most your other classes, the the instructors policy will be great certified with cdo to where they tell me this is legit you've made an attempt.
+And we'll we'll make an arrangement what I mean by that is.
+If you get invited to a super day and and you could have chosen a different day you should choose a different day if they gave you two options just basic stuff.
+i'm sorry to even waste your time with it, but it's going to come up for a lot of you so it's worth making sure we know how that that's going to happen.
+If you find these demands to be too restrictive, you have two choices.
+If you had a real reason to miss an exam and you couldn't make it up, or you had a serious issue, but I.
+You had a reason that you, you needed to miss the exam but we couldn't work it out, you could take the exams in 2022 but have an incomplete until then.
+I do not think many of you would want to do that again that would require my approval that i'm not just giving you the blanket option, but if it were justifiable I could go that route.
+I think most of you want to be there for the exams get an approval for me, or maybe some of you would go the other route and say you're going to take the class pass fail if you take the class pass fail and have.
+issues with taking the exams, I am willing to let you do a project, instead of an exam.
+that's not a requirement if you want to take the class pass fail, just because it's been tough and you're worried about getting a B minus.
+You can take the class pass fail and still just do the regular exams I am for the first time, offering this other route in case somebody.
+For instance, had a visa issue and they really did not want to fly to a testing Center and take the exam they look for or if you're here, and you said, I have an incredible opportunity, but I have to miss the final.
+And the opportunities incredible but it's not on my list of approved things, and then we could say Look, we just can't work this out, you could take the class pass fail and you could do a project instead.
+Some of you like, I said, though, you'll just decide to take the class pass fail for normal reasons of you'd rather get a past and maybe a slightly lower grade that's fine you could do that with the exams.
+A few scheduling notes, this is the first year that we only have nine weeks, instead of 10.
+That has always been the case for Thursday, Friday classes, because thanksgiving break meant we missed a Thursday and Friday.
+The University, for two years prior to coven has been planning to elongate that thanksgiving break to a full week.
+And again, this is all pre coated that it was planned to launch this quarter and it has, and they have asked us to not give you work that week.
+So i'm going to treat that week as if it's it's not part of the academic quarter because it's really not.
+So we will only have nine weeks, even though you count 10 weeks because the week of thanksgiving, we will not meet, we will not have ta sessions, we will not give you extra homework.
+In week eight i'm not going to say okay here's double sized homework i'll See you in two weeks, your we're just going to operate as if that week does not exist.
+So that should give you a nice break.
+However, it makes me double down on a policy that that some of you may not love and that policy is, we do not have time to take a week off or take two weeks off to do exams we're not going to spend an entire week to just do an exam that was already my policy with.
+The elective for years, because I think it takes up too much of our course time and with only having nine weeks we're definitely not going to So what does that mean.
+It means that we're going to have to mid terms, there each only an hour and a half, so it's equivalent to just one three our mid term that you'll do in some other classes, but I like breaking it up.
+Because the first thing we're going to learn this class is diversification and I think that for many of you you're going to feel a little safer, knowing that first midterms not such high stakes.
+Some of you are still getting your feet under you I think you're going to appreciate having a mid term that kind of eases you into things, and you know that it's it's only 20% of your grade not 40.
+Well that's why I split it into two.
+But what i'm really getting at is on those days we're still going to have class so you're going to do the exam from six to 730 and then we're going to have class from eight to nine.
+And in that class from eight to nine we're really going to have the discussion portion the lecture portion i'm going to post online.
+So those weeks will be a little busier because you're going to take the exam but you're still going to have not three hours of class, but maybe the equivalent of two hours of class.
+And here's the part you may hate they're still going to be a homework that week we're not going to pause the whole class to just work on the exam now Why am I willing to do this.
+it's, not because I want you to hate me it's because the homework is a lab you get you get credit for a full faith effort, it is not too much task you to keep learning, while we take these two small midterms.
+If we if we halted the homework and both those weeks we'd have very little to say in those two weeks, they are a core part of the curriculum.
+I will make sure the homework is not too long in that week, you will have a group of five people to do it.
+You will not be graded on whether the answers you know it's the same number as mine, but we have to keep learning.
+You may find that's a little obnoxious right now i'm extremely confident at alumni events in years you'll say i'm glad we tried to get as much out of this course, as we could it's your time it's your investment let's do as much as we can.
+All right, i've done this with classes for years, it has not been a problem in my view, students have found this to not be over overly burdensome partly because they're two smaller sized midterms.
+Oh, and i'm not crazy on the final exam that week you'll have to just focus on nothing but the exam okay that's a high stakes exam 40% of your grade so when we finished week nine will be done and you'll have a full week to just focus on the exam.
+final thing the academic honesty policy if you're a fin math student you've already heard me talk about this a little bit you've heard me talk about the fact that.
+In my view, very little can go to wrong in this class, I want you to learn, I want you to do well we're going to have our group of awesome ta is to help you.
+I think the you know, the thing that could go really wrong that is most likely to happen is somebody makes a bad decision about academic honesty.
+i've noted here i've told you a story about somebody who ended up getting an F suspension delayed graduation two years when their parents were already in flight to the to the US for graduation.
+They they were I guess the exam was Monday graduation was Saturday, and so they came up five days away from graduation and ended up having to wait two years.
+And you know what they were, I mean, in some ways lucky at at that that they didn't get expelled I told you, the story that guess what.
+Man that's really harsh and it makes me feel horrible all these years later.
+But it's not even my decision once something like that happens, once a line like that gets crossed we have policies that I help implement as the associate director.
+I can't be Mr nice guy instructor that point the policy is the policy and even more the division has policies, the university as policies, this is serious stuff if you violate these things because you're worried about getting an a minus instead of a B plus.
+The one thing way i'll be able to sleep at night is the class is called risk management and if you're that bad at risk management, maybe it's fair enough.
+So you cannot run into problems here my policies have very open homework, are not the same as subs.
+Okay, or potentially other instructors maybe Professor these policies are different on that you need to be careful, other than that I don't see how too much can go wrong.
+The average grade in this class is usually high that does not mean you'll all get a's, but it means there will be a lot more a's and b's.
+Second.
+I want to put this delicately because I care very much about grades, I think you all should work really hard.
+But to be truthful at whether your client career goes well or not depends, much less on whether you get an a minus or a B plus than you think.
+it's much more about how much did you learn, and if you get into that interview, can you talk really well effectively and come across knowledgeable.
+it's much more about did you do interesting projects that you're putting on your resume.
+If your grades, you know, a 3.0 yeah that's going to hurt you but i've talked a little about this, three, five verses of three seven i'm skeptical it matters that much to employers at the margin, it may to some.
+So that's why I say i'm not sure you're going to have huge problems in here if you work hard you're an active learner.
+And the vast majority of you are going to get grades that are either very good or good at good enough they're not going to raise red flags to somebody in the future.
+And that's where I wish you would, and I hope you will.
+focus very much on active learning and I think the grade will mostly take care of itself, some of you will be disappointed to get a B, instead of in an a minus or a B plus instead of an A.
+But many, many of you will be getting a minus a B plus and to me those grades, are all going to speak close you know at least roughly the same too many employers.
+Okay.
+I think the only other thing I need to do before we get on with the class is just show you a couple of quick things in canvas.
+In canvas you'll know that we have a few tabs I haven't mentioned yet.
+Oh, what happened, so we have our modules.
+We have a few useful links the case studies link is not live yet.
+I will launch the case studies link within about the next day, I remind you of the zoom links for weekly class meeting and the weekly instructor office hour that's on zoom there's also a an in person, one.
+I put a bunch of references here, most of these are what you've already seen, if you did the Sep tember.
+launch and August review just a reminder that there's lots of resources, I love to add more I will add more during the quarter, but I also hope you'll add some references on the canvas discussion board here.
+you'll note that i've already started a canvas discussion asking you to post relevant references, so I hope you will consider that if you run into good references.
+For the exams.
+I will post all the exams I like transparency and so there's a bunch of old midterms there doesn't mean they're.
+representative of what our mid term will be each year the course is a little different so lots of material to try to understand what i'm like as a test writer and to try to avoid issues where people have differential access.
+We have our week one notes and then this quiz that you can enter, if you want to take the class pass fail.
+You should note that it's not do for a long time, I try to be generous in your first quarter to give you a long time to decide if you want to take it pass fail.
+I give you until basically the day after you take the second mid term so you'll have your first mid term score and you'll have a at least the sense of how did the second midterm go you'll then be able to choose whether to take it pass fail.
+So fill out that quiz maybe in a in six weeks or whatever when you're ready for that.
+Anything else to say here I think there's yeah there's one thing left to say on my end and that is, I want to know which time you would rather have.
+The ta review the one I talked about jack leading most weeks this ta review.
+I have two times that work well with the scheduling group one is it two o'clock to three o'clock on Fridays, and the other is 430 to 530 on Fridays.
+I want to know which one you prefer right now, so to tell me that I want you to send a text, this should work, I hope I want you to send a text to the number of the top 22333.
+And I want you to choose which code you're going to text one of those two numbers as your response based on which tiny like.
+You can also go online to this polls ed.com backslash hendricks and that will allow you to see it as well, so we will watch the horse race in real time, here we have a big group here we have those of you on zoom I want to see a big number here.
+And if there are any contrarians just voting for whichever one has fewer votes oh boy So hopefully we get a clear answer here.
+you'll call that on Fridays, you have subs course at six o'clock most of you.
+
+Speaker
+Just as a reminder.
+
+dricks
+i'm going to give one more minute to respond to this.
+Okay, so thank you for your survey there we'll talk about about that and you'll see an announcement from us on exactly how we're going to handle that we will definitely do more of these polls during the quarter.
+Oh, and speaking of that.
+I guess I should mention there's one other issue with surveys in your homework groups i'm going to give you a participation point to fill out a brief survey survey blueprint, you can see that survey on.
+You can see that survey on canvas already.
+Let me get to that if you go to.
+If you go down to exams, I think it is know.
+Where do we have those So if you go to assignments, thank you, somebody already taken a look at this I guess there's two things left, I should say, if you go to assignments.
+I want you to be able to see this brief survey i'm going to ask you to fill out three times in the quarter you're going to be in three homework groups.
+And I want you to fill out these three surveys homework group a homework group be homework group see you can click on homework group a but I don't want you to fill it out, right now, obviously, but the questions are are just.
+did your group work effectively is there anything extra dysfunctional that you want to remark about was there anything extra good that you want to remark about and three.
+If if you had the chance, would you have continued working in that group.
+This is for informational purposes it's not anonymous so I don't want you worrying that, like it affects your score what you say there it's just for informational purposes that's it.
+And no matter what you put you get one participation point for telling me so just tell me what you thought of those as we go through the quarter.
+To see your homework group.
+You go to the people tab right here.
+And it will look a little different for you, I guess, we could go to the student view but I when you go to the people tab you will be able to see.
+What your what your group is.
+they'll go to groups, and here I can see these various homework groups, this is again a homework group a and you'll be in one of these 31 groups.
+We will have Homer group b&c later in the quarter.
+
+Speaker
+anything left to discuss.
+
+dricks
+I think that's it for me, oh no sorry when I think there is a course calendar, we talked about a lot of office hours and lectures and exams and homework.
+You should note that at the bottom of the syllabus there is a calendar here.
+where you can see a list of everything that's going on, we will add some more ta office hours in the ta review to this calendar, we hope that makes it easy to keep track of what's happening, but you're also aware that on canvas you can go click on this calendar over here.
+and
+If you do that, you can see a calendar view of everything going on in the course.
+Okay, with that, I think.
+Think that's it for me do we have any questions i'll take a few questions, right now, not a lot yes.
+Good question, so I said, if you in the homework.
+or in the exam if you're using something that's outside course materials what's the right way to site that, is there a certain format no i'm not worried about the format I don't want you to worry about the format, I just want you to tell me.
+So if you say hey this website had some awesome stuff including a Python package, I used on this just telling me in whatever way seems natural you're going to put it at the top of the assignment.
+But in beyond that I don't care about the format, but at the top of the homework at the top of the exam tell me any substantial outside source you use tell me any outside source use don't worry about format beyond that other questions, yes.
+Good question I post references on canvas do you need to cite those know if i've cited it on canvas don't need to.
+Reference it I mostly have in mind if you find some website that has coded up some really cool package for Python that calculate some stats we were using I don't need you to pretend it doesn't exist and reinvent the wheel, but I need you to tell me that you used it.
+Other comments other questions anyone on zoom with a comment or a question feel free.
+Yes.
+We, the question is whether you get individual exam grades you do so you'll get a grade for mid term one you'll get a grade for mid term to and those will again be individual just for you, they there is no group in the exam.
+But you'll get a you'll get a mid term one grade A mid term to grade and the final exam grade My hope is that, having the midterm one grade and at least having a sense of how you did midterm to will help you make a good pass fail decision.
+Other comments or questions, yes.
+yeah, the question is that you know you'll make your pass fail election before you know how your your score on mid term to yes, that is my anticipation.
+That you will need to make that decision, having taken midterm to but not having the score back.
+there's two reasons for that one has to do with how you know a lot of courses make you decide pass fail within the first few weeks.
+The second reason is, I need enough time to know who's pass fail and course in case they want there's this issue of if they can't take the final exam so I my anticipation is, you will choose pass fail, with one mid term score and and having taken the second.
+
+Speaker
+term.
+
+dricks
+Any other questions or comments.
+Protests or complaints.
+Maybe many but you're keeping them to yourself okay well that's that's fine I respect that okay so let's go ahead and move on to the course.
+we've talked about the introduction.
+Already, and we have a lecture pack to talk about risk and return we're going to go for about 15 minutes and take a break so don't worry, you will get a break we're going to go about 15 minutes.
+The first thing I need you to know is, we are not covering this whole lecture Pack.
+It would take a bow i'll I don't know, two and a half hours to cover the whole thing we're not going to we don't need to we're going to cover the pieces I think are important, some of the rest i'll post online as.
+For those who are interested, but don't get alarmed we're not trying to cover this whole Pack.
+Certainly not in this session, at least.
+Okay, so a few key results, right up front, you can come back to these later, but I tried to put a little summary of some key results at the start, these lectures they'll make more sense once we've learned it so same with these key questions.
+I want to talk about the portfolio management procedure here, this is not, you know, a formal or or objective list, this is my list to try to give you some color to try to give you some idea of what portfolio management is all about.
+When I say portfolio management, I mean a lot of things here whether you're the risk manager, or whether you're you are the asset allocators.
+Or whether you're the one Designing an algorithmic strategy, I think all three of those groups are going to go through this process that's why I said.
+If I kind of surveyed which courses end up being of most broad use among our graduates i'm confident this course would be very high because it's going to be relevant to most areas of finance.
+So I want to talk a bit about this procedure, but the main thing I want to do is raise it in your heads.
+So that when we talk about the classic portfolio theory, we can keep pointing back at this and saying wait a second, why did they make that choice.
+In some ways week one is to introduce this give you the classic result homework one you're going to dig into that classic result.
+you're going to see where it does well where it doesn't do well, and in some sense the rest of the course is going to be digging through these points and saying hold on let's go a little deeper there.
+Now this is not an outline of what will happen in the following eight weeks week by week we're not going to spend an entire week defining the security universe, but these are issues, I want you to to raise and see why the course will not end today.
+Using some of the classic results if we had frictionless markets and some some really nice assumptions, then we could end the class today because i'd show you this key result, and it would carry through.
+Allocation pricing and risk management and it turns out, obviously there's going to be a lot of problems with it and those problems with it, I think, can usefully be seen when we think about these steps.
+So, as we go i'm going to keep pointing back at this, so one define the security universe any problem of dealing with the portfolio depends part of the on this idea of what are we trading.
+Is there a reason that we're trading this group and not any further, in fact, one of our cases is going to get into this fight, specifically of should we consider introducing a new asset class to the portfolio, what are the pros and cons of that.
+Well, you would think the pros could be maybe some more diversification, the cons could be model complexity or introducing some redundancy we'll talk about it.
+How can we model security risk and performance that's going to be where we talk a lot about things like building a package of statistics to understand a security.
+What is its return its volatility its beta to certain risk factors its correlation to other securities.
+What is its tail risk meaning what's its risk of crashing card, we might assess that with things like will learn about that are used in the industry like value at risk, we might assess it by looking at maximum drawdown other things like that.
+Well, how do we think about the forecasted returns to each of these securities we'd like to go long we'd like to buy things that we think are going to have a high return.
+Meaning go low price today and we'd like to sell things to short things where we think they're going to have a low return, meaning a high price today, how do we assess that, how do we decide that.
+Even if we didn't know anything about forecasting returns, could we say something just based off of their different risks yes.
+What if we add in forecasting returns, we might be able to say a lot more.
+This will be interesting because most industry strategies, take a really naive approach to portfolio construction they're going to mostly make some predictions about different securities.
+And they're going to say go long the five that we most liked and short the five and disliked the most and just equally wait, all of them.
+Does that make sense we're going to talk about it what's the objective of our portfolio is that to just maximize return.
+Then why didn't you just go along your favorite thing you got $100, why are you even dividing it in, why are you spreading get into the top five you like, whichever one had the best forecast return put all of it there.
+If I were maximizing returns, but obviously my objective is probably something like get high returns and low risk.
+Well, those two things are going to trade off, how do we decide between them, even worse, how do we define risk.
+What if one portfolio has lower volatility, but the other has lower crash risk, meaning that it never you know even at its worst it doesn't lose more than 20%.
+The other one has lower Vol but it sometimes loses 40% or what if one of them has a lower correlation to the market equities, and the other has a lower correlation to commodities, but what matters so that's going to be tricky.
+that's the idea of defining your objective.
+In our example in the classic example our objectives, going to be, what does anyone know what are the classic portfolio objective is.
+yeah who said that back there first yeah you said maximize sharpe ratio I think both of you, and you were saying the same.
+that's right we'll talk about sharpe ratio, but that means let's take the mean divided by the volatility and maximize that so in another sense it's equivalent to saying for a given mean return minimize the volatility.
+But our objective, could be a lot of other things if you talk to an asset manager i'm extremely confident they won't want to stop there they're going to say what's the crash risk.
+Well, of the classic results aren't aren't going to deal with that, what are the portfolio's constraints.
+What do I mean by constraints, what are some constraints, a portfolio might have when we're building our our.
+portfolio yes Luca.
+No short positions yeah that's going to be a big issue here, are we willing to take big short positions, what does that mean.
+Are we willing to sell securities we don't own we've borrowed them, maybe in a reverse repo but we've borrowed the security we're selling it.
+And now we're seeing where it goes why, why is that going to be more controversial why or why would a lot of portfolio managers not want a big short position.
+yeah.
+yeah might be difficult to get out of that short position you use this term cover your short position but it might be difficult to get out of it.
+And i'm going to i'm going to note two things that to short something i've got to borrow the security and that costs money, and it can actually cost a lot So even if i'm right about the short.
+it's like i'm paying an interest rate, while I do it and there's this saying that the, even if I end up being right, what if it takes the market a long time to realize i'm right a lot of famous.
+losses are related to this idea that, ultimately, the person was right, but they couldn't hold the position long enough we'll talk more about this when we talk about one of the biggest crashes in history.
+But the idea that the market can you know remain irrational longer than you can remain solvent so we're not going to like a lot of times too big of short positions is are costly to hold there was a comment yeah.
+yeah we'll talk more about this issue when we get to some market operation discussion of maybe some maybe the market will squeeze you if you have too big, of a short position.
+we're going to talk about some broad assets were getting squeezed won't be the as much of a concern but we'd still find it may be too costly a Luca.
+yeah, this is the other issue I want to get to so short positions having a negative weight in an asset.
+cost me money because in real life, I have to borrow it and they charged me an interest rate, but the other thing is if i'm holding a negative weight in a stock.
+Well, we said stock prices can go up but they can't go below zero, but they can go up to unbounded heights which means if i'm short that stock if I have a negative position in that stock it now means that I have limited upside and unlimited downside.
+So this is probably going to be the most relevant constraint on what we see in this first week in this first time mark.
+The optimizer is going to tell us to take some big negative positions and in real life, we might not what are some other constraints that you think mathematically the model is going to say do this and it's actually maybe not practical let's go here and then here.
+
+Speaker
+yeah.
+
+dricks
+yeah where were you gonna say the same thing.
+yeah thats thats related, so let me say those things on my those are both very good i'm probably going to have a minimum and a maximum on any particular position.
+And it could be for a few reasons one it's a mandate i'm working for some fund and in their documents that mandates that they won't take a bigger position than then a certain weight.
+To it could be related to liquidity, which is hey I can't take too big, of a weight in this stock, because it will it will move the market too much yes.
+I get you know I can buy or sell a share of this stock frictionless Lee.
+But to buy or sell 100 million of this stock maybe it starts moving the market, not for a really big stock but but for a smaller one so we'll talk about that in the dfa case so good, so we need to think about our portfolios constraints.
+What is the classic model going to assume.
+yeah.
+
+Speaker
+yeah did you say infinitely.
+
+dricks
+yeah so the comment was the classic models going to assume that you can take you know that the stocks are infinitely divisible you can take any weight you want, I know you can take very specific weights, instead of saying well.
+This futures contract only sells in blocks of you know $50,000 or this shared stock only trades in blocks of $1,000.
+But not only is it going to assume you can divide it as Finally, as you want.
+it's going to assume in this classic model that there's no constraint, you can take as big or small, of a position as you want as negative as you want that you can trade without any trading costs.
+What if the model says, you know week by week I need to change my portfolio a lot well, that would cost me money trading stocks that could easily cost 1% of transaction fees.
+I have 100 million dollars, I want to trade 50 million of it into something else I might pay 1% on that 50 million.
+That may not sound too bad, but if i'm paying a 1% fee on on half my portfolio every week that's gonna that's going to kill my returns.
+So the classic model is going to assume trade whatever sizes, you want trade as much as you want, do you think that's going to be a problem for its practical application yeah we're going to talk about that.
+we're going to simulate the candidate portfolio we're not going to do Monte Carlo simulation.
+This week with with our example that takes us through the whole process we're going to use historic simulation What do I mean by that.
+are just going to look at the history of time series and assume that that's a good simulation of what might happen in the future.
+So, in most statistical analyses that's what they're doing they're not calling it historic simulation i'm doing that to be pedagogical to note that we could.
+Whatever we're analyzing build out some Monte Carlo simulation of it so we're going to just take the history and assume that's a simulation of the future, but we should be careful, I mean if we don't think the future will be like the past, then that could be a bad assumption.
+we're going to optimize among those given those those candidate portfolios meaning there's a bunch of portfolios, we could invest in we're going to optimize which one's best that's going to be really easy in the classic model why.
+Because it's gonna have a beautiful mathematical result we're not going to have to really simulate anything at all.
+Because it's going to have a closed form solution so we're not going to have to simulate 1000 versions and then choose the best one or the mathematics, are going to immediately give us the optimal result that's why this result is so famous.
+And then we're going to say okay i've got the optimal portfolio, I better assess how good it is you've told me, these are the weights, these are what you should invest in this much of this ETF this much of this.
+treasury this much of this futures contract great if I follow that advice, what do we think the portfolio will do what do we think its return will be its volatility it's it's correlations its drawdown all those things so we're going to assess its portfolio performance.
+i'm going to go through a few examples toward the end of our class session, but before we do that we're going to do two sections of these notes, then we're going to look at a few real examples with data.
+And, and that will be the rest of class before doing that we're going to take a 15 minute break thanks for your patience going through the syllabus Luckily, we only have to do that, once in the quarter i'll See you in 15 minutes.
+Okay, everybody let's get started.
+Everybody let's get started.
+Okay, everybody let's get started.
+have a seat those on zoom give me a green checkmark if everything's coming through well.
+Excellent Thank you, I appreciate the feedback on that.
+Okay, so to get started, we talked about this process So where are we going to start with it we're going to look at a big picture example which is classic mean variance optimization.
+it's a good place to start, because I think it gives us some structure to analyze that list.
+it's a good place to start, because it is by far the most famous result from portfolio theory.
+And it's a good place to start because For those of you that are trying to you know quickly boost your your level to go interview, and such it's a it's a really important starting point.
+This course is not a history of thought we're not covering it because it was at some point discovered and at some point useful.
+I will give away the game, a little bit by saying I don't think you'd ever use this out, you know exactly is the classic model in real life.
+we're not covering it for history of thought recovering it because the methods that are used in practice are really derivative of this classic result, or at least they are generalizations of it so it's important to know for current modern practices.
+But i'm giving a little way to say it's not because we're going to actually use it exactly as written here now again we're only going to cover.
+About two thirds of these notes, maybe even closer to half that's okay.
+What we're going to typically do each week is introduce the topic, and then the case and the homework is a chance to really go explore it that's also why we don't grade the homework for.
+Whether you got the right number, because the homework is, this is a bit of a flipped classroom style where the homework is typically going to go a little past what we did in the notes.
+Which is why the following class we spend a good hour talking about the case and relating it back to the notes and filling anything in that we need to so I don't want you to stress about that okay.
+So, to begin, we need to understand diversification, this whole issue with portfolio optimization would be a cinch.
+If the risk of a portfolio, where the sum of its parts, if the risk of a portfolio were just the some of the risks of all the individual positions.
+You know I think we could finish the quarter by 9pm you guys could have eight weeks of.
+worrying about seven Rogers classes, but because of this non linearity it's going to change everything.
+Diversification is an obvious idea, many of you already know it, but I guarantee that if I go talk to industry practitioners, who are clients, I can ask them basic questions on diversification and get them to answer wrong.
+So it's a simple topic it's one that we want to understand better so that we do not end up in that situation.
+Second, like I said, we want to just see a nice example of going through this whole process, not because we're going to actually simulate returns or forecast.
+we're actually going to kind of notice that the classic models not doing those things and it's going to lead us to want to improve on it.
+With that.
+let's talk about diversification.
+i'm going to know that this lecture note this lecture note has more.
+Maybe tedious math in it than any other lecture note the rest of the quarter, I sometimes worry that this lecture note will scare some people away because it's going to deal with some real linear out some some basic linear algebra.
+It should not scare you away it's basic but it's a little tedious to it to walk through this math.
+What I should notice we're going to really care about the results and the concepts your exams are going to be open, no you don't need to worry about memorizing these formulas.
+Some of you, the linear algebra is going to be a little bit of a refresh of how do we do matrix products, how do we do quadratic forms.
+But just know upfront that that is not indicative of what we'll do every week next week will be in.
+almost entirely about you know the tool we use will be very much about regressions another week, it will be very much about darch and.
+forecasting models and other week, it will be so we're going to go in different areas of mathematics today it's it's a lot of series and matrices.
+Note that we're going to use a super scripts for the asset i'm not raising it to the power, I am using the super script to say it is the return on asset I.
+that's a little annoying, but we need the subscript for the time not in this lecture because we're just doing kind of a static look, but when we deal with dynamics, I want the subscript for time.
+Often you'll see people do to sub scripts they'll do time comma the asset that's fine it's it starts to get a little messy so we're going to do super script for the asset.
+And then I do not want to write the return minus the risk free rate 1000 times this quarter, so instead of writing our I minus R F every time we're actually going to write.
+I give me one second your instead of writing that each time we're going to write this till the which is going to mean.
+That it is the excess return, instead of just the total return so nothing fancy is going on there, but by writing that in that way we're going to save a lot on notation so I want you to note that till the because we're going to use it a lot.
+
+Speaker
+oops okay so.
+
+dricks
+let's consider a basic example here in this example we've got the return on a bond and the return on a stock and we're thinking about how much weight to put in each of them w in the bond one minus w in stock.
+We might care about three things we're going to care about more but let's keep it simple maybe we care about the mean return the variance and the correlation.
+These numbers here the true population parameters we're not going to worry about statistical uncertainty right now we're not going to worry about the fact that the estimate of these things won't be exact.
+We want to really see the mathematics of the portfolio before we think about the statistics, so you P, is the mean of the portfolio and it is linear means are linear the mean of the portfolio is the sum of its parts.
+The parts, going to be easy, so if I forecast that these securities have high mean returns they really will boost the portfolios mean return proportionally.
+I think this security as twice the mean return of that one it's going to contribute twice as much to the portfolio in the mean returns, I hope, you'll see that first equation is indeed linear.
+The second equation is the trouble.
+So we're going to measure risk here with variance Sigma squared and we're going to measure it as the variance.
+Look, we could use other risk measures and we will later in the class I wouldn't be using this example, if the whole problem was this specific risk measure it turns out all our risk measures are going to have this.
+I shouldn't say problem it's really a feature but they're all going to have this feature that they're nonlinear and, in fact, their sub additive, we could say.
+that the risk of the portfolio on the left is going to be less than you could say the sum of its parts.
+that's going to be true, whether we measure risk by variance or whether we use some other measures we look at later.
+So what's the equation here well we're not going to derive this oui you easily could, if just using the definition of a variance.
+That it's going to be it almost looks quadratic you've got w squared Sigma squared be.
+you've got one minus w squared Sigma squared asks that part okay it's not linear but it's kind of quadratic that's true, but you get this cross term here this to w one minus w and then stuff what's all that stuff at the end.
+What is this correlation times one standard deviation times the other standard deviation.
+yeah it's just the covariance, but I think it's useful to see it in this way because it immediately helps us think of a few things, what if that correlation were zero.
+What if it were one well if the correlation were one, it would say that the standard deviation not the variance the standard deviation, which is the square root.
+It would tell us that that being now is linear Nice and simple it's also an extremely an interesting case because what's in what scenario would we be dealing with two assets that are perfectly correlated at that point there at least.
+With regard to linear functions, the same thing, so this assets or this result is kind of useful as an educator as as kind of the bounding case it's never going to come up for us, what if row is less than one, then the volatility is less than the sum of its parts it's less than this proportionality.
+Now that that's obvious everyone gets this idea right, I think, wrong, I think, if I quizzed people.
+What do you need for this diversification effect and I gave them multiple choice, do you need the correlation to be less than one, zero or negative.
+I think a lot would put it needs to be zero or negative it doesn't if I have 80% correlation i'm still going to get diversification here.
+Is that important yes, because for equities we're going to see high levels of correlation for bonds very high levels of correlation currencies, the same commodities less.
+But this tells us even in an in a security universe that has high correlations there's a lot of game to diversifying.
+So I said, our portfolio problem first question one security university we use sometimes you see people have developed an algorithmic trading strategy and its operating on one currency.
+or its operating on one you know one type of equity if they can expand that even if it's just some things that seem very similar there's potential gains to be had.
+What if I could get the same mean return on a bunch of things, but they're 80% correlated let's combine them and i'm going to lower the risk to all of them.
+So now we have linearity in the mean sub linearity sub activity in the risk, if I have an algorithmic strategy that works on one currency let's do it on 10.
+
+Speaker
+Now, unless we think some of the currencies have very low expected return.
+
+dricks
+So that's the idea of portfolio diversification is what is meant by that quantitative result by that mathematical result, and all I need is imperfect correlation which means i'm always going to have that that's why I would, in general, like my security universe, to be wide.
+What if row is equal to negative one, two things are perfectly negatively correlated well again that's not going to come up much what two things are perfectly negatively correlated it would have to be like a you know inverse ETF, which is just shorting the asset.
+But if I did have two things perfectly negatively correlated we could go back to the equation above and we could easily see that if row is is negative one, then we would have the fact that.
+That Sigma of the portfolio is.
+Zero what do we need there, we need a very special wait and that way is given by some math using the the prior formula.
+here's a graph of what would happen in.
+To the volatility as a function of the weight, I want to be very clear, this is not our mean variance graph we'll see that later there's no mean return on this graph it's just the volatility.
+I want to convince you that its sub additive that if volatilities were additive if they were just linear the way mean returns, are we would be on the black line.
+And you'd say one security as lower volatility than the other any combination of them there's nothing magic about it it's just waiting you down one to the other.
+But if we're in a more realistic case of, say, I don't know the red dashed line or the black dashed line, what we see is that, by taking a mixture of the two you get much lower volatility then would be proportional.
+Finally, if you have perfect negative correlation you get that blue line where you can achieve a risk free result at least zero volatility.
+You could guess maybe there's an arbitrage there but i'll bet you can guess that if we build that ourselves that will end up paying something very close to the risk free rate.
+here's something using some more realistic data, where it looks at the volatility of stocks and the volatility of 10 year treasuries so bond.
+And it tries to see what are their volatilities and does a mixture lead to a better to a better portfolio.
+it's hard to see in the top graph because the skills are very different, the stock volatilities on the Left it's about 15% the bond volatility is closer to 5%.
+If we zoom in there at the bottom, then we can see that there's definitely a sub activity, the green dashed line would be if they were linear the blue line is showing the gains of that diversification and we'll see bigger gains than that.
+Well let's go beyond the two asset case too much talk about an assets.
+When we're dealing with portfolio construction we're going to often be thinking about portfolios that hold hundreds of securities and if they don't we're going to wonder why they don't.
+Like I said, if they're trading 10 stocks why there's maybe diversification benefits to expanding i'm not saying that we always should we'll talk about that later, but it's at least a question.
+So we have an risky securities and volatility of each of Sigma I the return covariance between I and J is Sigma J.
+And the weights in each of the assets need to add up to one so we're going to sum up these w is they had to one.
+Well, it turns out mathematically the variance of those assets would be this double summation where each term involves the product of those weights times the covariance.
+You could again i'm not interested in proving that this is just the basics of what it covariance is and what what the variance of a summons I should I should say.
+Well, I want to get to an intuitive as I want to get to maybe maybe it's intuitive but, more importantly, a conceptual result.
+So i'm going to make a few assumptions you're going to disagree with they're not realistic that's fine, but I want to, I want to get to a conceptual point here let's take an equally weighted portfolio that's realistic lots of portfolios do that, where each w equals one over in.
+Then, what would the variance in the portfolio be we could get this and be one over n squared times the variance we can.
+plus one over n squared times a double summation of covariance is, we could plug in the earlier example that'd be fine what's the point well, the point is let's define.
+One over n times the sum of the variances well that's just the average of the variances so let's write that that whole thing will just call the average of the variances.
+it's not very pretty notation, but it will do what's this other thing well this other thing is actually the average of those co variances there are n times N minus one of them.
+So we're adding them all up and dividing by n times N minus one, what do we have we have that the variance of the portfolio is one over n times the average variance plus N minus one over n times the average covariance, what do you think the point of this is.
+
+Speaker
+what's interesting about that.
+
+dricks
+yeah.
+yeah what's interesting about this as, as we have larger and as then goes to infinity but you know, for practical purposes, even an end of 100 what is contributing to the risk of the portfolio to the variance of the portfolio.
+it's The co variances the individual variances don't matter.
+This brings up our first point that the marginal contribution to risk is all about the covariance so suppose that you had a portfolio of asset classes and you said, should we add this new asset class let's say cryptocurrency.
+and your manager says hold on we shouldn't add cryptocurrency it as a huge volatility.
+Is that a good answer well I don't know it depends on how began is, are we going to put 50% weight into crypto then this result won't be the same, this is assuming that you're diversifying across and.
+let's say now i'm holding 50 assets should we add should we add some ethereum Oh well, a theorems volatility so high yeah that's not very relevant here what's relevant is how correlated it is how much it co varies with the other assets.
+And we'll see that even adding in a volatile security can bring down the risk of the whole portfolio if those covariance is or small.
+At 50 I think we can see that idea at 200 definitely i'm holding a portfolio of single name stocks of these equities, should we add in this extra equity oh it's three times as volatile as the others who cares at the margin that's not increasing the variance a lot.
+Now I shouldn't say who cares there's lots of other reasons, we might care, but it's not.
+We can't analyze the risk of a single security and transfer it to our portfolio so that's the first big idea.
+And it's going to matter for the other measures of risk we use or else I wouldn't be emphasizing it so much it's also that second to fallacy or pitfall.
+i'm extremely confident on this one that I can go quiz people who deal with this all day and they will get this totally wrong.
+In fact, if you just look watch how they act and what they talk about what their reports focus on they go on and on and on about risks.
+Risks characteristics of a single security and don't really know that what matters is the marginal risk by marginal I mean if i'm only holding security J then security js variance matters if i'm adding it to a portfolio.
+it's co variances matter so they are what create the marginal risk to the portfolio, not the variance.
+Now I assumed that it's equally weighted.
+A version of that example would hold up as long as n gets large and as long as none of the weights stay big I don't need them to be equally weighted.
+to some degree, none of this is exactly applicable because i'm taking the limit as X goes to infinity but like I said for any reasonable number number of securities that we would see as a portfolio manager.
+And big enough, this is going to be the case and position sizes are going to be small.
+If you're managing a big portfolio they're not going to let any other way to be bigger than 5% or something you're going to get results that are something like this.
+You may not get results that or something like this if you talk to, and out, you know, a trader and and she's just trading 10 commodities okay well, maybe the volatility of crude oil still going to matter there you're only trading 10 things.
+So we saw that this.
+result held, let me simplify it further just for for a general point let's say that all the securities have equal variances so Sigma is the same for everything let's just call it Sigma.
+let's assume they all have identical correlations so row I J or Sigma I J, which is the covariance let's assume Those are all identical so just call the correlations euro everything has a correlation of 20% with everything else or or 10% or whatever it is.
+All equally correlated.
+Then let's plug that into the formula, and now the portfolio variances one over n Sigma squared.
+plus and minus one over n times row Sigma squared what do I, like about this shows the design gets big same idea, only the covariance does matter.
+But if all the covariance is are the same that term just becomes row Sigma squared what does that mean the variants of the portfolio will just be the fraction they have in common, if everything's 20% correlated the portfolio's risk will be 20% of the individuals risk.
+This is one of the ways people use this term systematic risk is the idea that you can't just it's what's left after you diversify.
+Now I don't want you to grasp onto that too tightly we're going to see another definition of systematic risk.
+That quants use and factor models it's related to this, but it's it's kind of based on the residual after we do use some factors.
+That here that's that low time Sigma squared that's what we can diversify out of just by spreading out over more securities.
+So what do you that that has a big implication equities as i've mentioned several times gonna have correlations near I don't know about 70%.
+If I grabbed the thousand biggest equities and took their average correlation I think it probably be bigger than 70% it's going to be pretty big.
+So if we ran this game with 1000 equities, we find that hey if you are equally weighted in the thousand you are getting a diversification benefit, but you're probably ending up somewhere around 70% of the total.
+i'm being a little loose here, because these assumptions, we used would not hold in that case, but I think we'd get something around that what if we did it with commodities.
+If I took a bunch of futures commodities, or I should say commodities futures if I took a bunch of them, you know, minerals and agricultural futures and.
+And and energy futures and metals they're going to be correlated more around 30%.
+And if I take a big bundle of those this result would say what a diversification in in commodity futures if I spread it out over those I might get to 30% of the original risk and we'll see that in some real results.
+Again, some people are going to then say that idiosyncratic risk is the part you can diversify out of just by spreading it out, if you are thinking of another definition asked to with factor models just hold on to that we'll we'll get there in a future week.
+So if row equals one there's no possible diversification, regardless of how many securities that's obvious if we say everything's perfectly correlated.
+Then of course there's no benefit That may sound silly but you know i've had the question posed to me whether people should spread across a few different etfs that track the s&p 500.
+Well, if I take 10 of those s&p 500 etfs they're going to be 99.8% correlated it's not going to be any point in doing this, what if ro equals zero.
+Then i'm going to get low time Sigma squared equals zero i'm going to get a risk list portfolio that sounds really nice.
+And we should wonder how does that compare to an earlier result so above a few minutes ago, we said that if we had row equals negative one, we could build a perfectly riskless portfolio.
+And now i'm saying if row equals zero, we can do that so is you know, is there a misstatement or what's what's the catch here.
+
+Speaker
+yeah.
+
+dricks
+yeah so here with.
+With meeting row equals zero we needed something else to we needed zero we needed a lot of assets.
+We needed an assets and take the limit and they all have the same standard deviation.
+In the earlier example we said there's just two assets, so I don't know stocks and bonds or whatever it is, if I have two assets of finite amount of assets, I can build a riskless portfolio, but i'm going to need a.
+Certain limit on grow if I have infinite assets, all I need is row is zero between all of them So what are we seeing here two things really matter to my diversification.
+The correlation among the assets and how many i'm spreading over maybe not a surprise, but those simplified models, I think, give us some clarity on why the mathematics work out that way.
+Okay, so the other topic, we need to hit is diversification is going to be.
+If we don't understand that right we're never going to have a proper and deep understanding of mean variance or any optimization.
+Because we're going to keep getting results that say oh you love this asset, it has a great mean and a lowball actually we don't want that much of it.
+Oh, this other asset is very volatile and the mean is kind of mediocre will take a big chunk of it.
+Why are we going to keep seeing results like that, because what we just talked about diversification.
+If this asset that didn't look so hot by itself has low correlations the optimizer is going to love it if this other asset has you know pretty interesting statistics but not fairly high correlations it's not going to love it, so we need to understand that.
+The next two sections and i'm going to note the appendix is truly an appendix i'm not going to talk about it, I anticipate at all in the course.
+it's going to derive some classic mean variance answers, but if you really want to see the derivations and dig into them look at the references as well.
+So there's two sections left here we're only going to do one of them, one of them you're going to kind of do in the case in the homework.
+The first is going to build out the mean variance optimization the classic result, the next section excess returns is going to.
+Take that a little further to where there's a risk free rate it's actually going to make the answer considerably simpler.
+So the excess return part will work on in the homework, it means our formula gets simpler that's that's nice but together let's talk about the about this slightly more general version.
+So we want to compare risk and return, we need to choose how to measure each of those how are we going to measure return I don't know log returns total returns maximum return.
+No we're going to choose mean returns of arithmetic returns.
+So nothing fancy they're just the you know value of the asset, at the end divided by the value of the asset at the start, the price you paid for it.
+Hopefully that's a number bigger than one right hopefully that's like it's worth 110 now and it was 100 when I bought it i'd be 1.1 we're going to subtract the number one there.
+we're going to have a return of 10% right just nice arithmetic return we'll talk about log returns later, when we talk about return dynamics.
+i've alluded to this to some of the Internet, who did the review, but the truth is most of our theories and most of our practical purposes, we want arithmetic returns.
+Large returns are really only going to be used because they compound easily linearly.
+in mathematics so we'll use those as an approximation when we need them, we want mean arithmetic returns, what are we going to do to measure risk as i've already mentioned variants.
+But i'm bringing this up because we didn't have to make either of those choices, if we were managing a pension fund and we're really thinking about compounded returns over time, are we going to want longer arithmetic Lager level returns for risk, are we going to want.
+You know the minimum return or the variance those are reasonable things to ask i'm going to flip this graph on it's a bit.
+Where it's no longer a function of the weight it's a function of the mean, so the mean is on the vertical axis and the volatility is on the horizontal axis.
+This looks a lot like a graph we saw earlier just flipped, but it is a little different the other one was volatility is a function of wait, this one is the mean not really as a function of the volatility but being compared to the volatility.
+What I want you to see is that two assets, the black dots lead to an investment space that is bigger than the black dots as long as correlations less than one.
+If the correlation is less than one, even if it's positive point six I get this red dashed line.
+That tells me my investment space is not just the line connecting the two black dots it's the red dashed line connecting the two black dots I can get a better set of opportunities, why is it better.
+Because it's pushing me to the left, lower volatility for any given me right so for any given me I can get a lower volatility by choosing a certain mix of those two why don't I just choose a different dashed line let's choose the green line.
+Well that'd be nice but I don't get to choose the correlation so i'm going to be stuck on one of those but then I can choose where to where to be on that boundary i'll bet you can guess where we're going with this, this is for how many assets, just to we want to do this for many assets.
+So how are we going to do it for many assets we're going to need some matrix algebra it'd be a mess to do it the way we've been looking at it we're going to need to matrix algebra and we're going to need to know this key result which is that using assets, we will get a boundary.
+that's going to form a parabola and it's going to give us a convex set of achievable mean variance possibilities.
+let's take a look at that.
+So those blue dots are actual us equity portfolios i've zoomed way out so it's kind of absurd, but if you zoom really closely and you would see the annualized mean is, ranging from about zero to 20% a year.
+And the volatilities, ranging from 4% a year to 20% or i'm sorry that's the variance.
+The variance on the horizontal axis and that thing's a parabola what is it saying, if you choose certain combinations of those 25 assets, you can get anywhere in that.
+In that set bounded by the parabola to be clear, I mean to the right of it over here, you can get anywhere in the set where these blue dots are.
+Why is this so important because, if I can only invest in the individual equities, you know the best I can do is near 20% return for a 7% variance or something like that, but if I take combinations.
+Then, for any spot on the horizontal axis for any spot of variance I can get a much higher mean return, I can get up to the black parabola.
+That would say for any given variance I can maximize the mean I can also say the dual problem for any given mean I can lower the variance pick a spot on this.
+Vertical axis choose the mean and the blue dots.
+achieve a certain variance I can push much further to the left and get a lower variance.
+here's the version I like more in standard deviation space we talked about risk much more often is the standard deviation and variance that's just a scaling choice it's now no longer a parabola it's a hyper law but it's still this nice convex that.
+And I hope it's clear, I mean, I think.
+This graph if we really zoomed out it's kind of shocking how much better the investment opportunities are than the individual blue dots I mean that set is much, much higher even at volatilities of 20% saying I can get a mean that is.
+You know twice as good by just diversifying in certain ways.
+Well you'll know i'm not showing the mathematics, of how to get that set yet that's this really famous classic result the proofs in the appendix i'll go over the results, briefly, I mean the the math medical result is important we're going to cover it but we're not going to prove it.
+The top segment of the MV frontier is known as the efficient mean variance portfolios meaning there's no reason I should ever want to be in the interior of that set and I definitely don't want to be on the bottom.
+Border of that set.
+I want to be on the top because i'm assuming investors like high mean returns and dislike high volatility.
+And whether my assumption, I can assume whatever I want, but the market clearly indicates that's the case.
+So I want to be on that top frontier, why would I ever want to be inside it, I certainly don't want to be on the bottom of it so that's the efficient portion of the frontier the bottom of it is the inefficient portion it's kind of the worst you could do very low means for a given volatility.
+Oh, some people say well why don't we get the efficient why don't we go on the bottom and then short that.
+I mean that makes sense, but that's the same as just being at the top.
+And if we looked at the weights, that would achieve that they would be exactly the negative of the weights that achieve the top so it's it's a fine idea conceptually we don't need to work that hard we just want to be on the top whatever those weights are.
+So we've already said, the importance of this is it's going to be the most widely used tool and portfolio allocation, but people aren't going to use it exactly out of the box because there's all these problems with it.
+And, most of them aren't clients, like you, so they're going to use it out of the box and then they're going to just kind of hack away at it they're going to say that was interesting I really don't like this part of the results we're just going to change them.
+These weights are too big so we'll just set them lower and we don't like this, so we'll just add this on it's going to be kind of fixing something with duct tape rather than really repairing it properly.
+we're going to talk about how to use this in a more elegant way, but for now we need to see the Foundation.
+In order to understand the math that generates that result we need a little matrix algebra mew.
+Is the main return i'm going to use a bolted mew to mean a vector of mean returns a vector of expected return, so you all should know I use this expectation operator to mean the true population expectation.
+We are often use mew for that so not a surprise i'm going to use a bold and mute to mean and mean returns i'm going to use capital Sigma.
+which again is a common way to denote a covariance matrix it's not a summation here i'm going to use that to to know, an n by n covariance matrix.
+For now, no risk free rate will do that in the next section most of you would remember that an outer product of a vector would give me a matrix so R is a vector.
+it's a random vector you is a vector that's a constant vector.
+that's n by one i'm multiplying it by one by N, because of this little transpose symbol that's just an outer product of the vector any any vector let's call it X, I can do X X prime it's going to be a matrix now I n by one one by n n by n matrix.
+we're going to let a portfolio be denoted Omega.
+looks like a w in the next section it's going to be w because we're mostly going to assume a risk free rate without a risk free rate we're going to call it Omega and we're going to say these weights need to add up to one you can't invest more than your total assets.
+So that inner product of Omega and a vector of one's Omega is an n by one wait vector.
+ones are an end by one vector of ones, and by one.
+Sorry transposing it one by n times and by one is going to give me one by one that's just a number and Sure enough, the inner product of these needs to be the number one.
+Be careful i'm saying I can't invest more than 100%.
+But I can short assets here some of those weights can be negative so maybe some of the weights are negative point two, and another way is point three, and another way it's 1.7.
+And another way it's negative 1.2 they just have to add to one, but they can be whatever crazy or large number is needed.
+Well, if we just did some basic linear algebra and some of you are familiar with this from statistics, then the return on the portfolio is just the inner product of the wait vector.
+And the realized returns are so R is the return on the end different assets for a given period.
+we're not dealing with the time series we're just for a given period, you have 15 assets, they each have a return that's a 15 by one vector you had a certain way in each of those that was a 15 by one wait actor.
+we're going to take the inner product and we're going to get a single number your return for that month on that portfolio that's rp.
+What is the expected return rp.
+We call that up well, we already said in the two asset case mean returns are linear the mean return of your portfolio is just the weighted sum of the mean returns of the individual assets, what does that look like in vector.
+notation it's the inner product of the weight vector and the mean return vector mew.
+Very simple just their linear their proportional take the inner product.
+what's Messier here but it's actually way less messy than when we wrote it out without vectors is the variance the variance is not linear I need to take the weight vector transpose it that's the same but I need to multiply it by the covariance matrix and by n co variances.
+The covariance matrix has a diagonal of variances but everything else in it is co variances so you can maybe see a hint of earlier result.
+There are so many covariance is in that they're really driving the results here not not the variances and then, finally I multiply it again, by the way, vector.
+What is this called, this is a quadratic form, I, if I have a vector in a matrix you'll see this, you know all the time.
+Then I take the vector transpose times the matrix times the vector again that comes up a lot linear algebra well that that's also what the variants of a linear combination, is any linear combination of random variables, the variance of that some is given by this.
+Finally, what's the covariance between our total portfolio and each of the security, so I have my portfolio is a single thing I took the weights I added them all up I get back a single number what's my covariance with each of the individual building blocks and things went into the portfolio.
+Well i'm guessing that my portfolio will have a bigger covariance with things that it had a bigger weight in.
+And i'm guessing it's going to have a small covariance and things that it took no way in.
+Well Sure enough, the formula we could again derive very easily, I would say the covariance between your portfolio and the individual securities is just a linear combination it's just that vectored the weight vector but it's a it's right multiplying that covariance matrix Sigma.
+I don't need you to memorize this homework exams are open source, but this should not seem difficult if you are comfortable with statistics and linear algebra.
+it's okay if it's new it's Okay, if you need to review it a little bit, but you could go back to say August to review with Professor fefferman and just based on or Professor.
+lawler and based on the definitions of first and second moments, this would flow very naturally so you can find any basic statistics book to go over that.
+Again i'm not gonna I don't need you to prove it i'm not going to prove it, but it should be a result you've probably seen, and if you haven't that's Okay, but this is the mathematics.
+Finally, what can we say about I mean variance portfolio, it is a vector will megastar which solves the following.
+convex optimization problem for some parameter up new piece of parameters here, because you get to choose it you tell me i'm up and all solve this.
+What is up it's your targeted mean return you want a portfolio that gets 10% a year fine you want one that gets 20% a year fine you've got to tell me the targeted return mean return and also for the weights what is my objective here.
+It is to minimize variance.
+Later we'll talk about many other potential objectives, but the classic problem it's minimizing variance.
+Well, this could get really boring let's just hold nothing but the risk free rate not so fast well one we don't have a risk free rate yet to we have a constraint.
+Such that this St is standing for such that.
+Omega prime you what is that that's the mean return of the portfolio, we just saw in the previous slide for any Omega your portfolio's mean return his own is the inner product of Omega and you so what we're saying is your portfolio's mean return must hit this target.
+Well, hold on I can't just invest in bonds, if you demand a 20% mean return i'm going to have to stretch into some riskier assets what's the other constraint here.
+The sum of the way tasked add to one.
+You can go longer and go short but you can't lever your portfolio well, you can leverage, I guess, but you know long and go short but the amount in the risky assets, has to be exactly the amount of your investment.
+The section after this is going to loosen that it's going to say no, you can put some money in the risk free rate so that doesn't have to add up to one.
+that's going to simplify the problem, not surprisingly, because it's going to take an optimization with two constraints and do an optimization with one constraint so it's going to reduce the dimensionality a bit, but we'll we'll see that later.
+Well, some of you, those of you with more math background will look at this problem and you'll say this is a convex optimization, this is a cinch this is easy because i've got a convex optimization problem with a convex constraint.
+I can solve this thing how I can use lagrangian and then I can use just a first derivative because of the convexity.
+Five use a lagrangian multiplier take the first derivative said it equal to zero, then i've got a solid for the garage multiplier that's a little messy but it's just tedious calculus and I can solve and get an analytics solution.
+But I want you to know what if I couldn't get an analytic solution, what would I need to do here what, if I were like doing a Monte Carlo simulation to try to optimize this.
+i'd say well i've got what did I say 15 assets there's a lot of potential portfolios, I could choose every combination of a 15 by one vector.
+It could be 100% weight in the seventh asset and zero and everything else, it could be negative 30% in the first and negative 340 and the second, it could be anything so i'd be searching a seven sorry 15 dimensional vector.
+And for every single vector I would calculate and make sure it's the main return okay now i've got a small subset of them and then, of all of those i'd see which one added the smallest variants.
+That would be really tough.
+Because even with just 15 assets, even with modern computing there's a lot of combinations of the 15 dimensional vector.
+So the search would be extremely inefficient now let's take it to 200 assets, I couldn't solve it.
+computing's great I can't I can't search a 200 dimensional space and for every candidate check these two things.
+But I want you to think of that approach, because that's going to be a problem if we want to generalize portfolio construction too much.
+If I want a really cool objective function, and I want to account for transaction costs and liquidity and trading constraints and all these things i'm going to end up with a really nasty optimization or i'm just gonna have to throw candidates in and see which one does best.
+And a lot of things that we do in optimization maybe we can get away with that, because the dimensionality is three or five in our portfolio construction, even in the simplest cases it's going to be 15 it's going to be 20 It may well be 500 that would be impossible even at.
+To solve with just this brute force in a more complicated problem.
+Well, the reason, this was a solution, even in the late 60s is because I don't need to use that brute force.
+there's a beautiful solution in this box and you can look up many classic references or the Appendix to see how that would grunge multiplier approach works.
+And it says the following that any solution which graphically let me go back a few graphically we want the things on this, whereas it sorry parabola we want the things on that parabola as a function of weights in those individual assets, the blue dots.
+So here are 25 so what what wait vector 25 by one will get me onto the parabola and the result is kind of stunning, it says every single point on that parabola is a combination of two points.
+put some weight delta in Omega T and some weight one minus delta in Omega V and you will trace out the entire frontier.
+Well that's nice what's Omega T is this thing it says it's the we're going to call the tangents the portfolio is says your weight.
+should be the inverted covariance matrix multiplied by the vector of mean returns.
+Now i've told you i'm not a fan of you know kind of desert island mathematics you've got to memorize it all you're you're going to have resources.
+This is something I would know if you woke me up at two in the morning Okay, this is a famous result and I think it's pretty intuitive.
+You want to maximize mean per variants multiply by the mean and divide by the variants.
+Now it doesn't look like that, because it's matrix algebra and you don't divide a covariance matrix but you invert it and you multiply it.
+And what are you multiplying by the vector of mean returns, if this were just a one asset problem, it would literally just be you know mew over Sigma squared and some scaling.
+we've got multiple assets so it's linear algebra what is that scaling I even under braced it to tell you I don't care about this.
+Why it's just whatever number makes that thing out up to one.
+So if I were programming this in Python I would calculate the covariance matrix got it i'd calculate the director of mean returns got it I would do that multiplication.
+wt equals that thing and then the next slide I would just say wt equals wt divided by the sum of wt if you're following me i'm just saying the stuff in the under brace is just to make it out up to one.
+And if you look at it it's the exact same formula just pre multiplied by a vector of ones.
+That part you don't even worry about that's why this is a formula boy I know this on any desert island because it's intuitive it's simple, what is the other piece of the of the main variants frontier it's this other way, that is just minimizing variants.
+you've got the vector of ones divide by variance again I can divide by matrix so I pre multiply Sigma inverse but everyone, I hope you can see, this is just kind of analyzing for covariance and doing nothing else, all my cares that you have a small covariance.
+Or what I really should say is you get more weight if you have a if you have small co variances it's a mess it's n by n i'm not saying that it's.
+We, I can tell you what each weight would be because you know any asset, has a bunch of covariance is what if some of them are big some of them are small, well then it's going to net out to something.
+What does that look like, I want to get to this, it looks like those two portfolios.
+The tangent see is the red diamond and the other piece is known often as the global minimum variants it's the Red Square.
+Why is it called the global minimum variance again and it were like searching for jargon, where we can it's just the minimum variance portfolio, I don't care what mean you are you can't get further to the left.
+So the previous slide was just noting that jargon and it's noting that that piece of the portfolio could itself come from a simpler optimization minimize variance there's only one constraint, they need that up to one I don't care about the me.
+what's funny is we'll see in the next section that tangents the portfolio also comes from one constrained optimization minimize variance hit that mean I don't care what the way it's set up to.
+So the beauty in this result is you trace out the whole frontier from to simpler solutions where each of them comes from the original solution where you drop one of the constraints.
+If anyone here is really well versed in their convex optimization constrained optimization This is all going to seem natural.
+If you're not I want you to differentiate between the result it's a classic the formula and the intuition that's great and the proof of it, I really wouldn't stay up all night working through that there's probably better things to do with your time.
+Okay, so now any portfolio on this parabola is just a combination of those two special points.
+Does that bother any of you that i'm saying a linear combination of those two points is tracing out this nonlinear thing I get that question, usually cheer so i'm raising it.
+Why what is going on here how is a linear combination of those two points, giving me this very you know this nonlinear Piper blah instead of a line.
+Well it's because I can't show you a 25 dimensional graph if I showed you the weights, they are a linear combination i'm taking delta times one one minus two times the other, the weights are linear sure.
+But i'm not showing you the ways i'm showing you to statistics derived from those weights, the mean is linear.
+By just showed you the mean return between the two of them it'd be as boring, as can be, and it just be aligned between them.
+But i'm also showing you the volatility and we already said volatility is a highly nonlinear function, so I just want to be clear.
+The output of this what i'm graphing is a function of those weights so taking a linear combination of the weights doesn't mean that the output of the function is a linear combination.
+
+Speaker
+Yes.
+
+dricks
+Oh good question, so I labeled this not just tangents the but tangent to zero, I mean that the reason this gets called the tangents the is because if you looked for the tangent line that goes through the number zero.
+That goes through 00.
+you'll remember geometrically what a tangent it is, I think it's it's the straight line that's only going to touch.
+That shape I could put on a line that goes through 00 and it would rest where it's tangent sees exactly at that point that's going to have some conceptual meaning in the next section when we have a risk free rate.
+that's right, so the tangent see to zero, is that portfolio wt so the red diamond tier is wt the Red Square is w be.
+Okay.
+So what do we want to say about that this has a huge implication if you were empty investors, if the market where.
+All you cared about is maximizing mean minimizing variance then it means that, no matter what portfolio you want, you would just end up pulling a combination of those two.
+Every investor in the market would hold a combination of those two so, even if there are tons of securities available someone would bundle them into two etfs.
+One of the etfs would be called the tangent see one would be called the global minimum variants and the entire market would just be happy holding those two etfs.
+You see, where this is going to be the backbone of kind of passive investing the idea that maybe we can optimize by just being in these very special bundles of these other securities.
+we'll get to dynamics that will make it active but that's the idea.
+Okay, so in a very brief statement, what are we going to do that's different about this in the homework.
+we're going to use returns minus the risk free rate once I do that i'm going to just skip to one side we'll talk about this, but once I do, that my optimization problems simpler, because I get to drop the idea of the some of the weights needs to be one.
+I have 25 risky things and a risk free rate.
+Does the sum of my investments in the risky things need to be 100% know, maybe it's 60% i've put 40% in the risk free rate.
+Maybe it's 200% and i've borrowed 100% from the risk free rate.
+The weights don't have tad to one what will it mean geometrically i'm going to skip again oh sorry.
+My formula gets simpler because it's now only the tangent see I don't need the global minimum variants why i've got something better i've got the risk free rate.
+graphically what is it going to mean and again we'll talk about this a bit more, but just previewing.
+It means I can do better, I don't need the G I don't need the global minimum variance I can take the tangent CC and I can combine it not with the global minimum variance I can push all the way to the risk free rate.
+Now it gets really simple because the linear combination with the risk free rate is just a straight line because it has no co variances and instead of getting the dashed hyperbole I just get these two straight lines.
+What does that mean it means that no matter who you are as an investor if the world were all mean variance everyone should just want the tangent see and the risk free rate.
+Now I only need one ETF and every investor you want high returns you want low returns, you cannot do better than the tangents the and the risk free rate.
+Some people are risk averse so they hold lots of the risk free rate and a little bit of the tangent see that puts them over here on this part of the black line.
+Others are more risk loving they want high returns they'll take lots of risk they borrow the risk free rate to invest more than 100% the tangents and they end up over here.
+This result is obviously not true of how markets work but it's this simple optimization that says.
+there's one key portfolio and, whatever your risk level is just scale it up and down with the risk free rate that's going to be very powerful.
+That is going to be at the heart of many applied methods we'll talk more about what this looks like, with the risk free rate in your homework this week.
+But the formula that you'll need is really this well I could I could ask you to do it with total returns and use the formula we saw that used to the tangents the end the GMB.
+But I could also ask you to do it with risk free returns and you would just use this slightly simpler poor formula, because this formula.
+says everything is is just a fraction or a scaled up version of the tangent.
+Okay, I want to conclude.
+by looking at a numerical example.
+So here's a Jupiter notebook that's going to explore this with two different security universes i'll post this.
+As an html I won't post all the underlying code to it because you're going to work through some similar things.
+But you don't need to take notes on a screenshot i'll post this as as an html.
+So here's what i'm going to look at let's look at a bunch of commodities futures.
+If I can get this thing scroll.
+Here the returns to a bunch of commodities futures, those are the columns they all have these funny symbols, with the number one it's because I want the first future the next expiring future I want to look at its returns over time, the front.
+Oh, I scroll too much let's see if I can have a little latency here apologies.
+I look backward that's better each column is a time series of returns, the first column that's crude oil, for instance, the next column is natural gas.
+The next column is what is Casey I can't recall that's cotton, or what but we've got a bunch of different commodities and their returns notice, those are monthly returns since January of 2000 and these returns go to May of this year.
+I can calculate performance metrics on each of the individual securities i've got the mean the volatility the sharpe ratio.
+Its minimum monthly return its maximum monthly return and a few other things you don't need to worry about right now so crude oil co one has a mean of 10% a year volatility of 40% a year, this was monthly data, but I analyze to those its minimum.
+monthly return was 54% maximum monthly return was 88% so on what did I warn you how useful, is it to look at these statistics of individual securities, not that useful for going to combine them.
+let's look at the we could look at the maximum drawdown of each of these commodities that means how much it lose from its Max to its men.
+We don't need to dig into that right now, what I really want to show you is its correlation the minimum correlation is between golden and silver.
+And the maximum correlation is between gold and cattle that seems like that's backward, so we will check into that here's the correlation matrix let's see here so we've got.
+
+Speaker
+Oh whoops let's go up just a little bit on the correlation matrix.
+
+Speaker
+There we go so.
+
+dricks
+i'm gonna have to look at what that si is that okay yeah that looks like that's simply backward Okay, so what the maximum is.
+If you look at this heat map, you can see the correlations in a heat map of this correlation matrix I want you to notice the scaling of it, those dark colors are really low correlations, what do you think of the correlations among these futures.
+I think they're really low I think if you're dealing with a portfolio without low of correlations you're you're lucky because you're going to get massive diversification.
+And, to be frank you're also going to see that the, the results are going to come out a little more obviously.
+If we do the mean variance optimization I want you to just look at this full column i'm not going to get into what the differences there you'll look at that, in the homework, if we look at this full column.
+We see that it puts a little bit of weight across these securities, it puts about 11% and the lc one fits very small negative positions puts a huge positive position into gold huge negative position into.
+Think that's still read need to double check it is silver okay thanks huge negative aeration say huge negative 18% into into silver what's going on with this optimization.
+kind of the obvious if we go back and look at gold's sharpe ratio and it's it's mean and volatility they're really nice, so it puts a lot of weight in it.
+Why does it put this negative position into silver was silver's were silver statistics so bad or were silver's statistics.
+Here silver statistics were a sharpe ratio of.
+
+Speaker
+35% that's probably the second highest.
+
+dricks
+So it's going long, the thing with the best mean variance and it's shorting the thing with the second best mean variance isn't that kind of strange.
+I want the portfolio, with the best mean variance and to achieve it, I look at the building blocks and I go long the best building block and I short the second best building block, not the worst the second best, why is it doing that.
+Oh.
+we're just wrapping up so.
+Apologies about that let's see if we can hold on to our zoom.
+yeah.
+Oh.
+I guess that two hours 55 minutes seems to be the the limit for the classroom I appreciate that you guys have five minutes more patients.
+apology, so why is that happening it's the correlation it says look I love things with good mean variance trade off, so I would love to have them both.
+But I can do even better, I can use the one to hedge out the other, they have high co variances so going to look long one, in short, the other is going to crush the volatility down really low What would we see if we looked at this.
+In its in its performance, so I showed you the weights look at the performance.
+The full sharpe ratio for those that don't know what a sharpe ratio is it's the measure of the mean per variance except it does mean per volatility instead.
+So that number is about how well you're achieving this mean variance it's 76% that's almost double what gold could do so look at the very best asset we're doing almost double that.
+Why because going long the one short the second best it's unfortunate we wish it were the worst but we really need to short something with high correlation we get an amazing sharpe ratio.
+will talk about what I mean with the diagonal it will talk about the problems, let me show you one last three minute example let's play the same game with hedge funds, these are various hedge fund strategies, do you think these are more correlated or less correlated than the futures.
+More correlated i'm not saying they're not individual equities those would be even more correlated.
+But these are hedge fund strategies and if if you don't know why i'm saying they're more correlated don't worry about it we'll talk about them, but they're they're going to have more correlation with each other than.
+Cattle to gold did so we can look at the monthly returns, starting in 1994 and we can calculate this and we see the sharpe ratios on many of these are amazing.
+Users we're getting sharpe ratios of 35% some of these funds are getting sharpe ratios of you know, two or 1.7 again if you don't want to sharpe ratio is we're going to explore it in the homework but it's just that mean variance trade off.
+We could look at the Max drawdown we don't need to.
+what's the correlation matrix look like looks red ha, a lot of really high correlations.
+Right a few that I mean really the only one that has low correlation is the dedicated short biased.
+It lives up to its name, it has low correlation to the other strategies but mostly they're extremely high correlation which correlation looks the highest year to you.
+Well, we only have a minute so i'm going to tell you what what's pretty high right around here event driven versus event driven distress is really high.
+let's look at the way it wants me to put.
+It wants me to short event driven by 89% of my assets, so that I can go 80% into event driven it also wants me to short 56% of the total index.
+so that I can spread lots of long positions out elsewhere so know the weight some to one, but it is borrowing money in some places to.
+gain more long positions and others and it's going to offset those correlations again.
+I could scroll back up you'd see a similar story the sharpe ratios are pretty similar but it wants to go crazy long into one crazy short into the other what's that going to do it's going to give a sharpe ratio of 450%.
+So again, if sharpe ratio doesn't mean anything to you it's just the mean variance trade off and it says that it's more than doubled it.
+Do you trust answers like these well we'll end by saying homework, the homework is going to explore that but don't show this to your boss on the first day or you're going to get.
+not taken very seriously these results are ridiculous huge long positions huge short positions and i'm going to give you a clue of what the problem is.
+In some sense, the problem is that mean variance optimizer doesn't understand statistical one certainty if I give it to securities that look almost the exact same but one does a tiny bit better, what do you think the mathematics would say.
+Oh long that one 1,000% and shorten the thing that's nearly identical 900%.
+But hold on isn't that just statistical luck that one of them did barely a bit better, what do you think's going to happen to me if I carry that out of sample I think i'm going to get crushed.
+So we're going to talk about that in depth this week you're going to dig into a case study on this, the homework will typically post.
+right about the next day so up to 24 hours after the lecture it is due at 6pm next week work in your homework groups use the discussion boards thanks for your patience, as we get started we'll pick up from here.
+Those on zoom thanks for joining, I hope you could hear Okay, and that the AV quality was good enough feel free to send your comments about the AV quality or about anything else to me and I really hope you will be active on the discussion board, especially since.
+Because that that's obviously completely accessible to you, so I hope to see you commenting they're working your homework groups and all look forward to seeing you either on zoom or in person, next week, thank you.
+Transcript Auto-Scroll

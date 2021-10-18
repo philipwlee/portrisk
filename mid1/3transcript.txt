@@ -1,0 +1,894 @@
+Okay welcome everybody to week three in portfolio theory it's great to continue where we left off.
+This week we're going to be talking a lot about modeling risk so we're going to be using some of those linear factor D compositions with respect to risk.
+we're going to be using some of the things we learned in mean variance optimization but right now we're still assembling a number of pieces that we're going to really bring together.
+Throughout the quarter, so what we learned today will have useful application immediately and on its own and it's also something that will continue to build from.
+Before we get into that we're going to have a pretty thorough discussion about what we talked about what we introduced last week.
+So we're going to Center that discussion in the homework but it's not because we're trying to cover how to do the homework, we want to talk about some of those the main lessons so we're going to talk about.
+The homework and quite a few of the extensions as well, so we're going to take our time on that my anticipation, is that that will take about half the class.
+And then we will discuss some lecture notes that get into modeling risk, particularly with respect to the value at risk statistic.
+And that's going to be the launch pad for us to then in during this week, look at some application of how to model.
+Statistics like value at risk, using methods such as historic simulation Monte Carlo simulation or certain mathematical models so that's our plan.
+you'll recall that in the course we are in, week three and in this course, we have two smaller sized midterms so next week is a mid term it will be at 6pm the usual class time it will be in here, I will send out more details and a canvas announcement.
+If you have had any significant reason you couldn't take it, you should have already contacted me.
+If, for some reason you didn't contact me immediately and we'll see whether the, the reason is sufficient so we're going to have that mid term.
+Again I don't want to spend too long, of our class time discussing it, but i'll remind you it's Open Source closed collaboration.
+So it's definitely individual not group work, but it is open source to where you can use your code that you've been building through the quarter, you can use anything we've posted, including on the github repo.
+You can use the Internet, so long as it's not to collaborate as long as it's just to look up you know Python syntax or notes or whatever.
+The midterm is only an hour and a half, roughly once I write it i'll put the exact time limit but i'm assuming i'm aiming for about 90 minutes.
+And then, after the midterm, we will have a small class session, I know that that's a little difficult to.
+be focused on class after a midterm but we talked about this, the first day i'm definitely not willing to just give up an entire week of learning and class to do that mid term assessments that's fine for the final exam.
+You have you've learned a lot at that point you take a whole week to consolidate it there's no way we're doing that for a mid term, so I know that that can be a little uncomfortable but the point of.
+Well, one of the consequences of how I structure the course is that the assignments are really not about assessment they're about learning so you should have had a lot of bandwidth to focus on learning the last few weeks.
+You should not have you know, been staying up all night to get the exact correct homework solution, so I feel that it's very compatible with.
+The core structure where you should have really been focused on the learning throughout those homework, not the assessment, so we should be ready to go now that said.
+You may want to look at the format of past men terms, so i've posted on canvas a mid term page, you can see last year's mid term, you can see some other thoughts on the mid term I would only caution you that.
+Last year's mid term is not a perfect indicator of what you should expect for this mid term every year the course changes.
+Both in terms of the order of the topics, the timing of when the midterm happened the midterm happened later in the quarter last year and the order of the topics was different.
+So there are certain things you'll really recognize like weeks one and two, but week three happened after the midterm.
+Week what we're doing in week three some other things happen before their mid term.
+Furthermore, because of coded the structure of the course was quite a bit different I think the midterm is fairly easy in terms of what it's asking you to do on Python last year's midterm.
+So I do not make any promises that that's exactly indicative of the it's certainly not indicative of the content, as we said the topics are different.
+Early there's some difference between them and i'm not promising that it's it's the best indicator of the difficulty level.
+The reason I post, it is one for transparency and two because I do think it's useful to understand the format of how i've written exam questions and this idea that you will use Python in your exam questions.
+But last year's exam really didn't have very many conceptual questions and I.
+have free range ask you conceptual questions whether you understood topics they're obviously not going to be memorization questions, given that it's open source.
+But I can ask you conceptual questions, to see if you understood, a key lesson for my case okay in the Harvard case we spent 30 minutes in class the next week discussing this point did you understand it.
+So those are my thoughts on the midterm as you are, you know thinking about that we're not we're not shutting down the class for a week, so there will be content tonight.
+That content is content, I expect you to learn during the week you'll submit it on Monday, take the exam and then we'll discuss it after the exam.
+So, again, I think, on the first day we went over enough there's pros and cons to different test formats, this is what we're doing so.
+I know that that that is a little bit busy for you, this week, but the other weeks are low stakes, because the way I do homework okay so with that, if there are no questions we're going to continue I don't see any questions on zoom I don't see any questions in the room.
+Oh one other point of kind of course business we've got an awesome set of ta.
+they're seeing you in their office hours, I talked to them quite a bit about the questions they're hearing and kind of how those office hours are going.
+I think, too many of you are not asking questions, it may be that we're going that we're just getting started so it's fairly easy right now that's fine.
+If that's not the case, look these these T office hours, some of them are lightly attended you could get amazing levels of attention from people that are you know.
+helping me run the course, so I would encourage you, if you're not in the situation that you say okay it's the first couple weeks it's pretty easy right now.
+If that's not you, you should reconsider whether you're asking enough questions on the canvas discussion board whether you're attending the ta office hours enough.
+Because they're, in my view, they're really good ta and I think they could help anyone who is not feeling 100% lockdown on this so there's a little bit of a that's that's what i'm taking away from the first few weeks.
+But I am happy to see how much they are being utilized so For those of you that have questions and are feeling courageous enough to go ask them good job.
+There will be the usual ta review on Friday, where it's not just asked questions I meet with the teachers and we talked about what to really emphasize that will be on Friday, as usual, and so I would just remind you of that that's recorded and I view it as significant course content.
+Okay well that's all the course business for me last call for questions, yes.
+yeah the content that we cover tonight will be what I consider testable material.
+So you will have a week to learn it we're talking about it tonight you're going to work on it and the homework.
+As always, the homework is very learning based so I expect you should be learning quite a bit from it.
+Obviously I won't expect you to have the same depth of understanding about the material, as you do in the in the other material, where we come back and discuss it after you turn it in.
+But I would expect a certain depth just from being in the lecture together and.
+On the week three material and on the week to material absolutely we're going to talk about it a lot tonight that is testable material and the week three material yeah to the degree that we get into it tonight to the degree that I would expect you should kind of.
+Learn it just in your kind of own discovery in your groups, but I won't expect quite the set you know, obviously we won't have had a wrap up discussion yet.
+Good question so we we want all the material that we present tonight, and that we do during this week as material that that can be on the exam.
+Okay.
+With that i'm going to share my screen and we are going to get going in this material.
+Those of you on zoom should now see my screen.
+
+Speaker
+let's see here.
+
+Speaker
+get this bigger.
+
+Speaker
+Okay.
+
+dricks
+To get started i'm not going to go over all of the conceptual questions I will note that.
+Again, the exam doesn't have to just be Python based questions, but on these etfs I hope you enjoyed the pro shares case, I think it touches on a lot of significant areas of quantitative finance and of what we're doing.
+First of all these etfs I mentioned in the market series how important etfs are.
+
+ Shetty
+For us, especially as.
+
+dricks
+quants is great benchmarks is great instruments to quantitatively investing strategies that are less liquid, but an ETF is holding it.
+The pro shares case does a good job of I think of illuminating some of this and, seeing that there are these alternative ETF classes and what makes them, you know so interesting.
+And then, as you know, the bulk of the case is about this hedge fund replication and this idea that maybe we can get hedge fund tape return series.
+Via etfs so with that, I would like to hear somebody give us a quick reminder of what is, you know attractive about hedge funds and what's attractive what are some of the pros and cons.
+about trying to access those types of returns via an ETF and somebody give me a quick thought on that, yes, Brock.
+So let me pause right there to repeat hedge funds have similar levels of returns and say, like the s&p but lower Vol so I agree with that, at the at the broad hedge fund index level keep going.
+So i'm going to recap, that a little bit, these are not accessible tall investors, you need to be you know, an accredited investor, that means you.
+you're not even legally allowed to invest in a hedge fund unless you have a significant amount of wealth and a few other things.
+And to hedge funds are not liquid, in the sense that you are typically restricted from redeeming your investment from from liquidating it out of the fund.
+Those lockups maybe you know, a certain period of time, once you hit that period of time, you still may have your money locked up year to year, and only have certain pure windows, that you can redeem keep going.
+yeah so let's wrap with that, so the final point is that hedge funds are going to have high fees so.
+Hedge funds traditionally had this fee structure of 2% of the assets were charged as a fee each year, so that's you know depreciating your asset base by 2% a year.
+And then there was an additional fee of 20% on profits on returns sometimes those would be defined as excess returns usually not usually it was just total returns on the fund.
+At least above the previous maximum of the Fund so if the funded had you know, a 10% return or than 2%.
+Of that is going to go to the management fees or in this case the performance fees.
+As well as 2% of assets, no matter how the fund does well that's a lot now you're talking 4% just went out as fees in a year that you made 10%.
+that's going to really crush your sharpe ratio what are two things we should expect from hedge funds, then further there's a lot of things one, I just want to point out the scaling.
+If i'm charging 2% of all assets, am I going to run a hedge fund that you know I could make 6% a year, maybe my volatilities really low, so the sharpe ratio is still great.
+let's say I make 6% a year with 3% ball well, maybe that's an interesting asset to us interesting sharpe ratio, maybe it's a diversifier.
+Can I charge hedge fund fees on that definitely not 2% assets under management, because compared to the 6% total return i'm getting it's not going to work.
+So what are hedge funds going to typically do to avoid that they're going to make sure the scaling, even if I have a sharpe ratio of let's say one or two.
+I need it to be at a pretty high level so that those fees don't eat into it too much so i'm not going to run a hedge fund with 6% return 6% Vol.
+Even if I figure out a way to get that return stream i'm going to leverage two or three times so that I can extract some fees out without it damaging my returns so so much yes.
+yeah.
+Yes to mass pointing out another of the pros of hedge funds are that they tend to be.
+At least less core are these many hedge funds, I we're not saying anything about all hedge funds, there a zillion kinds of zillion styles.
+But for many hedge funds and traditionally the idea of a hedge fund is that it has a lower correlation to the broad easily accessible equity market.
+So other investors can easily get into these publicly traded stocks and the hedge funds are doing other things so they're gonna have lower correlation to that.
+So that's common is, we would we would expect, for if hedge funds are doing their job they should have a relatively high information ratio relatively high train or ratio.
+So those are some of the reasons we're interested in these funds but we're going to need to watch out for these issues of access of liquidity of fees.
+Absolutely, so the appeal to approach shares wants to do is to replicate what matt saying about the diversification opportunities but avoid this idea of illiquidity and high fees yes.
+yeah so the comment is that hedge funds, you have to take maybe their volatility with a grain of salt, because if they're holding illiquid assets.
+it's hard for the hedge fund itself to even know what what it's worth is at a daily basis, certainly not even at a monthly basis, possibly not because.
+If it's a fun that holds illiquid things it can be hard to know what an illiquid piece of real estate or a very niche corporate bond is worth.
+So that's an issue will get into later, but I agree that hedge fund return streams may look too attractive because they may be understanding their volatility.
+Even not intentionally, perhaps, but for the reason you're getting out with illiquidity so the other nice thing about these ETF replicates.
+To that point is as an investor, I really know what I have their their trading on a you know, an exchange i'm getting data on them throughout the trading day so as an investor there's something much easier about that.
+
+Speaker
+Yes.
+
+dricks
+yeah so a tax issue and we won't get too much into taxes in this class but getting a key one from a hedge fund.
+If you're someone who's already invested in a lot of those types of things, maybe who cares it's one more K one.
+But at the margin if you're an investor that that doesn't want to have to hire a tax account and it's a lot nicer to get a simpler tax statement than what you would get from a hedge fund so there could be some some tax issues there.
+let's move on to some of the specifics of this case we're going to have another case that gets into some hedge fund issues so long term capital management we'll talk about that later in the quarter.
+But we'll we'll have a chance to talk more about hedge funds so i'm giving short shrift to things like the performance fees and that but we'll we'll see more about that later.
+These benchmarks what is going on in this case, this case is kind of alphabet soup I would guess for many of you, the first time you read it, you get a little lost, and what are all these things.
+I was hoping to get a simple explanation of what is going on here with all of these with all of these letters now one second i'm realizing I can't see my zoom toolbar the way, I would like, so let me straighten that out because i'm guessing i'm getting some good zoom questions.
+And it's too high on the screen to see okay.
+yeah Chan I I liked your comment about the for the hedge fund, you also have no idea what they're holding even even as an investor you're going, you might have some idea but but not.
+totally clear idea with any tech ETF you do.
+So this comes back a little bit to the idea of whether the magic of whether the appeal of what the hedge funds, doing is from investing in alternative assets and giving me diversification.
+Or is it because the manager has this really special skill and they just know how to trade for great returns.
+Well, if it's about the process if it's about diversification alternative assets and etfs just great I actually get to see what i'm invested in perchance comment low fees access.
+If the if what makes hedge fund special is having that store manager that knows exactly what to trade, then obviously this this process we're going to talk about can't replicate that so that's The big question.
+Okay, so what's going on with this alphabet soup Can somebody explain to me just the H fri what is it, I see a number reported from the H fri what is that number.
+yeah.
+that's right and it's Clinton Clinton says it's it's.
+let's say a survey hf or is surveying many, many hedge funds, in this case around 2000 and they're getting a monthly.
+survey back about what each of these hedge funds monthly return was.
+On a rude yes so we're getting this from about 2000 funds equally weighted whether it's equally weighted or you could do other things with it that's fine, but the point is, these are returns reported by a ton of different hedge funds.
+Why do we trust these reports could could have fun be you know, stating a return that's wildly incorrect well ah fri goes through the data and tries to watch out for things that.
+don't make any sense, but the other thing here is HR is restricting the survey to hedge funds that have audited returns.
+So these are funds that are serious that are legally set up in a way that an outside auditor is checking the return, so the ideas that that these numbers are real.
+Obviously, there could be errors, there could be fraud, but they go to some link to try to make sure these are actual fund returns, some of these funds could be small.
+H fri has a zillion different indexes where they collect this data from all these hedge funds and they you know sorted into different groups and reported as all sorts of different indexes okay that's fine why don't we just invest in that.
+yeah Maggie.
+yeah so the ETF you set it up and it needs to have a benchmark and as stated that benchmark needs to be some kind of third party.
+I can't set up marks ETF that tracks marks index oh great I hit it every month in order to have certain favorable properties of an ETF from the SEC, you need to have a benchmark that's a third party benchmark that you're trying to hit.
+But once we stated what the H fri is I hope it's clear why we don't just invest in the hf or right it's not a security it's not an asset it's a survey so obviously we can invest in that.
+Is the H fri index going to be what a hedge fund makes no it's it's a basket of 2000 hedge fund, so it should we be surprised, its volatility is solo.
+Know it's diversified over a lot of hedge fund some hedge funds have volatility five times as high.
+Other hedge funds have volatility lower, but the hf or I index is not representative of the median hedge fund it's a basket a diversified basket of many hedge funds, so we say Okay, we want to, we want to get a return stream that looks like that.
+it's not going to be the median fund where it has some huge months up and down it's going to be this collection of all hedge funds.
+But the idea, the only reason we would want to do this is if we believe that what hedge funds have really been effective at is just diversifying into new areas and it's much less about getting the star manager.
+Okay well.
+And how RON sorry I didn't see your comment earlier that's exactly right HR HR is the survey it's not an asset like you mentioned the vics good point.
+So then, what are we going to do instead well Merrill Lynch creates this index that tries to replicate via fri and Can somebody give me a you know just a reminder of what that's doing what do we have going on with this say ml FM Merrill lynch's factor model what's it doing yes.
+yeah so Stephen was it's a linear factor model, much like we saw in week two trying to decompose the H fri into six assets.
+That so that we can understand it so notice how different these two things are the H fri is literally an organization surveying 2000 people every month.
+The Merrill Lynch factor model is a regression, these are two very different things okay why don't we just invest in the Merrill Lynch factor model.
+Because again it's not an asset it's a regression they're publishing their research of here's what our regression says.
+Why did they complicate things further and create the ml FM exchange series that's going back to I think it was a maggie's comment of you need the ETF has to have a license benchmark.
+And for their benchmark, they said hey we like this Merrill Lynch index that comes from a regression but there's one thing we don't love about it there's one reason we don't want our performance compared to it.
+I mean seemingly they probably could have licensed it from Merrill Lynch as is but they wanted Merrill Lynch to make a change to it to license it to make it a little, in their view, a little more fair to what to what they were doing so, what was the change.
+Yes.
+right they wanted all of the assets to be tradable so the Merrill Lynch factor model had six factors, what do we mean not tradable well what if one of your factors in the regression is an index.
+we've already mentioned things like the vics or the s&p 500 those are not assets, those are indexes.
+What if you have a series of a bond index instead of the actual bonds and so on, so they said we we don't want to be compared with our actual fund returns.
+To a regression that's based on some some indexes because their indexes they're not going to trade quite the same way, so the exchange series just takes those six things makes them all tradable securities.
+And then, otherwise runs pretty directly all of that is to then do what what is he doing.
+Yes.
+So hd G is the actual tradable product, it is the tf and what is it doing different than the Merrill Lynch factor model exchange series.
+me see if anyone else has a comment that hasn't answered.
+Gentlemen.
+yeah.
+So, most notably what trends and saying is it's actually doing the trades the Merrill Lynch factor model indexes.
+They get to do what we're doing kind of hearing the classroom they get to build the notebook and make sure.
+They can see what the regression says they're not actually making any trades PhD G, even if they had access to Merrill lynch's you know, even if they they do have access, but even if they took those exact Merrill Lynch waits.
+From the betas and invested them would they get the exact same thing, no Merrill lynch's index is what we'd call you know, a paper series there's no actual trades no trading costs transaction costs coming out of it for good or bad other types of tracking errors so hcg is doing the operations.
+Including the various fees, you need to charge as an ETF there's some administrative costs to being an ETF to pay the workers who are running this model.
+Implementing it so hd G is taking everything and running it through, something we don't discuss a ton in this class, but the actual operational finance doing the doing the trades paying the salaries netting out that small fee on hdd etc yes.
+yeah, the question is hd G was also not I said, even if they were taking Merrill lynch's exact betas and doing nothing else there would still be some tracking air.
+The Communists hd geez not doing just that they're involved with some derivatives and and they do not adhere exactly those.
+Merrill Lynch weights, even in the assets, they both trade, why would they do that well they do it if they think they can enhance the return series.
+in some way, so there may be times that the Merrill Lynch series says to do one thing and https to make a decision.
+If they believe that maybe it's going to create too many transaction costs to let's say the Merrill Lynch series has the beta shift dramatically.
+hd G may say, well, if we shift our position that dramatically we deal with trading costs that a that the Merrill Lynch series does not because it's not actually trading.
+Maybe we'll shift it slowly over time, so that we can reduce our trading costs.
+Well there's a pro and con there you might boost the mean return, but you might increase your tracking error, because you're not following it Maryland so closely same with the derivatives.
+What if I really want to deliver good tail risk protection, then maybe i'm willing to differ a bit from the Maryland series.
+My potential investors may hate that they may hate that i'm inducing some tracking air, but they may reward me for having lower tail risk.
+So for these etfs their decisions to be made when you operationalize trying to trade these indexes.
+And it usually comes down to try and enhance returns that usually means saving on on costs, but it could mean managing tail risk through the derivatives and you're you're doing that, while trying to balance it from making sure you don't have too much tracking error.
+Okay, so you have this whole series of things that were trading Finally, you have hd geez competitor QA Ai.
+What do we think of this tracking error we'll come back to that.
+hd G is by construction delivering beta i've already mentioned that this makes no sense if you think that the benefit of hedge funds is just finding a star manager, the whole idea of hedge fund replicated others not just by pro shares, but by many other groups, including the QA I ETF.
+The whole idea to these is that a lot of what is good about hedge funds can be just statistically generated and it's not about alpha it's about beta if I said hey as an investor you only invest in the s&p 500.
+Take this you know let's invest in this hedge fund ETF, I think, based on what we learned in week one I might be able to make a pretty good pitch, even if I tell you right up front there's there's zero.
+You know, skill, I have zero skill and picking stocks I just know that you're invested in the s&p and getting you invested in an ETF that provides exposure to these other things will diversify you.
+That will lower your risk, but in, on the other side of the coin is it can raise your return, because if I lower your risk.
+For the same amount of mean return, you can just invest more to get back to the same risk, high return, so the whole idea of this is let's diversify let's give people this this diversified channel which they can use to either lower risk or boost return.
+Finally, the fees aspect of this, I think, is underrated we'll talk more about fees later in the course in a different case with a long term capital management i'll have you calculate some of those fees.
+This was just a thought as a thought exercise to try to get you to start realizing how much this is going to hurt your sharpe ratio when you have to take out traditional hedge fund fees.
+Now those hedge fund fees have been coming down over the last 20 years certainly and and a lot in the last 10 years hedge funds have been seeing a lot more competition.
+Especially with systematic investing the type of thing that this case is about these types of products and want operated hedge funds have put a lot of pressure on this because, whether i'm running this ETF that's obviously much lower costs to run.
+Or maybe i'm running a hedge fund, but my whole pitches that it's all about doing stuff like this statistical top down analysis I don't need to hire an army of traditional financial analysts.
+I don't need to maybe you know I can save some other costs really drive those fees lower So what we see in today's.
+market is these hedge fund fees, the median fee is not 2% on assets and 20% of profits it's much closer to something like one and a half percent or even 1% on assets.
+and closer to 15% on profits, so those fees have come down, but when we look at those return series later in the course I think you'll see that they.
+can be devastating to your performance statistics, because your investors care about the net statistics, they only care about what the return is net of those fees.
+So Chan comments if alphas not you know is alpha the priority should train or ratio be our our you know.
+target or objective should alpha should the sharpe ratio, I hope, you're considering these things should be tell risk measures like value at risk.
+The truth is, it depends on what you know who you are as an investor and and, to some degree, what you believe.
+So we're not going to pick one statistic and say that's what you should be optimizing there's plenty of room, based on the context of what investor we're dealing with to either optimize.
+sharpe ratio or to minimize tail risk or to say actually we really want to maximize alpha not train or ratio etc so we're going to keep building on that discussion, yes matt.
+yeah so.
+what's a good trainer ratio what's a good information ratio that's a that's a good.
+Question to get us into our next topics, let me, let me go there.
+So let's actually get into the notebook here.
+So I will post this notebook our ta is have kind of this solution notebook This is my discussion notebook so there will be a few things that are.
+Maybe we're not asked on the homework or other things that's fine you don't need to use this, but it will be posted the ta solutions may be more direct way to follow along either way both of those will be posted so here's the data just taking a look at it.
+And let's look at the performance metrics this is for our six factors So these are not.
+The hedge fund series, we were looking at, but just to remind ourselves over this period spy has a sharp over one you'll note that this US je je.
+index, that is an index tracking the performance of three months treasury bills, so this is not itself a tradable product it's an index.
+But the operational barriers to trading three months treasury bills are very low.
+So we're going to treat this like it's an asset it's just easier than dealing with the role of the three month treasury bills, which we can talk about later so, even though this is technically an index we're going to treat it like an asset.
+you'll know that has a huge sharpe ratio, but it comes from just a strange feature that you'll see on these risk free rate type of statistics they're not risk free to have a little bit of volatility but hardly any.
+And they still have a tiny mean return so when you include things like three months treasury bills, it can really distort a lot of the optimizations and statistics, because they deliver such a high return per risk but at such a low scale.
+It is close to being a risk free rate so we'll see that come up in the regressions you should have seen it come up in the pro share case.
+We look at correlations across these factors, we would immediately know that the lowest correlation is between that EU ro and em but look at the EU ro ro and column it's that dark color showing a strong negative correlation to everything else can anyone remind us what EU ro is.
+This roughly what was a yo, why is it so negatively correlated to everything.
+Who said that yeah.
+yeah so it's this fx trade and is it is it shubin.
+
+Speaker
+say again.
+
+dricks
+Okay i'm gonna practice that keep practicing his name's it so we've got this euro US dollar trade, so this is not an equity notice that spy is an equity trade em is an equity trade iwon as an equity trade, these are very highly correlated.
+Where as you whoa is this short euro currency trade so not a surprise that it's not just you know low correlation to the rest, but even gets into negative correlations.
+We shouldn't be surprised at the Max correlations between idea I wm and spy because I wm like spy is just a broad equity basket what's the difference.
+it's the Russell 2000 so it's not taking the biggest 500 stocks it's taking the biggest 2000, and I mean it's it has a lot more small stock representation in it, but i'm using the word small stock loosely there it's still you know large stocks to be publicly traded.
+Okay we're getting close to what matt asked about the performance statistics here if we just look at our five hedge fund products or five hedge fund.
+
+n
+series and performance statistics we see.
+
+dricks
+Our that the sharpe ratios vary quite a bit.
+So the sharpe ratios what's what's got the highest sharpe ratio well it's the H fri index itself.
+But let's not get excited that's the thing we can actually trade, so what I hoped that you would see here.
+Is that as we went from the most theoretical thing a survey of a bunch of funds and we went closer and closer to implementing it through this statistical process, we see that sharpe ratio deteriorate further and further.
+Now note again what we're doing with this is a statistical replication of hedge fund trading we're not.
+invest in any of the funds, so this could be a sign hf or I could say hey, this is why it's important to actually invest in the hedge fund.
+Because your replication is not not fully delivering but we'll dig more into that but, even if we could just replicate the best we can, with the Merrill Lynch index.
+Once you make it use traded products it gets a little worse on the sharpe ratio about the same and then, when you take it tasty G it gets substantially worse.
+Should we have expected hcg to outperform that index, I think, almost certainly not hd G has trading costs, if nothing else, it asked to subtract out the costs of doing the trades.
+The small fee and ETF charges to most etfs have a small fee to actually run the thing, whereas those Merrill Lynch indexes have no such fees, so it would be very surprising if H tg could beat them.
+will also note, they have tiny mean returns and low valls an actual hedge fund would never trade at that scale unless they took their performance their their management fee much lower.
+pH fri index has a 5% mean that's not because the individual hedge funds have 5% returns, because some of them are you know, making 15% or 10% and others are making negative five.
+A hedge fund in order to charge that that management fee has to be making a mean return of at least about 10%, or else the 2% management fee is going to absolutely kill it statistics.
+So that's what stuck out to me here.
+How about on the hedge on the tail metrics what did we see what sticks out here.
+Anything that stuck out there a few different things we could note anyone that's not spoken up yet.
+Yes.
+Ah fri has a very fat tail you're seeing that from which statistic.
+The ketosis right and why do you think it's very fat like what you know what it's.
+yeah that's that's, the first thing that would have stuck out to me, too, is the ketosis is much higher for each fri and I think you just gave a great explanation of why it comes from a survey of 2000.
+Individual funds they each have their own outliers and and you know high volatility some of those funds are 30% of all funds.
+So it's averaging across those.
+You might expect from a survey, even if for nothing more than outliers or the fact that it's actually incorporating so many things, it has perhaps more range you could also argue it should be diversified because it's holding so many, but I think that's a fair point that.
+H fri even though it's in the table with everything else it's entirely different than everything else in the table the rest of the things in that table our regression indexes or etfs built around a regression index the HR is the only thing that is a survey from a bunch of.
+Many of them small hedge funds, so I think that's true any other follow up okay.
+What do we notice on this value at risk at the fifth percentile.
+Well, what I would notice is the hd Jesus substantially higher than its competitor QA Ai should it should QA Ai go brag about this QA has a lower value at risk a lower extreme expected shortfall, otherwise known as this car, should you Ai go brag about that.
+Well, one I think they should certainly say it's a good thing we have you know that we want those numbers to be as low as possible Why am I perhaps not quite impressed or convinced that there any better than hd G at that.
+let's go with john.
+yeah QA has less volatility if I adjusted those to be of comparable sizes, if you look at the top of my screen, you can see, H tg the second column there has a volatility of 5.6% QA I has 4.5%.
+So that's making up what a lot of the differences there is simply that QA Ai is a slightly smaller dose it's just a slightly smaller scale of volatility and that's it delivers a little less of all of those other risks statistics.
+So when we report our risk statistics, whether they're these risks statistics or other risks statistics, such as beta all of these risks statistics I would expect to grow with volatility.
+So it's extremely common for me to see funds outlining to you know you know mark in marketing materials or research materials showing off.
+Their risk statistics and sometimes not adjusting for this I would expect all of your risks statistics are partly a function of just what I would call your scale.
+What is your overall sizing that sizing might be because of the way you're designed, or it might be because of the use of explicit leverage, but if you're volatilities 20% and other funds is 5% yeah I would expect all of those risks statistics to be at different scales yeah matt.
+yeah it's the mean returns here are 2.8 or 2.55 so the sharpe ratio to QA is slightly better so i'm not saying QA QA is worse i'm not saying they should.
+not want low risk statistics i'm really making a broader point that anytime we're comparing these risks statistics, I might want to compare them.
+relative to the volatility of the fun i'm not saying QA Ai is the winner the loser here overall i'm just saying we're comparing a bit apples to oranges, in this case it's a minor difference, but imagine if I threw s&p in that table.
+The volatility, there is more than double anything else in the table so i'm going to have something of an apples to oranges issue, I could.
+scale to do a volatility adjusted version that would say, if you have half as much fall i'm going to scale your beta by two i'm going to scale your value at risk, your car by two but we'll get back to those things thanks Jen.
+And then on the Max drawdown I want to know there as well, that that is going to be volatility influenced the Max drawdown Here we see as, ranging from about 11% 7%.
+I showed you Max drawdown last week and for some single name equities like Amazon and apple it was well over 50% in the case of Amazon, I think it was closer to 90% these are tiny numbers.
+But again that's because that's the nature of this product it's extremely low Vol diversified and.
+Along with the indexes that it tracks, hopefully, you work through some code to figure out how to calculate when this thing peaked when it hits bottom when it recovered and that duration I won't go over that further, so now we can see how well do they actually do.
+Well, what we see here if we look at the scaling of that heat map it's going from 86% to 99% these things are all extremely correlated.
+And the only thing, even close to 86% is QA Ai, which is the competitor, which is not part of what we're mostly analyzing here.
+QA I only has about 80 you know 86 87% to hd G or H fri but those main series we discussed have enormous correlation to each other.
+going from the Merrill Lynch factor model to making it the exchange series is rough I don't remember the exact number something like 99% correlated going from the exchange series to hd G still very highly correlated we're getting correlations well above 95%.
+going from those regressions to ah fri maybe that's the most interesting question because that's the thing that's the most distinct here can you with a regression and six very basic aggressors replicating replicate what a giant organization with a huge staff is doing with 2000 surveys.
+Well, one you've only got a shot of doing it if you have those hf or I statistics so it's not like you're replacing H fri but can you mimic it.
+And what we see here, in my view, more or less is is yeah quite a bit, we can get over 90% correlation running a basic regression instead of.
+relative to this target that is nothing like a basic regression so, whatever your thoughts were from from doing this mine would have been okay this works, maybe better than might have been expected, finally, we get to these regressions statistics.
+And we can think a little bit about how we're doing here, so what stood out to people hear about these spy regression statistics.
+Now number of things here anyone that has not spoken up want to chime in.
+On zoom I don't see any anyone else, want to chime in what What stands out here, yes.
+The R squared is is high on these right.
+yeah because the R squared is, these are single variable regressions right is it shoo shoo them.
+These are single variable regression, so I know that the R squared is just the correlation squared right.
+So if i'm getting an R squared of point eight one on some of these that's that means I have a correlation of point nine of 90%.
+So i'm seeing that not only were those five hedge fund series highly correlated to each other they're highly correlated to spy the R squared on these says that every single one of them is 85 90% correlated with spy.
+Well, that should undermine a lot of the what we've discussed is this actually a diversifier Am I gaining something by being in an H fri mimicking product if the hf.
+trouble just switch the default Mike sorry.
+Okay, on zoom switch the I have no idea why I just switched the MIC but i've switched back okay good.
+So these are massive correlations.
+and enter rude points out that QA Ai is less sensitive to spy than the other so Andrew i'm I take your point there you're looking at the spy beta and seeing that QA is is a lower than the others, I agree, not by time but by some.
+So I think a table like this would make me question a little bit is this hypothesis even true are we getting significant diversification through H fri.
+As a broad broad index, there are certainly many hedge funds that have low correlation to spy but, once you average across all 2000 of them, you get back to something that looks a lot like spider me just with what.
+A lower dosage you're taking on instead of kind of $1 of spy you put $1 in the H fri and it's a little bit like you're getting point three $9 of spy investment, the volatility is a lot lower.
+Does the other risks statistics are lower, but it's not clear you're getting a lot more than that, again ah fri itself is not an invested product but hd G is so it's QA and what I see is high high correlation to spy.
+What should that immediately tell me it's going to be hard to do well on trainer ratio or information ratio why.
+That high correlation to spy tells me i'm probably not going to do great on the Info ratio or the trainer ratio, why is that.
+yeah okay we've got some hands here haven't seen before that's great yeah.
+Let me sum that up on my real quick is the first point is, if you have high correlation to spy and when you run this regression.
+What we're really analyzing the you know the Alpha the size of the epsilon then those, by definition, are going to be relatively small if most of its getting extracted out in the beta.
+Yet another point.
+Yes, so let me sum that up this and remind me your name again Richmond okay so Richmond says look these alphas are negative that seems to undermine a lot of the case for these.
+isn't the whole point of hedge funds, to have a positive alpha well putting aside whether that's that's the whole point because we could make an argument for negative alpha or even a negative means security.
+If it was such a good hedge that it reduced our volatility massively if we looked at our MV optimizer it could actually like a negative means security.
+But, for your point, this is not it, I mean it's delivering negative Alpha and it's not diversifying a lot so, then what is the point, so I agree Richmond that those negative alphas but stick out like a sore thumb here.
+especially given that you have high beta correlation together those are giving us just the negative alpha means you have a negative info ratio those signs always have to be the same if you don't if that doesn't seem obvious to you, you should double check what these are.
+We had two other comments anything that you'd like to follow up on with what Richmond said.
+No.
+Did you say the the non what returns.
+yeah the non factor returns are really small this series is already small you take out its s&p component they're tiny.
+So there's it's going to be very now look tiny epsilon is nice that means low tracking your low volatility.
+But the problem is you, you also have low mean what's the mean of the part that we've had down that's alpha alpha is the mean of the hedge portion Sigma epsilon is the Vol of the hedged portion and prove your point they're both very small, and unfortunately alphas negative.
+yeah so Neil mentioned also that beta here is going to be relatively high compared to everything that's edged out.
+And the trainer ratio has Baden the denominator so you've got a low mean in the numerator and a high beta your trainer ratios going to be meek.
+So matt asked earlier what's you know a good information ratio well.
+it's tough to get I can't give you a certain number at which you should be excited everything here is context dependent, but what I can say is the information ratio.
+is in some sense your marginal sharpe ratio it's the sharpe ratio of what you get even if you've completely hedged out spy.
+Even if you've completely hedged out the equity market.
+So I don't need the Info ratio to be as high as other people's investment sharpe ratios because whatever they're invested in part of their sharpe ratio is probably probably being boosted by equities.
+So if I can deliver an information ratio that's positive but maybe lower than your sharpe ratio is still may be attractive to you.
+Because the information ratio doesn't just tell you here's the overall sharp if you invest in me it says, if you add me to your portfolio, this is the kind of marginal sharp boost you're going to get.
+Now it's not additive I can't have a 50% sharp mix in a 50% info ratio fund and get to one, but it is at it so it's sub additive so it's going to add something.
+So maybe this is a complicated way to say it, but it is nuanced i'm not going to have a certain number at which it's exciting.
+But info ratios of if I are going to put a ballpark to it, you know 50% and higher start getting interesting but they're going to be more interesting.
+To investors who have a lot of beta because they see that 50% info ratio and say okay that's going to really help diversify me.
+If i'm already equity neutral then you're 50% info ratio is not going to be as exciting, but we see funds, and we see investments, where that info ratio can certainly get up closer to one.
+it's pretty rare to see an investment or a fund that has a long term info ratio higher than one.
+You see, funds brag about getting info ratios of two or three I had some marketing materials come in from a group that was telling me about their.
+sharpe ratio know their info ratio being over to based on some some interesting kind of data they're scraping from some tech scraping.
+And that's that's interesting I you know not saying anything about their their product, one way or the other.
+But their history, their sample size for that info ratio of to do you think it was 20 years, no, it was kind of you know, four years.
+Well, in the last four years, a lot of things we've had great sharpe ratios great info ratios so to wrap this up what would I have wanted to see here.
+This is a long time series I don't expect a miracle out of over 10 years it's easy to get big huge numbers for just a couple prime years of the market it's hard to get big huge numbers for 1020 years.
+But I would have certainly wanted to see positive alpha would have certainly want, which would have meant positive information ratio, I would have certainly liked to have seen lower R squared.
+If the R squared were high, but the information ratio were high I could live with that, because that would be telling me you've got a lot of spy.
+Because the higher squared but if the information ratio where hyatt would say, but the non spy part is really good too, and if you want you could always strip it out, how could we strip it out.
+What we did last week, statistically hedging it out so that would be no problem, the problem is, we don't even have high information ratio, we have negative information ratio, a few comments Carl.
+yeah, why are we looking at all these statistics, some of them have you know they're they're coming from some common elements so knowing.
+The alphas positive tells me the Info ratios positive Why am I looking at multiple because in all of our assessments we're going to be thinking about return and risk and each of these measures is telling me something a little different alphas just a measure of return.
+Information ratios and measure of return per risk, but what does it choose for the return, not the mean the Alpha.
+What does it choose for the risk, not the volatility, but the volatility of epsilon.
+So the information, information ratio is telling you something a little different than the trainer ratio, which also measures return Paris, but the trainer ratio is now the mean return, not the Alpha, so it is boosted by spy mean, but the main return of spy.
+And the trainer ratios penalizing you not by Sigma epsilon it's kind of realizing you by beta.
+So it comes to a question of which metrics should you care about well which risk, are you really concerned with exposure to beta.
+Then train or ratios a great metric because it, it says what's your return per beta So if you believe beta is the key, you know if that's the key risk to you then train or ratio is going to be good.
+If the key risk you're worried about is tracking error idiosyncratic air.
+that's that Sigma epsilon, then the information ratio might be more interesting so again i'd say, these are different tools in our toolbox, depending on what is our objective what risk do we care about.
+Most notably, the information ratio is going to be a great tool for when we want to just think about that the performance of the hedged portion strip out the obvious spy exposure and what do we have.
+Whereas trainer ratios kind of the opposite don't strip out spy i'm going to i'm going to penalize you for beta to spy does that make sense.
+But yeah so that's a actually that's a great comment, if you are getting fluent in these regression statistics you'd understand that that statement is true, the higher the R squared.
+In this by regression, the lower the trainer ratio why higher R squared means my correlation despise higher higher correlation to spy means a higher beta to spy.
+And the train or ratio divides by beta so getting some fluency across these statistics is important, but none of them are the golden statistic but they're each going to tell us something about the investment.
+right on Neil.
+The other comment on this, yes, remind me your name Alan.
+yeah, this is a great comment is there a performance metric that would kind of take note of how often you're able to trade it so this comes up.
+The idea being what, if I have something that is a great trade but I only get to I only get to do it once every five years versus a trade that's.
+Great and I get to do it every month, so this people think about this a lot with information ratio this idea that maybe i'm getting some non spy information and it leads to good mean per volatility.
+But if it's coming from the business cycle.
+If it's a if it's a strategy that says, every time unemployment crosses a certain threshold trade it yeah that might be a once every five year strategy so, even if it has good information you just don't get to do it very much.
+Whereas if you had a high frequency trading algorithm that generated a good.
+Information ratio and you get to do it every month you're going to get a lot higher returns so there's not a standard kind of one famous metric that captures that, but if you were making your pitch to.
+potential investors, they would absolutely want to know that they I think the first in the in the set of the first five things they'd want to know what include kind of your sharpe ratio.
+Your beta and they'd want to know how frequently, are you trading at those to achieve that sharpe ratio, I will note that your sharpe ratio and your information ratio, they have accounted for that whatever you did whatever you traded.
+showed up in your return return streams and we're capturing that but I think the point is, you can get a high sharpe ratio and a few different ways, have a modest information ratio and traded a lot or have a really good information ratio and trade it in frequently does that make sense.
+OK.
+let's continue.
+And, as I mentioned, this week we have a lot more to say about this case so don't don't worry about the fact that we're going to be spending at least half the time on this oh.
+In the plot, we see by can I apologize there's just some latency between the screen so okay yeah what we see is.
+H fri looks a lot different in this cumulative return plot that's just scaling these two streams are 90% or 85% correlated it looks so different in cumulative returns just because one skilled much higher than the other.
+So H fri is different, lower volatility lower mean but in terms of correlation extremely similar.
+And once we scale them on two different axes that becomes apparent, so I could have just done some volatility.
+equalizing instead I just put two different axes on the left side and on the right side, and now it should be apparent that these two things are almost the exact same.
+So, though I really liked the idea of hedge fund replication and i'm not sure the hf are is an interesting thing to replicate the the H fri F why because it's so correlated to spy already that doesn't mean actual individual hedge funds have this correlation to spy some do.
+I think that would be a problem as a potential investor I would have a lot of concerns what's the why why i'm paying fees, but at least the composite index certainly does.
+Okay What could we do if we tried to replicate this ourselves.
+So this part of the assignment wanted you to or the analysis really want you to think about what if you were Merrill Lynch.
+You know, using their factors, could you replicate this week I could have asked you to use some other factors I haven't past years.
+This year I wanted you to just think about use their same factors how well, can you do.
+So i'm hopeful that you got comfortable using linear regression in Python i'm guessing most of you did it with the either the stats model package or psychic learn.
+Whether you ran your regression using one or the other, it would make no difference to me they're both extremely useful, you should probably eventually know how to run a regression with either.
+it's going to give the same answer so you should be comfortable running a regression in at least one of those here I use stats models because it's going to print lots of statistics about this.
+i'm going to see that the R squared is 86% and so we're replicating H fri with an R squared of 86% That would seem to be pretty strong and when we run the regression.
+These betas in this coefficient call them.
+These betas are interesting, so I said to run it with constant will ignore that for a minute, what do you notice about these betas.
+We said that yeah they're very negative right which one's negative.
+yeah so we have this extremely negative beta on us GG 3am that's the three month T bill what's going on with that.
+That beta is huge.
+Well, most of you did the August online series with me on regression, what did I warn you about betas but Should you decide which thing is most important, by which has the biggest beta.
+This is the perfect example of that principle why.
+yeah.
+So when you're looking at this hat you're saying the US GG three m index is not statistically significant What did you use to decide that.
+yeah those last four columns and remind me your name again.
+say again Henry right Henry is pointing out the last four columns are about statistical significance really the last five and they tell us that that negative point for beta is actually not statistically significantly different than zero.
+which may seem surprising, given how big a negative, it is i'd also point out that we saw above the Treasury bill series has an extremely small volatility.
+Right extremely small so you're saying that when the US GG three i'm index goes up, as you know, a point, then this thing should short it negative point for.
+But the whole idea of the US GG through those treasure those it doesn't move much so telling me, you should move a lot when that index moves.
+But this index barely moves i'm not it's not going to actually drive much of my variation I could drop that regressive from this regression, it would not change much I don't know if any of you tried that.
+If I saw regress or that had a massively different beta than the others, I might think wow this is really important, but per henry's point on statistical significance.
+or per mine of hey just drop it from the aggressor see how how much the results change they barely change.
+what's going on here is that this treasury bill series is so low volatility it's almost like a risk free rate, which means it's a little bit like the intercept itself when you regressed it with an intercept will come back to that idea.
+I have a positive beta to spy does that show me that these two are positively correlated hf or Ryan spy.
+
+Speaker
+be a good quiz question.
+
+dricks
+matt.
+yeah matt says it's a partial correlation if I hold all the other aggressors constant when they don't move.
+Given none of them move and I get a marginal change in spy hf or is positively correlated but that's not what we mean by a pairwise correlation when we just run a correlation we say between the two things do they move together not.
+i'm trying to remind you this multivariate regression that's not that those betas don't tell me anything about that now spine H fri are positively correlated but this multi regression beta is not how I see that.
+A few comments on zoom here so.
+noted Chen same idea of as Henry about the statistical significance.
+Luca says we should scale it by the volatility of the three month treasury bills yeah so Lucas capturing correctly what my point about.
+Having a large magnitude beta is not saying how much variation it drives what really drives variation is the aggressors beta multiplied by the aggressors volatility so exactly right Luca.
+zito as well about the statistical significance, I think that should have been pretty interesting to most of you you're on the regression one aggressors.
+You know, four times bigger than any others get it has the weakest statistical significance.
+And then guy you and says that you know we thought lls would try to go long and asset, with the highest sharpe ratio and short and asset, with the second highest sharpe ratio.
+both of which are highly correlated Why is that not the case here, so a few things going on, if we were doing mean variance optimization i'd worry a ton about it's going to build these really wild long short positions.
+I still worry about that guy Yun with this replication regression, but a little less so, because there aren't so many regressive.
+And then it's slightly different than that idea of it's going to it wants to go along the big sharpe ratios and short things that are highly correlated.
+Because again it's not doing mean variance optimization per se here it's doing this replication.
+So slightly different objective but but guy you and your your point is actually going to come back to us later in the class some of the problems with mean variance optimization are going to connect to these types of regressions.
+But it's not not quite where we're at here also all know that I wasn't saying in in week, one that you'd always get.
+It going long the highest sharpe ratio and shorten the second highest.
+But I was pointing out that that can be the case that, even though we want high end mean variance optimization We wanted a big sharpe ratio, it is still willing to short big sharpe ratios.
+If it can reduce volatility enough that's a little bit per this point that came up earlier, you could have an asset, with negative alpha that's still valuable if it reduced volatility enough.
+Okay.
+And then Chen asks a question what's the relationship between a regression beta and the R squared in a multi factor regression it's complicated so you're not going to look at the R squared and know.
+you're not going to know about all the betas just from that R squared and you're not going to know about the R squared just from a beta in a university regression, we can we can trace through those a lot more easily than we can hear.
+Okay, so that's our static regression.
+know the constant is.
+Can someone in a sentence tell me what that means, if we create our index series, not the Merrill Lynch series, but the fin math factor model we use this, what is our constant mean there.
+hey we're doing a great job we've got higher squared we're doing great right yes.
+yeah so the comment and i'm blanking for singing is it kyle Philip sorry fill up.
+it's a Phillips comment is that the the constant relatively small, so I think you're saying the regression that the replicating factors are doing, most of the work here.
+I agree with that, however, I would say they're still not doing all the work the target has a pretty low mean ah fri itself has a fairly low mean so to leave point O one one I did not analyze that number so that's per month.
+It is not explaining 11 basis points per month well that's that's somewhat substantial because he fri does not have a very big mean per month anyway.
+So I would say hey the thin math series is replicating it's doing a pretty good job of it but it's leaving some of the mean return of H fri out.
+And the only way we can get that is by cheating by having this constant.
+So if somebody came to us and said hey I really want to hit the return H fri does we said today here's this factor model and use it.
+they're going to come back to us and they're going to say hold on it didn't work we're going to say yes, it did it gave you a correlation to the thing you cared about of 95%.
+And R squared of 85 see it worked it's correlated to what you wanted and they're going to say yeah that's fine, but it didn't deliver the mean returns I wanted.
+It left out 11 basis points, a month, not a huge amount, but on this series it's almost a fifth of the total mean returns.
+So our replicator is not achieving the full mean returns to get that good R squared we told it only focus on the R squared that's what including an intercept meant and the intercept is doing some work for us it's hitting some of that mean return.
+Okay, so what's going on in these rolling regressions.
+And these rolling replication is we're noting that these betas should change over time there's no reason to think that the beta across these factors, would be the same.
+years and years ago, as they would be now so let's be like Merrill Lynch and let's estimate those betas each time in our case, each month.
+So by estimating these each month we're doing as Chen points out, dynamic hedging so using these rolling betas is allowing us to be dynamic about except in our case we're not hedging we're replicating but it's the same math we're doing a dynamic replication here.
+And what I want to point out is that, by making this a rolling regression we get an even tighter fit to the H fri the correlation goes from 92.5% to about 97%.
+Not a surprise we're allowing it to update through time I hope you got used to rolling betas we're going to use those a lot more, and should be.
+obvious why it would do better.
+Now the other thing that I should note here is this idea of checking it out of sample.
+we're doing this in sample above and we're saying, if you give me this entire series run a regression see how well, you can fit it and now.
+i'll judge you on how well you fit that sample but I used to that sample to get the the estimates instead let's take data, up to a certain point in time estimate it and then use it for the next data point that we haven't seen yet and let's judge ourselves on that.
+You can look at the solution code I just need one little command here in pandas dot shift and it's going to kind of lag my beta so that i'm using all the data i've estimated up through September gave me a beta.
+And I really want to apply that end of Sep tember beta to the betas to the end of October data, because I figured out the betas at the end of Sep tember great.
+But I now I can use them, which means they'll really get used by the end of October data, so we shift, one of the sets of data, in this case the betas.
+And we get this so called out of sample results and what we want to double check is that.
+You know, it would be impossible to use all the Info up to September to build a hedge for September or a replication for September.
+When we build trading algorithms we're going to see that if you do contemporaneous if you let yourself use the data up to that month.
+And you could have traded at that month you would get wild results that would make you rich in months and then, when we apply the dot shift when we say hold on.
+You utilize info up through September and apply it to October your trading results are going to vanish here, I hope you saw that's not the case.
+Even out of sample we're getting a correlation to the H fri of 94.5% roughly so these hedging and replication regressions these are realistic to us.
+In terms of your takeaways of useful quantitative finance we've done a lot of you know risk and return we've done a lot of thinking about portfolio diversification this idea of building actual hedges and and replication.
+is extremely practical and it is widely utilized and if you check this out of sample Stat you, you would see that that this is your results don't vanish when you take that step.
+Okay i'm going to say little about the intercept here, I wanted to point out, you know I could have said, do all these regressions without the intercept.
+And it would have made very little difference to the final result here i've lined up the betas if you include an intercept and if you exclude the intercept.
+And what I hope you saw is that the betas are almost all the exact same.
+What is the only interesting difference.
+The T bill beta goes from negative point four to positive point three, I mean this is a wild swing most the other data is changed by point, oh one this one changed by Point seven but, again, we already talked about this, the tivo Vol is tiny.
+And what else the T bills Vol is so small it's almost like a risk free rate, it is almost like an intercept itself so when you drop the intercept and you no longer, let me get me in return for free.
+that's how we were matching hf arise me in return we were using the intercept to get it to match it exactly for free, in the sense we didn't have to adjust the betas.
+Well, now we need to try to match the mean return and it says great just dump a bunch in a beta into the T bills they'll boost the mean return a little and they'll help us get the replication a little more in line.
+Now it is going to hurt their applications results, not having an intercept means we do need to push the T bill up to where it's not going to do quite as well.
+If we look at the performance metrics on these various types of replicating we see that we do quite well even out of sample.
+Our sharpe ratios are fine our mean returns are close you'll note that, when we do the intercept version, the static intercept the second row we hit the mean return of the first row exactly that's what it means to have an intercept.
+When we do the rolling version we don't quite hit the mean because we don't utilize the first I think I said 16 data points.
+And the out of sample we no longer are sorry the no intercept versions, we have to use the T bills, or at least this regression leans on the T bills to try to boost the mean return a little.
+But the principle is no intercept you're going to have to adjust your betas to reduce R squared to better match the sharpe ratio.
+If we looked at tail risk measures of these I don't think there's too much interesting to say here I would know that.
+The rolling well actually all of them urine about the same range as the H fri except the hf or I still has that higher eunice.
+The Max drawdowns a little bigger for each fri as as the volatility but they're very similar similar points where they have those drawdowns.
+And if we look at a correlation heat map we go from 93% to 99 so they're all in range, the thing that's least correlated is the target age fri meaning.
+doing the in sample out of sample static rolling they gave results that were very similar but i'll note again if this were a trading strategy that that's not going to be the case when we do.
+The GMO case when we do some kind of macro forecasting to try to build trades where we're going to see that would be very different in sample versus out of sample would would be different stories.
+So here, I know you didn't have to do this, but here I just note that the width interceptor without intercept question.
+doesn't change the results very much in this regression and I would hope, you would think through why and it's because of those T bills, as the aggressor.
+can do a lot to help you hit the low mean return and low Vol of H fri, but if you are dealing with something with a much higher mean return.
+The T bills won't be enough and you're going to have to really adjust the beta so for fun I said, try to replicate spy I didn't ask you this in the assignment, but in this notebook.
+let's try to replicate spy with those other five factors spy was one of the six factors let's make it the target and use the other five, and it can still use the T bills, if it wants.
+And what I find here is that if I do the static replication with an intercept then of course i'm asked the mean exactly, but if I don't give it an intercept the mean drops by four percentage points, making the sharp drop by almost 30.
+Well, why is that because, if I don't give it an intercept it has trouble hitting spies mean return spy did great over this period.
+It can try to lean more beta into iwon it can try to lean more beta into you know some of the other equity etfs.
+But if it does it too much it's going to build a lot of tracking air it's not going to be highly correlated to spy.
+So there's this tension and trying to track spies correlation and trying to track spies.
+mean, so this is a more stark example of with the interceptor without the intercept mattering a lot, the reason it doesn't so much for the pro shares problem their real life problem is because their target has such a low mean and such a low Vol.
+Okay we're going to come back to this after the break we're going to take 15 minutes we're going to resume at 748, let me just mentioned, the plan is we're going to go over these extensions in some depth and then we'll have about I think 40 minutes to introduce new lecture points.
+Okay, we are back on everybody a few things to note.
+I want to a couple questions came up that I thought were pretty interesting I mean they were all interesting, but a few that I want to bring up to the wider attention.
+neil's question on zoom I said that the replication holds up really well out of sample, but when we look at building trading strategies it won't.
+And this idea that oh OK, we went from in sample to out of sample and it dropped the correlation by two percentage points said no way a lot of things will look good in sample.
+or a lot of and then, when we do a lot of sample though they'll look, you know worse than than doing nothing and the last kind of why that is mathematically.
+The biggest issue, even more, or more than you know he suggested, maybe there's less multi linearity in this replication than some of what we deal with like the mean variance optimization.
+That that's absolutely true, the big issue for my contrast to building a trading strategy is hearing the REP in the park and replication we're trying to replicate a target at time T with instruments at time T.
+So we get to run the regression time T on time T now whether we use those results in sample or out of sample.
+They still derived either way from a regression that I would call a coincide old regression time T regressed on time T.
+I want you to know whether we did in sampler out of sample that's the regression that generated the betas, the question is, do we have to can we use the Sep tember betas on Sep tember info definitely not in real life, or do we need to use the Sep tember betas on October info.
+But it's not that we're trying to predict October with Sep tember are trying to use October to replicate October.
+What should we use for the replication weights well betas that are one month old, but we are using October instruments to try to hit an October target the weights might be from Sep tember but the regression that generated everything was time to time T.
+Later, when we do forecasting regressions this will be a huge difference so again, if you weren't curious about that no worries, but I thought was a good question.
+Another question that had come up was about the exam when in the homework i've put an extension section, and the question was how responsible are you for that.
+You are responsible to know it as much as I talked about it so in many of the hallmarks I don't talk about the extension at all.
+In this homework to I am going to talk about it we're barely going to get into the next lecture pack because I want to talk about some of it.
+But if I don't talk about it it's absolutely not required to know if we spend class time saying, as we will, in a minute on the leveraged etfs, then you should know it up to that point.
+And in that case, my notebook will be published with you know my analysis of it so on the extension, unlike the rest of the homework, the default is you don't need to do it, you don't have to know it.
+But i'm putting it on your radar for those that either one thing we're going to slow.
+To we're just interested in the material and would like to think more realistically about it and three because some weeks, I really am going to want to get into the extension, so if I get into it, then I would expect you to know it as much as we discussed it in class.
+I think that was it.
+Okay, so let's jump into actually a few of those extensions.
+The first one, I want to know or the non negative beta So what we did was like what Merrill Lynch did very much like it we're we're doing dynamic betas rolling through time.
+we're getting similar results if you look at their weights did anyone look at the Merrill Lynch weights what was notable about them.
+Huge bait on the T bills and now we know why they're dealing with this same issue, we are.
+If you include the T bills you're going to get a big beta on them for that reason, so, if you look at the Maryland to waste a ton of the weight.
+Is in T bills and it's because they're trying to generate a nice healthy mean while keeping Vol really low mix, it means mixing with a lot of T bills.
+So we're getting very much what they got minus one big thing there constraining the betas because they do not want to go.
+publish something that says, you know that's the way to get too crazy so they want to be systematic and statistical about it but they're.
+they're being a little bit cautious they're saying we don't fully trust the statistical method unconstrained we want to force the betas to all be.
+tad to one to be positive, I shouldn't pick on them about not trusting it's currently just an operational thing.
+They want the model to be long only and they want the betas to be interpreted as weights, without having to leverage them.
+So it mean variance optimization We said that doesn't matter if the weights add to one will just scale them.
+If it was access returns here with the beta is i'm not that worried about it, we could scale them.
+Merrill Lynch is saying no we don't want to risk scale it we don't want we want people to be able to interpret it as the beta is the weight.
+So that led to two ideas one constraint, so there are no short positions that's the one i'm going to talk about right now the other constraint, to make sure that the beta stay within certain boundaries.
+i'm not going to talk about tonight because it will take us too far afield, but we will talk about it later because it's the exact same numerical method that someone else used.
+Harvard did MV optimization where they put in some bounds and said the weights have to stay within certain boundaries now, this may be strange because Harvard was doing mean variance optimization.
+Merrill Lynch is doing a regression, but it turns out, both of them are using the exact same numerical tool to try to constrain the weights in harvard's case and the betas and Merrill lynch's.
+In Maryland just case so we'll talk about what that numerical technique is later it's going to be less important to us than using say LASSO later so we'll get to that when we deal with last oh.
+So let's just mentioned the non negative betas is actually really easy and psychic learn so above you saw me do a regression with stats models and it printed out the statistical significance.
+If you want statistical significance stats models is the way to go, psychic learn is more of a machine learning type of package, it and in machine learning we don't even have statistical significance and inference for most models so it doesn't emphasize that, in the linear regression.
+Well, here I don't really I didn't ask for the T stats or the p value for that, but what psychic learn is really nice about is it builds the linear regression.
+object in a way that it's very easy to estimate it for other things, including non negatively squares, I can run the exact same command I would run for mls and that I do run for our lesson this notebook within a function.
+I run the same command and just put a parameter positive equals true, and it will constrain the weights, to be positive, I can do that with an intercept or without an intercept.
+Some of you will run this command and it will fail did that happen to anybody i'm guessing it did it is.
+A parameter positive equals True, this was only a feature of linear regression in the most recent versions of psychic learn.
+So if you are not seeing this if it's failing and saying this this isn't an option positive equals true it's because you just need a more updated version of psychic learn you could ask your Python T, as you know more about installing that.
+
+Speaker
+very easily using pip install or using anaconda whatever.
+
+dricks
+So what do we get well we get a result that's quite similar to the unconstrained because we already had all positive betas except that really negative T bill.
+And this is again where i'm going to show you that tivo doesn't matter much we could just drop it and that'd be an easier way to show you, but when I take that negative point for beta and actually the beta has to be positive.
+It sticks it at zero it doesn't make it strictly positive but it, you know constraints at zero and everything else is almost the same the performance is almost the same.
+I calculate the correlation between them, the in sample intercept version of constrained and unconstrained or 99.99% correlated there's just not much difference there so once again that T bill beta is a little misleading.
+The other thing asked to do is consider style analysis, more generally, so one thing I like in the brochures case is it gets it this idea of the linear factor decomposition, not just for replication but for attribution.
+If we're looking at an asset if we're looking at a fund, we might want to understand where do its returns come from.
+And linear regression estimated using lls is just a linear decomposition it's a projection we have decomposed the return on the Left into various ingredients.
+linear ingredients and that gives us a nice way to think because portfolios are linear So if I decompose the thing on the Left into some linear ingredients i'm really saying what is the portfolio that would generate this thing.
+So if we do style analysis we're saying what portfolio of those six factors would generate the return we're interested in.
+Now, maybe they don't it doesn't fit well at all, maybe we run the regression and the R squared is tiny okay well that's interesting to know to.
+This return is not well described by these building blocks.
+Or maybe the R squared is time we realized this thing that we thought was so interesting actually is a pretty interesting mix of those building blocks, I would argue that is a little bit true for each fri.
+So this style analysis is extremely important and highly utilized it's highly utilized to understand mutual funds.
+mutual funds come up with a name for themselves, you know right small value or large growth of these things we can actually set out the aggressors and see do they behave the way you would think, given their name.
+This is important for understanding hedge funds, this is important for most importantly understanding our portfolio for the portfolio manager.
+i've got 100 i've got 1000 positions in there, I cannot monitor every day, you know the computers are monitoring every position.
+But I in terms of thinking about the portfolio i'm going to need a simpler attribution what is it attributing the portfolios performance to.
+Pro shares case talks about this under the term style analysis which is widely used i'm going to talk about it, typically using the term attribution, how do you attribute the returns, how do you really.
+This you know, for us as statisticians, how do we decompose it there was a comment or a Question No okay on zoom, though.
+Oh well, the intercept from Roger on zoom psychic learn and stats models handle the regret using Ls differently.
+In stats models you don't say true or false to an intercept you have to kind of glue it on and stats models, you can look at the code and probably already have in your own in psychic learn you add an intercept using a true or false parameter.
+I think I think Roger the default is that is true, on the intercept but i'd have to double check i'm pretty sure it is.
+yan says.
+Oh, that i've just oh i'm sorry, people are complaining i've displayed the table may be wrong, by not displaying the intercept when I showed the constrained regression, I can fix that to display the intercept.
+yes and yes, absolutely right that insight in stats models, the beta parameters include the intercept and you have to keep track that's the first parameter they list.
+And it's a psychic learn if you call the betas they store they intercept in a different call fair enough.
+OK let's continue so I wanted to look at these three things I thought were kind of interesting.
+One is a venture capital index so venture capitals all the rage it's interesting this tr DCI this index has not existed a long time, so the regression here doesn't have a lot of data to work with.
+If we use stats models for this regression we'd see that we're not going to get very tight statistical estimations.
+Because we're only using data back to I think like 2008 teen monthly data, what does this venture capital index look like second this half a US equity.
+it's an ETF that says it kind of mimics the AFP except it hedges out the currency well guess what two of our factor ingredients happened to be.
+This Efe and currency so and again if if they weren't already six of our factors, the six factors aren't magic we could have picked those factors.
+So I want to see what does this look like when we decompose them that second one half it doesn't live up to its description.
+Does it look like Efe hedged by currency, and then the cambria tell risky tf says it's basically spy but it buys put options so it's going to cut off the tail risk now put options cost money, so of course it would also drag the mean return down a little, you would think.
+or at the very least, you might see you know some counter counter effect to that so let's see does it look like that, so I take all three of these.
+First, I just take a look at what their overall university performance metrics are tr DCI has an amazing sharp tail has a negative mean negative sharp but let's get more interesting thing the tail risk for each of them, we see is.
+
+Speaker
+Much.
+
+dricks
+Well, pretty similar Max drawdowns and skewed this is interesting in the tail ETF actually as a positive schooners that's going to be a little unusual.
+Most financial returns have negative schooners meaning, I think the same as you go up the stairs and down the elevator right lots of small positive returns and then a few really big negative returns.
+But the tail etfs seems to not have that property so maybe something there with the put options is working.
+I look at the correlation we don't Oh, but with spice so actually I do want to look at this relative to spy we see that we have fairly.
+High correlations to most of these except the tail ETF so maybe this telly tf does indeed have a negative spy correlation when we do the attribution what we find is that tr DCI.
+has a very large R squared to this attribution.
+66% maybe I shouldn't say very large, but when we're saying that's about 80% correlation so venture capital, a lot of times is again at diversifying investment.
+And i'm not arguing with that because we're not looking at actual venture capital investments we're looking at this aggregated index, but it does mean if you were to invest a tiny bit in every venture capital deal.
+Well, we don't really know because this tr vc I indexes you know prone to measurement error and other things.
+But, to the best that they're capturing what we see is a little bit like the hedge fund index.
+it's not diversifying automatically individual funds can be very diversifying individual funds can actually be a negative correlation, but if you just take a very broad composite index of hedge funds or a venture capital tr DCI.
+You find that you get a very high correlation to the market if you look at the betas the s&p is the biggest driver if we scaled them by volatilities as we should we'd see that be the biggest driver.
+And it has an alpha of almost 5% in year that's pretty interesting, but the Info ratios not huge it's only 35% given that there's a lot of tracking error in this model, so we see venture capital looks like a big dose of spy.
+Some other mean return and some other volatility, what do we see in Haifa, we see, I think, as advertised, the biggest beta is by far dfa which tracks, the thing half a says it tracks hedge dfa.
+And what else does it have it does indeed have a pretty large positive beta on you whoa this negative currency trade so to me seems to check out Furthermore, he says that's all it is it's just dfa but currency hedge and, if we look at the R squared yeah it explains it almost perfectly.
+Finally, what do we get in the tail ETF we see negative spy relationship I can't say correlation, this is a multifactor regression, but I see a negative spy beta on that and I see a very high R squared.
+
+Speaker
+Yes, con.
+
+dricks
+yeah I think this is an interesting one, to look at the comment was the tail ETF has a high info ratio very high, probably the highest we've seen today.
+And indeed it comes from the fact that, even though it did not have a good mean return does anyone remember what the mean return was of tail yeah it was negative negative 4% a year, but what we're seeing is most of that is just because it's so short the s&p.
+And it's saying, if you were naive Lee just short that much s&p you would have done much worse.
+So tail even though it's making negative 4% the Alpha is positive six, which means, if you tried to build it with these factors, you would have actually made negative 10% a year.
+So the fact that you're making negative 4% isn't a knock on tail tails doing six percentage points better than you would have expected, given its negative s&p exposure.
+Given how s&p has been a rocket during this time.
+So what this would tell me, is a great example of something can have a negative mean return but it's hedging spice so dramatically if I mixed it in with a spy heavy portfolio, it would boost the sharp, even though it has a negative me.
+How do I see that again negative mean huge info ratio tells me that as a standalone product it's going to lose.
+But that huge info ratio tells me it's it's going to be a great diversifier it's going to mix in with something else and it's going to drag its mean down a little, but it's going to diversify it a ton and that those two things are going to.
+That the diversification is going to more than offset the drag on the main return yeah.
+Yes, the Communist the objective here, what is it we weren't building a replication for pro chairs in this extension, we were thinking of it more as an attribution of just understanding what are these things where does their performance come from.
+And the same tool for hedging replication and understanding it's the same thing all the way linear regression for all three objectives, yes.
+yeah so the common is did we pick aggressors that are highly correlated to each other, yes, does that mean we have multi linearity here, statistically yes.
+Does that mean it's going to mess up the in sample fit for like a replication know will they mess up the out of sample fit, yes, at least, possibly.
+Your biggest point is if this regression attribution if it's just to understand things.
+Then it seems to be a big problem, because we were not sure these are statistically significant I didn't show the statistical significance, but there is there is definitely.
+A high correlation between summer aggressors that's all true if we were doing attribution I would not choose the six.
+we're using these six because the brochures case uses them and because, while Merrill Lynch uses them and because, in terms of style analysis, this is a good example of what people do.
+For reasons of multi linearity I would definitely not have iwon in there.
+it's way too similar to spy so we'll do other attribution analyses and during the course and you'll see i'm going to choose my factors much more the way.
+homework well closer to homework one even there there's too much multipolarity, but we want really distinct assets to have better statistical power to say it was this building block not that one yes.
+yeah so style analysis this attribution analysis we really hate multi clarity, because the whole point of it is to understand how the how the thing is built and multi linearity lessons are statistical power lessons are statistical certainty.
+matt was making a point that for kind of just machine learning type of approaches of just getting a good fit sometimes we can live with multi linearity for understanding we really hate it because.
+We would like some statistical certainty so again I that's a great insight and I just want you to know we didn't have to pick these six we're using them because.
+Pro shares Merrill Lynch and and you know markowitz are using them if we were building our own Finn math risk attribution dashboard.
+If we were a hedge fund what what factors, would I pick would depend what we trade if we're an equity fund i'm going to definitely have spy in there, but then it's going to be really tough, so one other factors, but I want factors that are not too close to spy.
+Okay let's keep going so there was also this extension on leveraged etfs that I really do want to cover a little bit as a mini lecture so we're going to.
+jump over to a new notebook so you did not need to study this coming in, it was an extension, but it's something that I do want to cover so it's a bit of a preview.
+So what's going on with the leveraged etfs, why is it that they don't track the single period returns well well i'm making a statement.
+That I I haven't proven do they track the individual returns well let's take a look, I gave you data on a few and what I want you to see in this data is, if you graph it.
+I should fix this error but warning, I should say, if you graph it you're going to see something like this by.
+I multiply it by three and then I compare it to you pro, which is an ETF that tries to multiply spy by three tries to give you a return of three times spy.
+cannot do that well yeah pretty effectively if you, if I wanted to build a fun.
+A hitting the H fri exactly is tough but hitting three times spies not that tough as long as i'm you know can get access to some leverage.
+So I show you these returns and what I would hope you notice, as they look very correlated right.
+It looks like the the ETF is doing its job in terms of correlation, but is it doing its job in terms of hitting the mean return, it would seem not.
+And this is strange because, for the H fri i've got to run this replicating regression and oh don't use a constant and now it has to it can't do both jobs perfectly here i'm not doing a replicating regression I know exactly how to build three times by.
+levers by three times, so what is going on, why is it not able to hit the main return well let's keep going let's look at the negative case here, I take spy and I multiply it by negative three.
+And I compare it to spx you the negative three times leveraged ETF this looks pretty good right they look really correlated and they look like they're hitting the same spot do we agree on this, the main returns pretty good.
+yeah we all agree, except hold on a second here cumulative returns, what did I warn you last week about these kinds of plots.
+The scaling it looks really good early, am I sure that those are close together late.
+they're close on this graph but that's because the scaling right, what if I zoomed in on those late years my sure they're close.
+No way, am I sure they're close i'm sure they're both between zero and point to but, if one of them's point oh wait and one of them's point one six that's not close at all.
+Right one of them's two times bigger than the other we're going to see something like that and I guess I skipped the biggest point which is these inverse etfs.
+got crushed over this period because s&p did so well that's why this graph says, if you start with $1.
+For a second there, you would have gotten up to $1 and 40 cents, but by the end of the sample you would be somewhere around 15 cents on the dollar.
+Whereas for the positive three time leveraged ETF sorry I should have pointed this out to those little new to this type of graph says, if I invested $1.
+into the three x etfs you pro by the end I would had $20 because the s&p has been amazing during this time than three times, but the truth is, if I had actually properly done three times leverage I wouldn't have ended with $20 I would have ended with 40.
+So the correlation looks good the mean return doesn't.
+let's keep going here's the way, I think that I can show best how badly, these are doing here the correlations are great and so that's what you see in the plot.
+But here I take the ratio of them, because I want you to see that they are not hitting the same final level.
+So for the positive three x one like I said, I think the graph was obvious because it was growing over time you saw that will have the ETF hit about half the level as three times spy.
+But in the decreasing graph the scaling men I don't think you were seeing that that's the yellow here that it is deteriorating the the negative three x ETF.
+is making about oh 90 cents on the dollar as as what you would think it would do it declines to about 80 cents on the dollar it POPs back up to 90 cents and then it Kobe boom dropped to 65 cents on the dollar you just can't see it, because that scaling too small, at the end.
+We look at the performance metrics what's going on.
+Well, if I just multiply spy by three or negative three the performance metrics are exactly what I would expect given spy it multiplies the main three and the ball three we get it, but if I look at the etfs not quite the mean is a little worse.
+The volatility is similar.
+But this doesn't look so bad if I just looked at this performance metrics table I would probably think this is a pretty good doing a pretty good job.
+The problem is when I do the cumulative returns, so this performance metrics table, even though it's not hitting exactly I would have said okay it's not doing a terrible job on the single period returns, but I just showed you cumulative graphs that make it look horrible.
+If I look at Max drawdown they're not so different if I look at the less metrics if I regress them against spy we get what we would expect.
+We get exact fit for three times and negative three times spy for the etfs they look pretty close the beta for the long one is 3.14 times spy.
+And an R squared of 99% it seems the long the long or sorry the positive three ETF does a great job the negative three tf not quite as good of a job it's betas negative 2.5 the R squared, though, is still huge that's that's a correlation of 95% negative 95%.
+But what did I say it's doing a great job on the fit the correlation not a good job on the level look at those alphas.
+it's bleeding 13% a year and seven and a half percent a year that can't be explained by the spy exposure you accumulate it, it means that they're missing by a factor of to a factor of one half what is going on.
+yeah.
+that's correct spx you is the short s&p position.
+yeah So why is it failing here you're mentioning that, in this regression there's definitely something about you're paying a premium to short spy I agree there's some operational issues.
+of why you're not going to hit the index kind of like the pro shares not hitting hf or I totally agree on that.
+and keeping a short position on this is going to induce a significant drag so I agree that in this table that's why it's not as close to say you pro.
+it's beta is smaller it's it's alphas worse, but what I also want to understand is these tables in as much as they say it it's matching or not let's look at again at the university at stats they're not so different.
+Why is the cumulative return, really, really off here.
+yeah john.
+yeah so the compounding care is a massive issue and that's going to be a big feature of the case, this week the case this week is two pages.
+Just two pages so you're not reading a lot this week, we are going to dig into a little bit of analysis I know you've got mid term next week, but that's why I do a two page case this week, though, again, there is analysis to it, but you don't have to read a lot of the case so.
+What is the point here it's that compounding is really, really matter, and I want to give an example, what if.
+You had a leverage of three like we do here and what if you had a two period problem, the first return is positive 10% the second return is negative 5%, I hope, people can see this.
+Then the cumulative return would be one plus one times one plus are two okay that's the return factor that's for $1 invested how many dollars, do I get at the end.
+If I subtract my initial investment that's the total return rate, so I invest $1 I get back $1 in 10 cents than my return factors 1.1 my return rate I subtract one from that is just point one, so if I want the return rate I subtract the initial money invested.
+So I compound it I subtract one well, what about the leveraged version, the leveraged version.
+Without a leveraged ETF would be just three times that cumulative return I build.
+Some leverage I invest in the s&p and I let it ride for two periods five periods 10 periods it's just three times, or whatever the leverage rate is it's that many times the cumulative return nothing to it.
+What is the leveraged ETF doing it is not doing that it is not taking out leverage investing it and then just leaving the proceeds to keep reinvesting and accumulating.
+Why well for one thing, it would be impossible.
+The it's an open fund it's not a closed fund they didn't take all the money launch it and say now, we won't touch it, they have to be ready to liquidate you at the end of the day, any day, so they have to they have to liquidate it out and reset the leverage every day.
+If I leverage and put three times into the s&p based on whether it goes up or down, I mean I may be better or worse than three times because of the non linearity of compounding.
+This is the same effect of if I have you know, a bond and it paste coupons do I reinvest them there's this issue of compounding is nonlinear.
+So for the true leverage I set it up once I let it lie, or at least my comparison, I know if it's true leverage but i'm just saying it comparison is lever it let it ride just let it grow.
+The leverage ratio is not going to necessarily stay constant, but for the leveraged ETF they're going to reset it every day.
+So look at this formula here they're not going to have three times one plus one one plus or two they're going to have one plus three times are one times one plus three times are too.
+And again, those are going to be different things, so in my to period example you're up 10% and then you're down 5%.
+Well, these aren't log returns compounding is nonlinear so being up 10 and down five doesn't mean i'm up five that means i'm up four and a half.
+that's known as the volatility drag that your arithmetic returns you can't just add them up to get your cumulative return.
+You can add up your log returns to get your cumulative return, but your cumulative return is going to be less than just adding up your log returns if there's volatility here so well if sorry that, in this specific example, if we have positive and negative returns.
+So we're going to have this drag on the cumulative return it's only four and a half percent.
+If we had just leveraged it three times we'd be at 13 and a half percent.
+But the leveraged ETF only gets to 10 and a half percent why because it's resetting the leverage each day, I think.
+The best way I can illustrate this mathematically is here with this to period return, which says cumulative returns.
+would be one plus one times one plus are two all the way till the end of time one plus our capital T and then again if you want to make it a return rate you got to subtract the initial investment.
+If you leverage it, you would do the exact same thing, but you would multiply it by a number like two or three or four i'm calling it w.
+And you would just multiply it in front of the whole thing and instead of subtracting one you would subtract w.
+The leveraged ETF is not doing that it's making a single period return perfectly levered ignore the transaction fees and that you know short fees each day it's hitting exactly three times.
+But it's not simulating the way you see in the middle equation it's the bottom equation it's one plus that humiliated one day or sorry levered one day return.
+Well, if I take the product of of the second and third equation, the levered equation versus the Le ETF equation they're different by a lot.
+there's a lot of cross products there that are not going to work out that's too much of a mess let's do a two period version.
+there's only two returns period one period to expand it out and you'll see the levered version and the Le ETF version differ slightly they differ by this cross product are one times are too, and they differ by six times that.
+So what am I trying to say the brochures case is mostly about replication that's mostly what we're doing but it's the perfect intro into a strange product that became so misunderstood.
+That the SEC send out an unprecedented advisory about it around 2008 2009 and it's this idea that the ETF hits the daily return well again these leveraged etfs they hit that daily return well how could they not all you have to do is is lever it.
+Well it's not I mean lovering can be difficult, but they hit the daily return quite well, but the compounding is this weird reset compounding and it means that, over time, these things diverged quite a bit the chart I showed you.
+showed that though they're very correlated there's going to be a volatility drag on the yellow etfs meaning.
+The Non linearity of the compounding means that they will lose ground to an actual levered investment.
+So the pro shares cases a great chance to initially see that as kind of a little domain of finance, you should be aware of.
+But it's also a great introduction to a small kind of topic in a cumulative returns and so we're going to do a small case barn stable.
+that's just going to get us comfortable with dealing with cumulative returns we're not going to do anything too crazy with it, but we're going to look at.
+Are we sure we feel comfortable compounding returns, with the kind of math I just showed one plus the return, what if we took a logarithm instead, what do I, you know what do we mean by that and we're going to deal with those.
+compounding returns we're going to do that, to assess our stocks safer, in the long run than, say bonds that's a classic idea that's had a lot of controversy.
+Is your portfolio safer for long horizons then short horizons, do you actually have less risk in the long run.
+that's this idea of time diversification life cycle investing so tamp turn these types of questions, we need to better understand the dynamic.
+The compounding of returns, this is a somewhat smaller case smaller topic to dive into there's no big lecture note or formula it's just getting used to these multiplicative processes now there's one other thing.
+For the remaining half hour, where we have.
+Something i'd like to it's a tool that we need to build for a number of applications, the rest of the quarter and it's about simulation it's about modeling risk so you've seen value at risk, this last week, but we defined it just as take a historic quantifiable.
+value at risk is one of the most important risk measures for regulatory reasons and other reasons and it's a great laboratory for understanding Monte Carlo simulation Why would you want to use it, why wouldn't we just use the mathematical formulas.
+How do we use simulation to better capture risks through stress tests and through other things.
+
+Speaker
+So.
+
+dricks
+While we do a bit with compounding returns, which for some of you you're already used to doing that, we also want to start considering when we would do.
+When we would model, a statistic with Monte Carlo simulation or historic simulation, rather than relying on a mathematical model for it, so let me pull that up so many of you have already seen.
+
+Speaker
+That on canvas there is this lecture three value at risk.
+
+dricks
+I am not going to keep you late so don't worry we're not going to try to run through this whole pack, but I would like to do the part you're most familiar with.
+Which is the actual definition of value at risk and expected shortfall.
+we're not going to get into the Monte Carlo simulation of them tonight, but we are going to get into what would the mathematical what would a mathematical model of them be so that we can then.
+Set up some motivation set up some practicality of why we want to go beyond that and do some Monte Carlo simulation.
+The mathematical model for this is very famous and lucky for you it's very simple.
+It is still widely used again we're not doing any history of thought in this course if we're showing you a basic classic model it's because it's still used and it's because the more advanced current models are built on top of it.
+So I want to show you the basics of value at risk, we will not go past time.
+So the first part you've seen because I wanted you to get your hands on it last week, so I gave you a very rough definition, I want to remind you of that.
+The town a pipe percent value at risk is defined such that it's the probability that your loss is bigger than this threshold or that rather the probability that your loss is bigger than that threshold is equal to pi.
+So in our examples we've been using pie as 5% or a point oh five, that is, the top noted threshold people also look at point one quite a bit.
+there's some confusion here that I purposefully highlight in the slides, and that is half of the people that use this to find losses as positive numbers you lost positive $100 well then, this is about a loss being really big the last, been a big number.
+Other people define a loss as a negative profit and then obviously we'd be defining it as a really small number So are we looking in the distribution.
+Are we looking at the Left tail yes, if we're considering very negative profits, or are we looking at the right tail yes, if we're considering.
+pause you know loss as a positive number, and obviously makes no difference to any of them after application, but it causes people confusion.
+Now this slide is another good example of what causes people confusion when it's actually a simple idea you already know it.
+This value at risk is just a quantifiable it's just a percentile but defining it mathematically is a little messy.
+it's this dollar amount that is if we're looking at the right side of the distribution losses as positive numbers.
+Then it's this threshold at the right side of the distribution that is then feed them wise at the infinite because we're it's not discrete we don't we can't say it's the minimum.
+And if we're looking at the right side of the distribution we're not looking at the fifth percentile we're looking at the 90 95th percentile so we're looking at one minus pi.
+If I were you I would only think of this equation, if I were waiting in a long line are very bored Okay, because it's just a quantifiable it's just a percentile.
+If the CDF is a typically clean continuous strictly in increasing CDF we can simplify it further, and we can say it's just the inverse CDF that's it.
+So what if our profits or losses are normally distributed then i'm saying it's just the inverse CDF of a normal distribution at what value at you know point oh five or point nine five depending on how we define it.
+returns are how we're going to look at this even more because we might say, the loss is just the initial price multiplied by the return.
+And to make the loss of positive number, you have to throw a negative in there.
+But the way we're going to use this much more often is on a bad return, not a bad dollar figure I already mentioned this last week.
+If it's a bad dollar figure and you tell me your value at risk is negative $2 million I don't know what to make of that do you have a risky portfolio, or do you just have.
+You know, a very do you have a very small asset base or a big asset base so we'd rather deal with this and returns and this part is simply saying you could the key to everything is the inverse CDF of the returns.
+The notations amass.
+say on exams i'm never gonna you know you it's Open Source you don't have to worry i'm going to ask you to memorize this equation, I want you to understand any equation, but understanding this one's really simple it's just a quantum.
+So let's go to the bigger point we're going to mostly defined not $1 amount of value risk we're going to define a return that's evaluate risk.
+And then, if you ever wanted, you can convert it to $1 loss as negative PT.
+Now we already noted that this is an in sufficient idea, because the value at risk is a threshold and it says nothing of what's behind that door, it says nothing of how bad does it get.
+Okay here's the line where bad starts how bad does it get that's the idea of expected shortfall, this figure comes from john holes book.
+And it's just the idea that both of these would have the same threshold, one of them has a much deeper deeper tale.
+One of them, you know doesn't go past three standard deviations and the other has this negative seven standard deviation shocked that they both have the same value at risk.
+This is why this is at the heart of why value risk is not as clean of a risk measure, so we already talked about this expected shortfall says let's take the expectation, given that we're in that bad state, so I won't hammer this again too much.
+we're going to care again about the return version more, given that the return is very bad meaning it's very negative very small so given that it's less than this bar threshold, what is it on average.
+Okay, so our goal here is to talk about these normal distributions if you wanted to understand tail risk, there are three ways to go.
+One which we've done is just take this store data and calculate the quantity why might that not be the best way to go, we're going to talk about later with simulation.
+Later in this pack next week.
+The second route, you could go is to do Monte Carlo simulation and say the historic data isn't the best representation of the future, but it tells me some keys that I can use to simulate the future we're going to talk about that too.
+When I can just talk about this tension because evaluate risk value risk is a perfect laboratory for it because we really need to know it well it's very important.
+But it's going to be this kind of laboratory where we could be having the same discussions about the best way to measure many, many things we care about should we use this historic data directly.
+and say the future will be that same sample should we use what's in that sample to extract key features and simulate or should we use key features from the data and put them into a structured mathematical model.
+i'm actually gonna tonight just show what would it mean to put it in a structured mathematical model for value at risk.
+We say I don't have very many one in 20 outcomes it's hard for me to talk about what's the word, you know, a one in 20 months because, by definition, I only have one in 20 of them so i'm not going to get good statistical power.
+What do I do when my data doesn't have enough statistical power.
+I pair it with a model.
+Everything we do in stats is attention of the more model I put in there, the more the data can the more I can extract from the data.
+The problem is, if I put a model in that's a bad model about assumption, and then i'm pulling out false things from the data.
+that's going to be the case here the normal distribution is how banks, still do this, this is how regulators define it.
+This normal distribution approach is very important, there are more advanced better approaches we're going to look at, but this is still a classic.
+And it says look but let's imagine the returns are normally distributed.
+And if the returns are defined over some horizon TAO remember we care how much you're losing from T to TAO or sorry T T T plus towel then there's some mean over that period there's some variants of that return so we're going to say it's normally distributed.
+i'm noting that, if the returns are normally distributed sore the profits and losses, we don't need to worry about that too much we're going to mostly stick with returns.
+Well, if that's the case, then the bar calculation is really simple because the normal distribution.
+has very clean properties where it's completely defined by its mean and its volatility.
+Our formula for the threshold, the Var.
+would simply be whatever the mean of the distribution is.
+plus a certain number of standard deviations what number of standard deviations well it's going to be a negative number we're really just saying how many negative standard deviations do you need to be to be in those bad days.
+So i'm using Z pi to say what's how many standard deviations pushes me out there.
+Well it's defined is just the inverse CDF, this is the normal CDF and i'm saying the normal CDF of Z pi equals pi i'm really saying Z as a number like negative 1.65.
+The standard normal CDF of negative 1.65 is point 05 that's what tells me you're in the worst fifth percentile if you are negative 1.65 standard deviations over.
+Well, if I have that that's all I need my return is really bad if it's the regular mean you minus 1.65 times Sigma rather plus a negative 1.65 times Sigma that's what tells me i'm in my worst days.
+If we were dealing with positive losses, it would be plus 1.65.
+How about the expected shortfall well the reason this normal distribution approach was so popular is because this also has a really clean solution.
+Some of you are familiar with the idea of a truncated normal.
+If you're not it's fine you've got this formula, but what it says is the normal distributions really beautiful because you can condition on one part of it, take the expectation and it still has a closed form solution.
+So, you know that thing we used to define expected shortfall that that has a clean formula.
+it's not just used in this application, there are many, many you know hundreds of applications that involve a truncated normal and it says in general i'm using some general notation here, some of you have seen this type of formula for a truncated normal.
+that's nice if you have if you haven't i'm not worried about it, this is your key formula that to get the mean of that bad region is also just dependent on two parameters new and Sigma but now it's not new minus Z Sigma it's mute minus a slightly messy or thing time Sigma.
+The lower case fee here is a normal PDF.
+What is pi that's number like point oh five 4.01 but this number the PDF here fee of Z pie, this is going to be a relatively small numbers so together, this is going to say, instead of minus one time 1.65 standard deviations that's what tells you you're in the worst one in 20.
+Months or days this number is going to end up being more like negative two if you're two standard deviations past, not only are you in that worst period you're kind of at the average of those worst periods i'll show you a calculation to that in a minute.
+But note the similarity of these two formulas they both involve the mean.
+plus some number of standard deviations equation for its plus Z standard deviations where Z is going to be a negative number.
+And then five it's minus B of Z is definitely going to be a positive number so they're both going to be new minus something.
+And the difference is just how much how many standard deviations you're going, this is why this approach is so popular it's got this nice analytic formula yes.
+Lower case fee of Z I mean the PDF of a normal distribution the probability density function of a normal distribution so capital fee was the CDF and lowercase B is the PDF so that's a fairly.
+Common notation here, I give you a table of pure the CDF values that was capital T lowercase fi is going to be the PDF so it's just two different scaling so I want to pause there for a second i'm going to show you a notebook to.
+Think about that a little bit.
+But if you're wondering, I know it's late, this is the key formula.
+is just you can calculate your value at risk, without doing Monte Carlo simulation you can calculate your value at risk, without all the history, without assuming.
+A historic simulation if you just extract a mean and a volatility and assume a normal distribution now assuming that normal distribution is a problem, as we will discuss.
+Victoria your on your question P of T I apologize that's the price of the asset of the portfolio today it's not a random variables just if you want to put this in terms of dollars not returns, you need to scale it by how big the asset is today.
+Give me one, second, I have a very small piece here.
+Okay.
+So this isn't a cleaned up notebook, but I just want to show what this would look like.
+Just to make sure we all agree, what kind of numbers we're talking about here.
+One second okay.
+But yeah i'm showing everything on zoom is just pulling up something here okay so inside pi dot stats I can create normal I can I can simulate data i'm just trying to convince you that these formulas.
+are starting not i'm not even simulating right here i'm just taking the CDF and the PDF so I told you that the number of standard deviations to hit your bar threshold.
+Is the inverse of a normal distribution that's what this is cyphy stats.
+i'm going to do dot norm for the normal distribution and I don't like this naming I wish it were like in there, you know I envy CDF it's dot P PF it's the percentile.
+Point percentile function it's the inverse CDF I plug in point oh five and it tells me how many standard deviations on a normal distribution gets you there if I look at Z thrash sure enough it's negative 1.65 what's the car multiple it's not the CDF it's negative the PDF.
+Where I then plug in the V value at risk threshold it's negative the PDF of negative 1.65 all divided by that threshold point oh five, what does it give me negative to.
+
+Speaker
+what's my point here.
+
+dricks
+That if i'm willing to take mathematical structure, I can use all of the data to understand the mean and the volatility and it will tell me everything about these rare tales.
+That should strike you, as I hope, powerful, but a little overreaching the whole point of value at risk and conditional value at risk is that I want to understand the rare events and if i'm willing to assume normality.
+I don't have to even study the rare events I can just grab the mean and the volatility and it tells me everything I need to know about the rare events.
+These formulas are again a classic their workforce they're not going to work they're going to work better than you might think if we make one change here.
+Nothing says, I need to estimate the mean and the volatility.
+static Lee I don't need to take a big sample and estimate at once, why don't I use a rolling standard deviation right here.
+Why don't I use maybe a better estimate of the mean so we'll find this model can do decently well as long as we update the standard deviation that's going to be the biggest thing we need to do.
+The rest of the slides on normality are going to go through some theoretical assumptions of why people sometimes use log returns.
+it's a it's a footnote we'll talk about it a little bit, but these are the two key formulas, the only other thing i'll note is that with daily data how big do you think new is for a security at a daily level.
+If a security is making a good, healthy mean return, we might hope it's making 10% a year, maybe even 30% a year if we divide that over 252 trading days we're talking about a minuscule new.
+What did I say about I said this earlier with certain reasons of regression sometimes.
+Making the model biased is better than putting in data you don't trust them, have you add the August regression review, where we said that we said it last week with why we sometimes.
+include an intercept in a replication I don't trust the me so i'm gonna put an intercept into wipe it out.
+In practice, people estimate these models almost always at a daily level.
+They don't trust their estimate of the mean, and given that a daily mean is so small anyway, they almost never use me here.
+they're almost always going to just take me with zero and they're going to calculate the value at risk is Z time Sigma.
+Or the conditional value at risk is P amp Z over pie time Sigma okay.
+So this week we have modest goals i'm not i'm not.
+going to give you a you know your biggest assignment yet, but we are going to keep working we're going to work on some cumulative return and thinking through whether things get safer risk here.
+or risk here we're going to think through a little bit about how to use this normal formula.
+These are two slightly different reasons, we want to get used to compounded returns for the reasons we discussed, we want to get comfortable with how to mathematically measure value at risk to better motivate Monte Carlo simulation.
+Later so with that your goal this week is to look at the barn stable case it's only two pages, I will send out your analysis questions by tomorrow and.
+To get ready for the midterm it will cover material we've covered up to now, and including the analysis you're doing during the week, good luck.
+Transcript Auto-Scroll
